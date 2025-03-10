@@ -11,25 +11,11 @@ class registro {
 		this.descripcion = descripcion;
 		this.esMensual = esMensual;
 		this.fecha = new Date().toISOString().split("T")[0];
-		if (this.tipo === "ingreso") {
-			this.id = ingresos.length + 1;
-		} else {
-			this.id = gastos.length + 1;
-		}
-	}
-
-	//No se si sirva pero creamos una forma de eliminar el registro de la memoria
-	destruir() {
-		this.tipo = null;
-		this.monto = null;
-		this.descripcion = null;
-		this.esMensual = null;
-		this.fecha = null;
 	}
 
 	//Para probar el console.log()
 	mostrarRegistro() {
-		return `tipo :${this.tipo}, monto: ${this.monto}, descripcion: ${this.descripcion}, esMensual: ${this.esMensual}, fecha: ${this.fecha}`;
+		return `tipo :${this.tipo}, monto: ${this.monto}, descripcion: ${this.descripcion}, esMensual: ${this.esMensual}, fecha: ${this.fecha}, id: ${this.id}`;
 	}
 }
 
@@ -82,8 +68,10 @@ function ingresarRegistro() {
 //Agregar un registro a las listas
 function agregarRegistro(registro) {
 	if (registro.tipo === "ingreso") {
+		registro.id = ingresos.length + 1;
 		ingresos.push(registro);
 	} else {
+		registro.id = gastos.length + 1;
 		gastos.push(registro);
 	}
 }
@@ -97,15 +85,19 @@ function eliminarRegistro(registro) {
 	}
 }
 
-//Editar un registro de las listas
-function editarRegistro(registro) {}
+//Calculo del ingreso total o gasto total
+function actualizarTotal(lista) {
+	let total = 0;
+	for (let i = 0; i < lista.length; i++) {
+		total += lista[i].tipo === "ingreso" ? lista[i].monto : lista[i].monto;
+	}
+	return total;
+}
 
-//Main de prueba
-registro1 = new registro("ingreso", 1000, "Sueldo", true);
-agregarRegistro(registro1);
-registro2 = new registro("ingreso", 5000, "aaaaaa", false);
-agregarRegistro(registro2);
-registro3 = new registro("ingreso", 1000, "Sueldo", true);
-agregarRegistro(registro3);
-
-console.log(ingresos);
+//Calcula el saldo
+function calcularSaldo() {
+	const ingresoTotal = actualizarTotal(ingresos);
+	const gastoTotal = actualizarTotal(gastos);
+	const saldo = ingresoTotal - gastoTotal;
+	return saldo;
+}
