@@ -22,15 +22,22 @@ h2 span {
 }
 
 p,
-ul {
+ul,
+ol {
 	width: 60%;
 	text-align: justify;
 }
 
 .btnContainer {
-	display: flex;
 	width: 70%;
+}
+
+.btnContainerTop,
+.btnContainerBot {
+	display: flex;
 	gap: 2vw;
+	margin-bottom: 2vw;
+	justify-content: center;
 }
 
 button {
@@ -38,5 +45,4 @@ button {
 	text-transform: uppercase !important;
 	height: 60px;
 	width: 50%;
-	margin: 4vh 0vh !important;
 }

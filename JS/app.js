@@ -4,28 +4,34 @@ class registro {
 		tipo,
 		monto,
 		descripcion = "No posee una descripcion asignada",
-		esMensual = false
+		esMensual = false,
+		categoria = "No posee una categoría asignada",
+		fecha = new Date().toLocaleDateString("es-ES")
 	) {
 		this.tipo = tipo;
 		this.monto = monto;
 		this.descripcion = descripcion;
 		this.esMensual = esMensual;
-		this.fecha = new Date().toISOString().split("T")[0];
+		this.fecha = fecha;
+		this.categoria = categoria;
 	}
 
-	//Para probar el console.log()
+	//Para mostrar en la consola
 	mostrarRegistro() {
-		return ` Monto: ${this.monto},\n Descripcion: ${
-			this.descripcion
-		},\n Es Mensual: ${
+		return `Monto: ${this.monto},\nCategoría: ${
+			this.categoria
+		},\nDescripcion: ${this.descripcion},\nEs Mensual: ${
 			this.esMensual === true ? "Si" : "No"
-		},\n Fecha de carga: ${this.fecha}\n-----------------`;
+		},\nFecha del registro: ${this.fecha},\nID: ${this.id}-----------------`;
 	}
 }
 
 //Almacenamiento (Pasar a JSON)
 gastos = [];
 ingresos = [];
+
+gastosCategoria = [];
+ingresosCategoria = [];
 
 //tipo
 function pedirTipo() {
@@ -67,18 +73,57 @@ function pedirDescripcion(tipo) {
 //esMensual
 function pedirEsMensual(tipo) {
 	return confirm(
-		`¿El ${tipo} es mensual? Presiona Aceptar para SI o Cancelar para NO`
+		`¿El ${tipo} es mensual? Presiona ACEPTAR para SI o CANCELAR para NO`
 	);
+}
+
+//categoria
+function pedirCategoria(tipo) {
+	let aux;
+	if (confirm(`¿Desea agregar una categoria al ${tipo}?`)) {
+		aux = prompt(`Ingresa una categoria para el ${tipo}`);
+	} else {
+		aux = "Sin categoria";
+	}
+	return aux;
+}
+
+//pedir la fecha
+function pedirFecha(tipo) {
+	const regex = /^([0-2][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
+	let aux;
+	if (
+		confirm(`Si es un ${tipo} de hoy presione ACEPTAR, sino presione CANCELAR`)
+	) {
+		return;
+	} else {
+		do {
+			aux = prompt(`Ingrese la fecha del ${tipo} con el formato dd/mm/aaaa`);
+			if (regex.test(aux) === false) {
+				alert("Por favor, ingrese una fecha con formato válida");
+			}
+		} while (regex.test(aux) === false);
+		return aux;
+	}
 }
 
 // Función principal para ingresar el registro
 function ingresarRegistro() {
 	const tipo = pedirTipo();
 	const monto = pedirMonto(tipo);
+	const categoria = pedirCategoria(tipo);
 	const descripcion = pedirDescripcion(tipo);
 	const esMensual = pedirEsMensual(tipo);
+	const fecha = pedirFecha(tipo);
 
-	const ultRegistro = new registro(tipo, monto, descripcion, esMensual);
+	const ultRegistro = new registro(
+		tipo,
+		monto,
+		descripcion,
+		esMensual,
+		categoria,
+		fecha
+	);
 	agregarRegistro(ultRegistro);
 }
 
@@ -101,6 +146,9 @@ function eliminarRegistro(registro) {
 		gastos = gastos.filter((reg) => reg.id !== registro.id);
 	}
 }
+
+//Funcion para encontrar registro para eliminar
+function buscarRegistro(ID) {}
 
 //Calculo del ingreso total o gasto total
 function actualizarTotal(lista) {
@@ -141,6 +189,8 @@ function mostrarRegistros() {
 
 const btnAgregar = document.getElementById("addBtn");
 const btnVer = document.getElementById("seeBtn");
+const btnDel = document.getElementById("deleteBtn");
 
 btnAgregar.addEventListener("click", ingresarRegistro);
 btnVer.addEventListener("click", mostrarRegistros);
+btnDel.addEventListener("click");

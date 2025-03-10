@@ -22,12 +22,12 @@
 <body>
 
     <!-- Descripcion del proyecto -->
-    <h1>Gestor de gastos mensuales personal</h1>
+    <h1>Gestor de Gastos Mensuales Personales</h1>
     <p>Este proyecto es una aplicación de gestión de gastos personales desarrollada en JavaScript. Permite al usuario
-        registrar ingresos y gastos, clasificarlos en diferentes categorías (fijos, imprevistos, ahorro) y calcular el
-        saldo disponible. La primera versión funciona mediante prompt, alert y console.log.</p>
+        registrar ingresos y gastos, clasificarlos en diferentes categorías (fijos, imprevistos y ahorro) y calcular el
+        saldo disponible. La primera versión funciona mediante el uso de `prompt`, `alert` y `console.log`.</p>
 
-    <h2>Requerimentos Funcionales <br><span>(Con expectativas a futuro)</span></h2>
+    <h2>Requerimientos Funcionales <br><span>(Con expectativas para futuras versiones)</span></h2>
     <ul>
         <li>Permitir al usuario agregar, modificar y eliminar ingresos y gastos.</li>
         <li>Clasificar los registros en categorías: fijos, imprevistos y ahorro.</li>
@@ -36,20 +36,33 @@
         <li>Guardar y cargar datos desde archivos JSON.</li>
     </ul>
 
-    <h2>Cambios en proximas versiones</h2>
-    <p>En las proximas versiones se esperará agregar cambios para mejorar el rendimiento, uno de los principales cambios
-        será llevar el conteo del total de cambios hechos por el usuario sobre los gastos e ingresos para asi poder usar
-        dos archivos JSON con dichos elementos que se mantengan inmodificables para tener en cuenta la inmutablidad de
-        los registros históricos</p>
+    <h2>Mejoras en Próximas Versiones</h2>
+    <p>En las próximas versiones, se agregarán mejoras para optimizar el rendimiento. Uno de los principales cambios
+        será implementar un seguimiento del número de modificaciones realizadas por el usuario sobre los ingresos y
+        gastos. Esto permitirá el uso de dos archivos JSON separados: uno para los registros activos y otro para
+        mantener los registros históricos inmutables, garantizando la integridad de los datos.</p>
 
-    <h2>Forma de Uso</h2>
-    <p>Actualmente se inicia con el boton de debajo, se ingresan los datos <b>SOLO POR PROMPT</b> y se pueden observar
-        las salidas <b>SOLO POR CONSOLA</b>, en las
-        próximas versinoes incluiremos el uso del DOM</p>
+
+    <h2>Modo de Uso</h2>
+    <p>Actualmente se interactua con los botones de debajo, se ingresan los datos del usuario <b>SOLO POR PROMPT</b> y
+        se pueden observar
+        las salidas <b>SOLO POR CONSOLA</b></p>
+    <p>Pasos:</p>
+    <ol>
+        <li>Abrir la consola con la tecla <b>F12</b> y ajustar los tamaños del viewport de manera acorde.</li>
+        <li>Presionar el boton <b>Agregar Registro</b> para ingresar los datos del usuario.</li>
+        <li>Presionar el boton <b>Ver Registros</b> para ver los datos ingresados.</li>
+
+    </ol>
 
     <div class="btnContainer">
-        <button type="button" class="btn btn-success" id="addBtn">Agregar Registro</button>
-        <button type="button" class="btn btn-success" id="seeBtn">Ver Registros</button>
+        <div class="btnContainerTop">
+            <button type="button" class="btn btn-success" id="addBtn">Agregar Registro</button>
+            <button type="button" class="btn btn-success" id="seeBtn">Ver Registros</button>
+        </div>
+        <div class="btnContainerBot">
+            <button type="button" class="btn btn-success" id="deleteBtn">Eliminar un registro</button>
+        </div>
     </div>
 
     <!-- Scripts de bootstrap -->
