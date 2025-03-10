@@ -11,10 +11,24 @@ body {
 	flex-direction: column;
 }
 
-h1 {
-	margin: 10vh 10vh;
+h1,
+h2 {
+	margin: 2vh 0vh 2vh 0vh !important;
+	text-align: center;
+}
+
+h2 span {
+	font-size: 1.4rem;
 }
 
 p {
 	width: 50%;
+}
+
+button {
+	font-weight: bold !important;
+	text-transform: uppercase !important;
+	height: 60px;
+	width: 50%;
+	margin-bottom: 5vh !important;
 }
