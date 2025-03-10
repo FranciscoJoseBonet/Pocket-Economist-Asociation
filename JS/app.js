@@ -15,7 +15,7 @@ class registro {
 
 	//Para probar el console.log()
 	mostrarRegistro() {
-		return `tipo :${this.tipo}, monto: ${this.monto}, descripcion: ${this.descripcion}, esMensual: ${this.esMensual}, fecha: ${this.fecha}, id: ${this.id}`;
+		return `tipo :${this.tipo}, monto: ${this.monto}, descripcion: ${this.descripcion}, esMensual: ${this.esMensual}, fecha: ${this.fecha}`;
 	}
 }
 
@@ -23,44 +23,57 @@ class registro {
 gastos = [];
 ingresos = [];
 
-//Pedirle al ususario que ingrese un registro
-function ingresarRegistro() {
+//tipo
+function pedirTipo() {
 	let aux;
-	//tipo
 	do {
 		aux = Number(
 			prompt("Escriba 1 para declarar un INGRESO o 2 para declarar un GASTO")
 		);
 		if (aux !== 1 && aux !== 2) {
-			alert("Por favor, ingrese un numero válido");
+			alert("Por favor, ingrese un número válido");
 		}
 	} while (aux !== 1 && aux !== 2);
-	const tipo = aux === 1 ? "ingreso" : "gasto";
+	return aux === 1 ? "ingreso" : "gasto";
+}
 
-	//monto
+//monto
+function pedirMonto(tipo) {
+	let aux;
 	do {
 		aux = Number(prompt(`Ingrese el monto del ${tipo}`));
 		if (isNaN(aux)) {
 			alert("Por favor, ingrese un valor numérico");
 		}
 	} while (isNaN(aux));
-	const monto = aux;
+	return aux;
+}
 
-	//descripcion
-	if (confirm(`Desea agregar una descripcion al ${tipo}?`)) {
-		aux = prompt(`Ingresa una descripcion para el ${tipo}`);
+//descripción
+function pedirDescripcion(tipo) {
+	let aux;
+	if (confirm(`¿Desea agregar una descripción al ${tipo}?`)) {
+		aux = prompt(`Ingresa una descripción para el ${tipo}`);
 	} else {
-		aux = "No posee una descripcion asignada";
+		aux = "No posee una descripción asignada";
 	}
-	const descripcion = aux;
+	return aux;
+}
 
-	//esMensual
-	aux = confirm(
-		`El ${tipo} es mensual? Presiona Aceptar para SI o Cancelar para NO`
+//esMensual
+function esMensual(tipo) {
+	return confirm(
+		`¿El ${tipo} es mensual? Presiona Aceptar para SI o Cancelar para NO`
 	);
-	const esMensual = aux;
+}
 
-	//Creamos el registro
+// Función principal para ingresar el registro
+function ingresarRegistro() {
+	const tipo = pedirTipo();
+	const monto = pedirMonto(tipo);
+	const descripcion = pedirDescripcion(tipo);
+	const esMensual = esMensual(tipo);
+
 	const ultRegistro = new registro(tipo, monto, descripcion, esMensual);
 	agregarRegistro(ultRegistro);
 }

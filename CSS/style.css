@@ -21,9 +21,16 @@ h2 span {
 	font-size: 1.4rem;
 }
 
-p {
-	width: 50%;
+p,
+ul {
+	width: 60%;
 	text-align: justify;
+}
+
+.btnContainer {
+	display: flex;
+	width: 70%;
+	gap: 2vw;
 }
 
 button {
@@ -31,5 +38,5 @@ button {
 	text-transform: uppercase !important;
 	height: 60px;
 	width: 50%;
-	margin-bottom: 5vh !important;
+	margin: 4vh 0vh !important;
 }
