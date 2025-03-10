@@ -15,7 +15,11 @@ class registro {
 
 	//Para probar el console.log()
 	mostrarRegistro() {
-		return `tipo :${this.tipo}, monto: ${this.monto}, descripcion: ${this.descripcion}, esMensual: ${this.esMensual}, fecha: ${this.fecha}`;
+		return ` Monto: ${this.monto},\n Descripcion: ${
+			this.descripcion
+		},\n Es Mensual: ${
+			this.esMensual === true ? "Si" : "No"
+		},\n Fecha de carga: ${this.fecha}\n-----------------`;
 	}
 }
 
@@ -61,7 +65,7 @@ function pedirDescripcion(tipo) {
 }
 
 //esMensual
-function esMensual(tipo) {
+function pedirEsMensual(tipo) {
 	return confirm(
 		`¿El ${tipo} es mensual? Presiona Aceptar para SI o Cancelar para NO`
 	);
@@ -72,7 +76,7 @@ function ingresarRegistro() {
 	const tipo = pedirTipo();
 	const monto = pedirMonto(tipo);
 	const descripcion = pedirDescripcion(tipo);
-	const esMensual = esMensual(tipo);
+	const esMensual = pedirEsMensual(tipo);
 
 	const ultRegistro = new registro(tipo, monto, descripcion, esMensual);
 	agregarRegistro(ultRegistro);
@@ -114,3 +118,29 @@ function calcularSaldo() {
 	const saldo = ingresoTotal - gastoTotal;
 	return saldo;
 }
+
+//Mostrar registros
+function mostrarRegistros() {
+	if (gastos.length === 0 && ingresos.length === 0) {
+		console.log("No hay ningun registro para mostrar");
+		return;
+	}
+
+	console.log("<---- INGRESOS ---->");
+	if (ingresos.length === 0) {
+		console.log("No hay ingresos registrados :v");
+	}
+	console.log(ingresos.map((reg) => reg.mostrarRegistro()).join("\n"));
+
+	console.log("<---- GASTOS ---->");
+	if (gastos.length === 0) {
+		console.log("No hay gastos registrados :D");
+	}
+	console.log(gastos.map((reg) => reg.mostrarRegistro()).join("\n"));
+}
+
+const btnAgregar = document.getElementById("addBtn");
+const btnVer = document.getElementById("seeBtn");
+
+btnAgregar.addEventListener("click", ingresarRegistro);
+btnVer.addEventListener("click", mostrarRegistros);

@@ -10,20 +10,20 @@ agregarRegistro(reg2);
 agregarRegistro(reg3);
 agregarRegistro(reg4);
 
-// Mostrar registros en consola
+//Muestro los registros
 console.log("---- Lista de ingresos ----");
 console.log(ingresos.map((reg) => reg.mostrarRegistro()).join("\n"));
 
 console.log("---- Lista de gastos ----");
 console.log(gastos.map((reg) => reg.mostrarRegistro()).join("\n"));
 
-// Calcular totales y saldo
+//Usamos las funciones de calculo
 console.log("---- Cálculo de totales ----");
 console.log("Total ingresos:", actualizarTotal(ingresos));
 console.log("Total gastos:", actualizarTotal(gastos));
 console.log("Saldo:", calcularSaldo());
 
-// Eliminar un registro y volver a calcular
+//Usamos la funcion de eliminar y calculamos nuevamente
 console.log("---- Eliminando un gasto ----");
 eliminarRegistro(reg2);
 
