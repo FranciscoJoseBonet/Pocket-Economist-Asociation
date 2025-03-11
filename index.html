@@ -25,7 +25,8 @@
     <h1>Gestor de Gastos Mensuales Personales</h1>
     <p>Este proyecto es una aplicación de gestión de gastos personales desarrollada en JavaScript. Permite al usuario
         registrar ingresos y gastos, clasificarlos en diferentes categorías (fijos, imprevistos y ahorro) y calcular el
-        saldo disponible. La primera versión funciona mediante el uso de `prompt`, `alert` y `console.log`.</p>
+        saldo disponible. La primera versión funciona mediante el uso de `prompt`, `alert` y `console.log` interactuando
+        con las funciones que se ven debajo</p>
 
     <h2>Funciones Básicas</h2>
     <div class="container">
@@ -98,9 +99,22 @@
             Recalcula y actualiza los totales de ingresos, gastos y saldo en base a los registros almacenados.
             <br><strong>Retorna:</strong> No retorna nada, solo actualiza los valores globales en la aplicación.
         </div>
+
+        <div class="card"><span class="title">montoFormateoFloat(montoConFormato):</span> Convierte un monto formateado
+            en pesos argentinos a un número flotante.
+            <br><strong>Argumentos:</strong> montoConFormato (cadena de texto con formato de moneda)
+            <br><strong>Retorna:</strong> Número flotante con el valor del monto sin formato
+        </div>
+
+        <div class="card"><span class="title">montoFormateoPesos(montoSinFormato):</span> Formatea un número a la
+            notación de moneda en pesos argentinos.
+            <br><strong>Argumentos:</strong> montoSinFormato (número sin formato).
+            <br><strong>Retorna:</strong> Cadena de texto con el monto formateado en pesos argentinos
+        </div>
+
     </div>
     <h2>Funciones compuestas</h2>
-    <div class="container">
+    <div class="container beta">
 
         <div class="card"><span class="title">ingresarRegistro():</span> Crea un nuevo registro de ingreso o gasto y lo
             almacena en la lista correspondiente.
@@ -119,6 +133,14 @@
             <br><strong>Argumentos:</strong> Objeto registro (debe contener un ID válido).
             <br><strong>Retorna:</strong> `true` si se eliminó correctamente, `false` si no se encontró el registro.
         </div>
+        <div class="card"><span class="title">agregarRegistro():</span> Crea un nuevo registro de ingreso o gasto y lo
+            almacena en la lista correspondiente.
+            <br><strong>Argumentos:</strong> No recibe argumentos directamente, pero usa los valores obtenidos de las
+            funciones de entrada (tipo, monto, descripción, categoría, etc.).
+            <br><strong>Retorna:</strong> No retorna un valor explícito, pero actualiza la lista de registros
+            almacenados.
+        </div>
+
     </div>
 
     <br>

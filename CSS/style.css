@@ -31,6 +31,10 @@ ol {
 	align-items: center;
 }
 
+p {
+	font-size: 1.4rem;
+}
+
 .btnContainer {
 	width: 70%;
 }
@@ -52,9 +56,9 @@ button {
 
 .container {
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 	gap: 10px;
-	width: 60% !important;
+	width: 90% !important;
 }
 .card {
 	color: #fff !important;
@@ -68,4 +72,8 @@ button {
 }
 .title {
 	font-weight: bold;
+}
+
+.beta {
+	grid-template-columns: repeat(2, 1fr);
 }

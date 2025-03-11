@@ -10,10 +10,7 @@ class registro {
 		id
 	) {
 		this.tipo = tipo;
-		this.monto = monto.toLocaleString("es-AR", {
-			style: "currency",
-			currency: "ARS",
-		});
+		this.monto = monto;
 		this.descripcion = descripcion;
 		this.esMensual = esMensual;
 		this.fecha = fecha;
@@ -23,9 +20,9 @@ class registro {
 
 	//Para mostrar en la consola
 	mostrarRegistro() {
-		return `Monto: ${this.monto}\nCategoría: ${this.categoria}\nDescripcion: ${
-			this.descripcion
-		}\nEs Mensual: ${
+		return `Monto: ${montoFormateoPesos(this.monto)}\nCategoría: ${
+			this.categoria
+		}\nDescripcion: ${this.descripcion}\nEs Mensual: ${
 			this.esMensual === true ? "Si" : "No"
 		}\nFecha del registro: ${this.fecha}\nID: ${this.id}\n-----------------`;
 	}
@@ -82,6 +79,19 @@ function pedirMonto(tipo) {
 		}
 	} while (isNaN(aux) || aux < 0);
 	return aux;
+}
+
+//formateo del monto a Float
+function montoFormateoFloat(montoConFormato) {
+	return parseFloat(montoConFormato.replace(/[^0-9,-]/g, "").replace(",", "."));
+}
+
+//formateo del monto a Pesos
+function montoFormateoPesos(montoSinFormato) {
+	return montoSinFormato.toLocaleString("es-AR", {
+		style: "currency",
+		currency: "ARS",
+	});
 }
 
 //descripción
@@ -191,7 +201,6 @@ function ingresarRegistro() {
 	if (fecha === null) fecha = new Date().toLocaleDateString("es-ES");
 	const id = generarID(tipo);
 
-	console.log(`La id generada es ${id}`);
 	const ultRegistro = new registro(
 		tipo,
 		monto,
