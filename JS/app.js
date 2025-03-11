@@ -5,7 +5,7 @@ class registro {
 		monto,
 		descripcion = "No posee una descripcion asignada",
 		esMensual = false,
-		categoria = "No posee una categoría asignada",
+		categoria = "Varios",
 		fecha = new Date().toLocaleDateString("es-ES")
 	) {
 		this.tipo = tipo;
@@ -33,8 +33,20 @@ class registro {
 gastos = [];
 ingresos = [];
 
-gastosCategoria = [];
-ingresosCategoria = [];
+let gastosCategoria = [
+	"Alimentos",
+	"Transporte",
+	"Varios",
+	"Entretenimiento",
+	"Salud",
+];
+let ingresosCategoria = [
+	"Salario",
+	"Freelance",
+	"Inversiones",
+	"Regalos",
+	"Bonos",
+];
 
 //tipo
 function pedirTipo() {
@@ -54,7 +66,9 @@ function pedirTipo() {
 function pedirMonto(tipo) {
 	let aux;
 	do {
-		const input = prompt(`Ingrese el monto del ${tipo}`);
+		const input = prompt(
+			`Proporcione el monto del ${tipo} (Ingresar decimales con ".")`
+		);
 		if (input === null) return null;
 		aux = Number(input);
 		if (isNaN(aux) || aux <= 0) {
@@ -69,7 +83,7 @@ function pedirDescripcion(tipo) {
 	if (!confirm(`¿Desea agregar una descripción al ${tipo}?`)) {
 		return "No posee una descripción asignada";
 	}
-	const aux = prompt(`Ingresa una descripción para el ${tipo}`);
+	const aux = prompt(`Descripción para el ${tipo}`);
 	return aux === null || aux.trim() === ""
 		? "No posee una descripción asignada"
 		: aux;
@@ -82,13 +96,40 @@ function pedirEsMensual(tipo) {
 	);
 }
 
+//Para obtener las opciones de las categorias
+//Devuelve las categorias con formato de muestra al usuario
+function opcionesDispCat(tipo) {
+	let opciones;
+	if (tipo === "ingreso") {
+		opciones = ingresosCategoria
+			.map((categ, i) => `${i + 1}. ${categ.toUpperCase()}`)
+			.join("\n");
+	} else {
+		opciones = gastosCategoria
+			.map((categ, i) => `${i + 1}. ${categ.toUpperCase()}`)
+			.join("\n");
+	}
+	return opciones;
+}
+
 //categoria
 function pedirCategoria(tipo) {
-	if (!confirm(`¿Desea agregar una categoría al ${tipo}?`)) {
-		return "Sin categoría";
+	const lista = tipo === "ingreso" ? ingresosCategoria : gastosCategoria;
+	let aux;
+
+	if (!confirm(`¿Desea agregar una categoría a los ${tipo}s?`)) {
+		return "Varios";
+	} else {
+		do {
+			let opciones = opcionesDispCat(tipo);
+			let input = prompt(`Seleccione una categoría:\n${opciones}`);
+			if (input === null || input.trim() === "") {
+				return "Varios";
+			}
+			aux = Number(input);
+		} while (isNaN(aux) || aux < 1 || aux > lista.length);
+		return lista[aux - 1];
 	}
-	const aux = prompt(`Ingresa una categoría para el ${tipo}`);
-	return aux === null || aux.trim() === "" ? "Sin categoría" : aux;
 }
 
 //pedir la fecha
@@ -110,19 +151,23 @@ function pedirFecha(tipo) {
 	return aux;
 }
 
+//Validar existencia de ID
+function existeId(tipo, valor) {
+	return (tipo === "ingreso" ? ingresos : gastos).some((n) => n.id === valor);
+}
+
 //FUncion para pedir id del registro a eliminar
 function pedirId(tipo) {
 	let aux;
-	const limite = tipo === "ingreso" ? ingresos.length : gastos.length;
 	do {
-		aux = prompt(`Ingrese el ID del ${tipo} a eliminar`);
+		aux = prompt(`Accese el ID del ${tipo} a eliminar`);
 		if (aux === null) return null;
 
 		aux = Number(aux);
-		if (isNaN(aux) || aux <= 0 || aux > limite) {
-			alert("Por favor, ingrese un ID válido dentro del rango.");
+		if (isNaN(aux) || aux <= 0 || !existeId(tipo, aux)) {
+			alert("Por favor, proporcione un ID válido dentro del rango.");
 		}
-	} while (isNaN(aux) || aux <= 0 || aux > limite);
+	} while (isNaN(aux) || aux <= 0 || !existeId(tipo, aux));
 	return aux;
 }
 
@@ -133,7 +178,6 @@ function ingresarRegistro() {
 	const monto = pedirMonto(tipo);
 	if (monto === null) return;
 	const categoria = pedirCategoria(tipo);
-	if (categoria === null) categoria = "No posee una categoria asignada";
 	const descripcion = pedirDescripcion(tipo);
 	if (descripcion === null) descripcion = "No posee una descripcion asignada";
 	const esMensual = pedirEsMensual(tipo);
@@ -149,6 +193,18 @@ function ingresarRegistro() {
 		fecha
 	);
 	agregarRegistro(ultRegistro);
+}
+//Ver si el array esta vacio
+function esVacio(tipo, mostrarMensaje = true) {
+	if (tipo === "ingreso" && ingresos.length === 0) {
+		if (mostrarMensaje) console.log("No hay ingresos registrados");
+		return true;
+	}
+	if (tipo === "gasto" && gastos.length === 0) {
+		if (mostrarMensaje) console.log("No hay gastos registrados");
+		return true;
+	}
+	return false;
 }
 
 //Agregar un registro a las listas
@@ -202,21 +258,18 @@ function calcularSaldo() {
 
 //Mostrar registros
 function mostrarRegistros() {
-	if (gastos.length === 0 && ingresos.length === 0) {
-		console.log("No hay ningun registro para mostrar");
+	if (
+		esVacio("gasto", (mostrarMensaje = false)) &&
+		esVacio("ingreso", (mostrarMensaje = false))
+	) {
+		console.log("No existen registros de ingresos ni de gastos");
 		return;
 	}
-
 	console.log("<---- INGRESOS ---->");
-	if (ingresos.length === 0) {
-		console.log("No hay ingresos registrados :v");
-	}
+	esVacio("ingreso");
 	console.log(ingresos.map((reg) => reg.mostrarRegistro()).join("\n"));
-
 	console.log("<---- GASTOS ---->");
-	if (gastos.length === 0) {
-		console.log("No hay gastos registrados :D");
-	}
+	esVacio("gasto");
 	console.log(gastos.map((reg) => reg.mostrarRegistro()).join("\n"));
 }
 
@@ -230,12 +283,7 @@ btnVer.addEventListener("click", mostrarRegistros);
 btnDel.addEventListener("click", () => {
 	const tipo = pedirTipo();
 	if (tipo === null) return;
-	if (tipo === "ingreso" && ingresos.length === 0) {
-		alert("No hay ingresos registrados");
-		return;
-	}
-	if (tipo === "gasto" && gastos.length === 0) {
-		alert("No hay gastos registrados");
+	if (esVacio(tipo)) {
 		return;
 	}
 	const id = pedirId(tipo);
