@@ -9,6 +9,7 @@ body {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+	justify-items: center;
 }
 
 h1,
@@ -24,8 +25,9 @@ h2 span {
 p,
 ul,
 ol {
-	width: 60%;
-	text-align: justify;
+	width: 80%;
+	text-align: center;
+	align-items: center;
 }
 
 .btnContainer {

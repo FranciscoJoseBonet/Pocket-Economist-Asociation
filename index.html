@@ -27,34 +27,26 @@
         registrar ingresos y gastos, clasificarlos en diferentes categorías (fijos, imprevistos y ahorro) y calcular el
         saldo disponible. La primera versión funciona mediante el uso de `prompt`, `alert` y `console.log`.</p>
 
-    <h2>Requerimientos Funcionales <br><span>(Con expectativas para futuras versiones)</span></h2>
-    <ul>
-        <li>Permitir al usuario agregar, modificar y eliminar ingresos y gastos.</li>
-        <li>Clasificar los registros en categorías: fijos, imprevistos y ahorro.</li>
-        <li>Calcular y mostrar el saldo disponible.</li>
-        <li>Alertar si los gastos superan los ingresos.</li>
-        <li>Guardar y cargar datos desde archivos JSON.</li>
-    </ul>
-
-    <h2>Mejoras en Próximas Versiones</h2>
-    <p>En las próximas versiones, se agregarán mejoras para optimizar el rendimiento. Uno de los principales cambios
-        será implementar un seguimiento del número de modificaciones realizadas por el usuario sobre los ingresos y
-        gastos. Esto permitirá el uso de dos archivos JSON separados: uno para los registros activos y otro para
-        mantener los registros históricos inmutables, garantizando la integridad de los datos.</p>
-
-
     <h2>Modo de Uso</h2>
-    <p>Actualmente se interactua con los botones de debajo, se ingresan los datos del usuario <b>SOLO POR PROMPT</b> y
-        se pueden observar
+    <p>Actualmente se pueden observar
         las salidas <b>SOLO POR CONSOLA</b></p>
-    <p>Pasos:</p>
-    <ol>
-        <li>Abrir la consola con la tecla <b>F12</b> y ajustar los tamaños del viewport de manera acorde.</li>
-        <li>Presionar el boton <b>Agregar Registro</b> para ingresar los datos del usuario.</li>
-        <li>Presionar el boton <b>Ver Registros</b> para ver los datos ingresados.</li>
+    <h4>Pasos:</h4>
+    <p>1. <strong>Agregar un ingreso o gasto:</strong> Ejecuta <code>ingresarRegistro();</code>. Se solicitará tipo,
+        monto, categoría, descripción, si es mensual y fecha.</p>
+    <p>2. <strong>Ver todos los registros:</strong> Ejecuta <code>mostrarRegistros();</code>. Muestra los ingresos y
+        gastos guardados.</p>
+    <p>3. <strong>Eliminar un registro:</strong> Sabiendo el ID y el tipo de registro a eliminar primero usamos esta
+        funcion:
+        <code>const reg = buscarRegistro(id, tipo);</code> Una vez encontrado el registro y apuntado con la variable reg
+        usamos la funcion <code>eliminarRegistro(reg);</code>
+    </p>
+    <p>4. <strong>Ver saldo disponible:</strong> Ejecuta <code>console.log(`Saldo actual: ${calcularSaldo()}`);</code>.
+        Calcula ingresos menos gastos.</p>
+    <p>5. <strong>Los datos se pierden al recargar la página.</strong> ⚠️ No hay almacenamiento permanente en esta
+        versión.</p>
 
-    </ol>
 
+    <h2>Tambien se pueden usar los botones</h2>
     <div class="btnContainer">
         <div class="btnContainerTop">
             <button type="button" class="btn btn-success" id="addBtn">Agregar Registro</button>
