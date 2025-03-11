@@ -112,7 +112,6 @@ function pedirEsMensual(tipo) {
 	);
 }
 
-//Para obtener las opciones de las categorias
 //Devuelve las categorias con formato de muestra al usuario
 function opcionesDispCat(tipo) {
 	let opciones;
@@ -133,7 +132,7 @@ function pedirCategoria(tipo) {
 	const lista = tipo === "ingreso" ? ingresosCategoria : gastosCategoria;
 	let aux;
 
-	if (!confirm(`¿Desea agregar una categoría a los ${tipo}s?`)) {
+	if (!confirm(`¿Desea asignarle al ${tipo} una categoría?`)) {
 		return "Varios";
 	} else {
 		do {
