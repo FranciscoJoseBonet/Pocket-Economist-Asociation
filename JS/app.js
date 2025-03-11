@@ -290,14 +290,16 @@ function mostrarRegistros() {
 		esVacio("ingreso", (mostrarMensaje = false))
 	) {
 		console.log("No existen registros de ingresos ni de gastos");
+		alert("No existen registros de ingresos ni de gastos");
 		return;
 	}
-	console.log("<---- INGRESOS ---->");
-	esVacio("ingreso");
-	console.log(ingresos.map((reg) => reg.mostrarRegistro()).join("\n"));
-	console.log("<---- GASTOS ---->");
-	esVacio("gasto");
-	console.log(gastos.map((reg) => reg.mostrarRegistro()).join("\n"));
+	let mensaje = "<---- INGRESOS ---->\n";
+	mensaje += ingresos.map((reg) => reg.mostrarRegistro()).join("\n");
+	mensaje += "\n<---- GASTOS ---->\n";
+	mensaje += gastos.map((reg) => reg.mostrarRegistro()).join("\n");
+
+	console.log(mensaje);
+	alert(mensaje);
 }
 
 const btnAgregar = document.getElementById("addBtn");
