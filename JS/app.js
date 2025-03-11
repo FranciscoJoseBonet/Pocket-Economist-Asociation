@@ -9,7 +9,10 @@ class registro {
 		fecha = new Date().toLocaleDateString("es-ES")
 	) {
 		this.tipo = tipo;
-		this.monto = monto;
+		this.monto = monto.toLocaleString("es-AR", {
+			style: "currency",
+			currency: "ARS",
+		});
 		this.descripcion = descripcion;
 		this.esMensual = esMensual;
 		this.fecha = fecha;
@@ -18,11 +21,11 @@ class registro {
 
 	//Para mostrar en la consola
 	mostrarRegistro() {
-		return `Monto: ${this.monto},\nCategoría: ${
-			this.categoria
-		},\nDescripcion: ${this.descripcion},\nEs Mensual: ${
+		return `Monto: ${this.monto}\nCategoría: ${this.categoria}\nDescripcion: ${
+			this.descripcion
+		}\nEs Mensual: ${
 			this.esMensual === true ? "Si" : "No"
-		},\nFecha del registro: ${this.fecha},\nID: ${this.id}\n-----------------`;
+		}\nFecha del registro: ${this.fecha}\nID: ${this.id}\n-----------------`;
 	}
 }
 
