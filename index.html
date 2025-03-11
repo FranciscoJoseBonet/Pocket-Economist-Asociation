@@ -27,24 +27,108 @@
         registrar ingresos y gastos, clasificarlos en diferentes categorías (fijos, imprevistos y ahorro) y calcular el
         saldo disponible. La primera versión funciona mediante el uso de `prompt`, `alert` y `console.log`.</p>
 
-    <h2>Modo de Uso</h2>
-    <p>Actualmente se pueden observar
-        las salidas <b>SOLO POR CONSOLA</b></p>
-    <h4>Pasos:</h4>
-    <p>1. <strong>Agregar un ingreso o gasto:</strong> Ejecuta <code>ingresarRegistro();</code>. Se solicitará tipo,
-        monto, categoría, descripción, si es mensual y fecha.</p>
-    <p>2. <strong>Ver todos los registros:</strong> Ejecuta <code>mostrarRegistros();</code>. Muestra los ingresos y
-        gastos guardados.</p>
-    <p>3. <strong>Eliminar un registro:</strong> Sabiendo el ID y el tipo de registro a eliminar primero usamos esta
-        funcion:
-        <code>const reg = buscarRegistro(id, tipo);</code> Una vez encontrado el registro y apuntado con la variable reg
-        usamos la funcion <code>eliminarRegistro(reg);</code>
-    </p>
-    <p>4. <strong>Ver saldo disponible:</strong> Ejecuta <code>console.log(`Saldo actual: ${calcularSaldo()}`);</code>.
-        Calcula ingresos menos gastos.</p>
-    <p>5. <strong>Los datos se pierden al recargar la página.</strong> ⚠️ No hay almacenamiento permanente en esta
-        versión.</p>
+    <h2>Funciones Básicas</h2>
+    <div class="container">
+        <div class="card"><span class="title">pedirTipo():</span> Pide al usuario que seleccione entre "ingreso" o
+            "gasto"
+            <br><strong>Retorna:</strong> "ingreso" o "gasto"
+        </div>
 
+        <div class="card"><span class="title">pedirMonto(tipo):</span> Pide al usuario un monto numérico mayor o igual a
+            0
+            <br><strong>Argumentos:</strong> tipo ("ingreso" o "gasto")
+            <br><strong>Retorna:</strong> Número ingresado
+        </div>
+
+        <div class="card"><span class="title">pedirDescripcion(tipo):</span> Pregunta si desea agregar una descripción;
+            si acepta, solicita una
+            <br><strong>Argumentos:</strong> tipo ("ingreso" o "gasto")
+            <br><strong>Retorna:</strong> Texto con la descripción o "No posee una descripción asignada"
+        </div>
+
+        <div class="card"><span class="title">pedirEsMensual(tipo):</span> Confirma si el registro es mensual o no
+            <br><strong>Argumentos:</strong> tipo ("ingreso" o "gasto")
+            <br><strong>Retorna:</strong> true (si es mensual) o false (si no lo es)
+        </div>
+
+        <div class="card"><span class="title">pedirCategoria(tipo):</span> Pregunta si desea agregar una categoría y
+            permite elegir una de la lista
+            <br><strong>Argumentos:</strong> tipo ("ingreso" o "gasto").
+            <br><strong>Retorna:</strong> Nombre de la categoría seleccionada o "Varios"
+        </div>
+
+        <div class="card"><span class="title">pedirFecha(tipo):</span> Pregunta si se usa la fecha actual o permite
+            ingresar una en formato dd/mm/aaaa
+            <br><strong>Argumentos:</strong> tipo ("ingreso" o "gasto")
+            <br><strong>Retorna:</strong> Fecha en formato "dd/mm/aaaa"
+        </div>
+
+        <div class="card"><span class="title">pedirId(tipo):</span> Pide un ID de registro existente para eliminarlo
+            <br><strong>Argumentos:</strong> tipo ("ingreso" o "gasto")
+            <br><strong>Retorna:</strong> Número del ID ingresado
+        </div>
+
+        <div class="card"><span class="title">ingresarRegistro():</span> Llama a las funciones anteriores para pedir
+            datos, genera un ID y guarda el registro
+            <br><strong>Retorna:</strong> No retorna nada, pero agrega el registro a la lista correspondiente
+        </div>
+
+        <div class="card"><span class="title">mostrarRegistros():</span> Muestra todos los ingresos y gastos almacenados
+            en la consola
+            <br><strong>Retorna:</strong> No retorna nada, solo imprime datos en la consola
+        </div>
+
+        <div class="card"><span class="title">eliminarRegistro(registro):</span> Borra un registro de la lista según su
+            ID
+            <br><strong>Argumentos:</strong> Objeto registro a eliminar
+            <br><strong>Retorna:</strong> No retorna nada, solo modifica la lista
+        </div>
+
+        <div class="card"><span class="title">buscarRegistro(ID, type):</span> Busca un registro por su ID dentro de la
+            lista de ingresos o gastos
+            <br><strong>Argumentos:</strong> ID (número) y type ("ingreso" o "gasto")
+            <br><strong>Retorna:</strong> Objeto registro encontrado o undefined si no existe
+        </div>
+
+        <div class="card"><span class="title">calcularSaldo():</span> Calcula la diferencia entre ingresos y gastos
+            totales
+            <br><strong>Retorna:</strong> Número con el saldo actual
+        </div>
+        <div class="card"><span class="title">actualizarTotales():</span>
+            Recalcula y actualiza los totales de ingresos, gastos y saldo en base a los registros almacenados.
+            <br><strong>Retorna:</strong> No retorna nada, solo actualiza los valores globales en la aplicación.
+        </div>
+    </div>
+    <h2>Funciones compuestas</h2>
+    <div class="container">
+
+        <div class="card"><span class="title">ingresarRegistro():</span> Crea un nuevo registro de ingreso o gasto y lo
+            almacena en la lista correspondiente.
+            <br><strong>Argumentos:</strong> Ninguno (solicita los datos al usuario mediante otras funciones).
+            <br><strong>Retorna:</strong> Objeto del registro creado.
+        </div>
+
+        <div class="card"><span class="title">mostrarRegistros():</span> Muestra en la consola todos los registros
+            almacenados, diferenciando entre ingresos y gastos.
+            <br><strong>Argumentos:</strong> Ninguno.
+            <br><strong>Retorna:</strong> Nada (muestra los datos en la consola).
+        </div>
+
+        <div class="card"><span class="title">eliminarRegistro(registro):</span> Elimina un registro de la lista según
+            su ID.
+            <br><strong>Argumentos:</strong> Objeto registro (debe contener un ID válido).
+            <br><strong>Retorna:</strong> `true` si se eliminó correctamente, `false` si no se encontró el registro.
+        </div>
+    </div>
+
+    <br>
+    <hr>
+    <p><strong>Las instancias se crean mediante el método constructor que utiliza funciones basicas</strong>
+    </p>
+    <br>
+    <p><strong>Los datos se pierden al recargar la página.</strong> ⚠️ No hay almacenamiento permanente en esta
+        versión</p>
+    <p>Hay un archivo con codigo de prueba para algunas de las funcionalidades por consola</p>
 
     <h2>Tambien se pueden usar los botones</h2>
     <div class="btnContainer">

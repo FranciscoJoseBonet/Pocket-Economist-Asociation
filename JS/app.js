@@ -42,16 +42,16 @@ let conteoIdGastos = 0;
 let gastosCategoria = [
 	"Alimentos",
 	"Transporte",
-	"Varios",
 	"Entretenimiento",
 	"Salud",
+	"Varios",
 ];
 let ingresosCategoria = [
 	"Salario",
 	"Freelance",
 	"Inversiones",
 	"Regalos",
-	"Bonos",
+	"Varios",
 ];
 
 //tipo
@@ -77,10 +77,10 @@ function pedirMonto(tipo) {
 		);
 		if (input === null) return null;
 		aux = Number(input);
-		if (isNaN(aux) || aux <= 0) {
-			alert("Por favor, ingrese un monto válido (mayor a 0).");
+		if (isNaN(aux) || aux < 0) {
+			alert("Por favor, ingrese un monto válido");
 		}
-	} while (isNaN(aux) || aux <= 0);
+	} while (isNaN(aux) || aux < 0);
 	return aux;
 }
 

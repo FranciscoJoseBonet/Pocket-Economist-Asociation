@@ -16,6 +16,7 @@ h1,
 h2 {
 	margin: 2vh 0vh 2vh 0vh !important;
 	text-align: center;
+	font-weight: bolder !important;
 }
 
 h2 span {
@@ -47,4 +48,24 @@ button {
 	text-transform: uppercase !important;
 	height: 60px;
 	width: 50%;
+}
+
+.container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 10px;
+	width: 60% !important;
+}
+.card {
+	color: #fff !important;
+	background: linear-gradient(135deg, #0b3517e3, #1c8129ee);
+	border: 1px solid #ccc;
+	padding: 10px;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.title {
+	font-weight: bold;
 }
