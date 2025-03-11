@@ -6,7 +6,8 @@ class registro {
 		descripcion = "No posee una descripcion asignada",
 		esMensual = false,
 		categoria = "Varios",
-		fecha = new Date().toLocaleDateString("es-ES")
+		fecha = new Date().toLocaleDateString("es-ES"),
+		id
 	) {
 		this.tipo = tipo;
 		this.monto = monto.toLocaleString("es-AR", {
@@ -17,6 +18,7 @@ class registro {
 		this.esMensual = esMensual;
 		this.fecha = fecha;
 		this.categoria = categoria;
+		this.id = id;
 	}
 
 	//Para mostrar en la consola
@@ -32,6 +34,10 @@ class registro {
 //Almacenamiento (Pasar a JSON)
 gastos = [];
 ingresos = [];
+
+//LLevamos un conteo de las id de forma global
+let conteoIdIngresos = 0;
+let conteoIdGastos = 0;
 
 let gastosCategoria = [
 	"Alimentos",
@@ -160,12 +166,12 @@ function existeId(tipo, valor) {
 function pedirId(tipo) {
 	let aux;
 	do {
-		aux = prompt(`Accese el ID del ${tipo} a eliminar`);
+		aux = prompt(`Accese el ID del ${tipo}`);
 		if (aux === null) return null;
 
 		aux = Number(aux);
 		if (isNaN(aux) || aux <= 0 || !existeId(tipo, aux)) {
-			alert("Por favor, proporcione un ID válido dentro del rango.");
+			alert("Por favor, proporcione un ID válido y existente");
 		}
 	} while (isNaN(aux) || aux <= 0 || !existeId(tipo, aux));
 	return aux;
@@ -183,14 +189,17 @@ function ingresarRegistro() {
 	const esMensual = pedirEsMensual(tipo);
 	let fecha = pedirFecha(tipo);
 	if (fecha === null) fecha = new Date().toLocaleDateString("es-ES");
+	const id = generarID(tipo);
 
+	console.log(`La id generada es ${id}`);
 	const ultRegistro = new registro(
 		tipo,
 		monto,
 		descripcion,
 		esMensual,
 		categoria,
-		fecha
+		fecha,
+		id
 	);
 	agregarRegistro(ultRegistro);
 }
@@ -207,13 +216,22 @@ function esVacio(tipo, mostrarMensaje = true) {
 	return false;
 }
 
+//Funcon para generar un id
+function generarID(tipo) {
+	if (tipo === "ingreso") {
+		conteoIdIngresos += 1;
+		return conteoIdIngresos;
+	} else {
+		conteoIdGastos += 1;
+		return conteoIdGastos;
+	}
+}
+
 //Agregar un registro a las listas
 function agregarRegistro(registro) {
 	if (registro.tipo === "ingreso") {
-		registro.id = ingresos.length + 1;
 		ingresos.push(registro);
 	} else {
-		registro.id = gastos.length + 1;
 		gastos.push(registro);
 	}
 	console.log("Registro ageregado a la lista correctamente");
