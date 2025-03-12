@@ -20,11 +20,16 @@ class registro {
 
 	//Para mostrar en la consola
 	mostrarRegistro() {
-		return `Monto: ${montoFormateoPesos(this.monto)}\nCategoría: ${
-			this.categoria
-		}\nDescripcion: ${this.descripcion}\nEs Mensual: ${
-			this.esMensual === true ? "Si" : "No"
-		}\nFecha del registro: ${this.fecha}\nID: ${this.id}\n-----------------`;
+		return `
+	=============================
+	🆔 ID: ${this.id}
+	💰 Monto: ${montoFormateoPesos(this.monto)}
+	📂 Categoría: ${this.categoria}
+	📝 Descripción: ${this.descripcion}
+	📅 Fecha: ${this.fecha}
+	🔄 Es Mensual: ${this.esMensual ? "✅ Sí" : "❌ No"}
+	=============================
+	`;
 	}
 }
 
@@ -298,9 +303,19 @@ function mostrarRegistros() {
 		alert("No existen registros de ingresos ni de gastos");
 		return;
 	}
-	let mensaje = "<---- INGRESOS ---->\n";
+
+	let mensaje = `
+╔═════════════════════════════════╗
+║        💸 INGRESOS 💰          ║
+╚═════════════════════════════════╝
+`;
 	mensaje += ingresos.map((reg) => reg.mostrarRegistro()).join("\n");
-	mensaje += "\n<---- GASTOS ---->\n";
+
+	mensaje += `
+╔═════════════════════════════════╗
+║        💳 GASTOS 💵            ║
+╚═════════════════════════════════╝
+`;
 	mensaje += gastos.map((reg) => reg.mostrarRegistro()).join("\n");
 
 	console.log(mensaje);
