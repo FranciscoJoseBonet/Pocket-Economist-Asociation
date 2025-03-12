@@ -151,18 +151,21 @@ function pedirCategoria(tipo) {
 function pedirFecha(tipo) {
 	const regex = /^([0-2][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
 	if (
-		confirm(`Si es un ${tipo} de hoy presione ACEPTAR, sino presione CANCELAR`)
+		confirm(
+			`Si es un ${tipo} del dia de HOY presione ACEPTAR, sino presione CANCELAR`
+		)
 	) {
 		return new Date().toLocaleDateString("es-ES");
+	} else {
+		let aux;
+		do {
+			aux = prompt(`Ingrese la fecha del ${tipo} con el formato dd/mm/aaaa`);
+			if (aux === null) return new Date().toLocaleDateString("es-ES");
+			if (!regex.test(aux)) {
+				alert("Por favor, ingrese una fecha válida en formato dd/mm/aaaa");
+			}
+		} while (!regex.test(aux));
 	}
-	let aux;
-	do {
-		aux = prompt(`Ingrese la fecha del ${tipo} con el formato dd/mm/aaaa`);
-		if (aux === null) return null;
-		if (!regex.test(aux)) {
-			alert("Por favor, ingrese una fecha válida en formato dd/mm/aaaa");
-		}
-	} while (!regex.test(aux));
 	return aux;
 }
 
@@ -194,10 +197,8 @@ function ingresarRegistro() {
 	if (monto === null) return;
 	const categoria = pedirCategoria(tipo);
 	const descripcion = pedirDescripcion(tipo);
-	if (descripcion === null) descripcion = "No posee una descripcion asignada";
 	const esMensual = pedirEsMensual(tipo);
-	let fecha = pedirFecha(tipo);
-	if (fecha === null) fecha = new Date().toLocaleDateString("es-ES");
+	const fecha = pedirFecha(tipo);
 	const id = generarID(tipo);
 
 	const ultRegistro = new registro(
@@ -211,6 +212,7 @@ function ingresarRegistro() {
 	);
 	agregarRegistro(ultRegistro);
 }
+
 //Ver si el array esta vacio
 function esVacio(tipo, mostrarMensaje = true) {
 	if (tipo === "ingreso" && ingresos.length === 0) {
