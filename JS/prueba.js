@@ -30,3 +30,31 @@ eliminarRegistro(reg2);
 console.log("Total ingresos después de eliminar:", actualizarTotal(ingresos));
 console.log("Total gastos después de eliminar:", actualizarTotal(gastos));
 console.log("Saldo después de eliminar:", calcularSaldo());
+
+// Generacion de registros para pruebas:
+
+// Generar 15 gastos
+for (let i = 0; i < 15; i++) {
+	gastos.push(
+		new registro(
+			"gasto",
+			Math.floor(Math.random() * 5000) + 1, // Monto aleatorio entre 1 y 5000
+			Math.random() < 0.5, // Es mensual con 50% de probabilidad
+			"Varios",
+			i + 1 // ID único
+		)
+	);
+}
+
+// Generar 20 ingresos
+for (let i = 0; i < 20; i++) {
+	ingresos.push(
+		new registro(
+			"ingreso",
+			Math.floor(Math.random() * 10000) + 1, // Monto aleatorio entre 1 y 10000
+			Math.random() < 0.5,
+			"Varios",
+			i + 16 // ID único (continuación de los gastos)
+		)
+	);
+}

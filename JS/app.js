@@ -247,6 +247,9 @@ function agregarRegistro(registro) {
 	console.log("Registro ageregado a la lista correctamente");
 }
 
+//Editar un registro
+function editarRegistro() {}
+
 //Eliminar un registro de las listas
 function eliminarRegistro(registro) {
 	if (registro.tipo === "ingreso") {
@@ -272,7 +275,6 @@ function actualizarTotal(lista) {
 	for (let i = 0; i < lista.length; i++) {
 		total += lista[i].tipo === "ingreso" ? lista[i].monto : lista[i].monto;
 	}
-	console.log("Total actualizado correctamente");
 	return total;
 }
 
@@ -281,6 +283,8 @@ function calcularSaldo() {
 	const ingresoTotal = actualizarTotal(ingresos);
 	const gastoTotal = actualizarTotal(gastos);
 	const saldo = ingresoTotal - gastoTotal;
+	alert(`El saldo actual es: ${montoFormateoPesos(saldo)}`);
+	console.log(montoFormateoPesos(saldo));
 	return saldo;
 }
 
@@ -321,3 +325,29 @@ btnDel.addEventListener("click", () => {
 	const reg = buscarRegistro(id, tipo);
 	eliminarRegistro(reg);
 });
+
+// Generar 15 gastos
+for (let i = 0; i < 15; i++) {
+	gastos.push(
+		new registro(
+			"gasto",
+			Math.floor(Math.random() * 5000) + 1, // Monto aleatorio entre 1 y 5000
+			Math.random() < 0.5, // Es mensual con 50% de probabilidad
+			"Varios",
+			i + 1 // ID único
+		)
+	);
+}
+
+// Generar 20 ingresos
+for (let i = 0; i < 20; i++) {
+	ingresos.push(
+		new registro(
+			"ingreso",
+			Math.floor(Math.random() * 10000) + 1, // Monto aleatorio entre 1 y 10000
+			Math.random() < 0.5,
+			"Varios",
+			i + 16 // ID único (continuación de los gastos)
+		)
+	);
+}
