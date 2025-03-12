@@ -262,7 +262,7 @@ function opcionesDispAtts(registro) {
 }
 
 //Editar un registro
-function SenalarAtt(ID, type) {
+function SeñalarAtt(ID, type) {
 	const reg = buscarRegistro(ID, type);
 	let opciones = opcionesDispAtts(reg)[0];
 	const totalAtts = opcionesDispAtts(reg)[1];
