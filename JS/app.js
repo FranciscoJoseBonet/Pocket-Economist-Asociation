@@ -252,8 +252,37 @@ function agregarRegistro(registro) {
 	console.log("Registro ageregado a la lista correctamente");
 }
 
+//Funcion para mostrar los atributos modificables del objeto (recibe un regeistro para mostrar los atributos)
+function opcionesDispAtts(registro) {
+	let i = 1;
+	const detalles = Object.entries(registro)
+		.map(([att, valor]) => `${i++}. ${att.toUpperCase()}: ${valor}`)
+		.join("\n");
+	return [detalles, i - 1];
+}
+
 //Editar un registro
-function editarRegistro() {}
+function SenalarAtt(ID, type) {
+	const reg = buscarRegistro(ID, type);
+	let opciones = opcionesDispAtts(reg)[0];
+	const totalAtts = opcionesDispAtts(reg)[1];
+	let esValido = true;
+	do {
+		let input = prompt(
+			`Seleccione el atributo que desea modificar:\n${opciones}`
+		);
+		if (input === null) {
+			return;
+		}
+		aux = Number(input);
+		if (aux < 1 || aux > totalAtts || isNaN(aux)) {
+			alert("Por favor, ingrese un número válido entre 1 y " + totalAtts);
+		} else {
+			esValido = false;
+		}
+	} while (esValido);
+	return aux;
+}
 
 //Eliminar un registro de las listas
 function eliminarRegistro(registro) {
@@ -346,10 +375,12 @@ for (let i = 0; i < 15; i++) {
 	gastos.push(
 		new registro(
 			"gasto",
-			Math.floor(Math.random() * 5000) + 1, // Monto aleatorio entre 1 y 5000
-			Math.random() < 0.5, // Es mensual con 50% de probabilidad
-			"Varios",
-			i + 1 // ID único
+			Math.floor(Math.random() * 10000) + 1,
+			undefined,
+			Math.random() < 0.5,
+			gastosCategoria[Math.floor(Math.random() * gastosCategoria.length)],
+			undefined,
+			generarID("gasto")
 		)
 	);
 }
@@ -359,10 +390,12 @@ for (let i = 0; i < 20; i++) {
 	ingresos.push(
 		new registro(
 			"ingreso",
-			Math.floor(Math.random() * 10000) + 1, // Monto aleatorio entre 1 y 10000
+			Math.floor(Math.random() * 10000) + 1,
+			undefined,
 			Math.random() < 0.5,
-			"Varios",
-			i + 16 // ID único (continuación de los gastos)
+			ingresosCategoria[Math.floor(Math.random() * ingresosCategoria.length)],
+			undefined,
+			generarID("ingreso")
 		)
 	);
 }
