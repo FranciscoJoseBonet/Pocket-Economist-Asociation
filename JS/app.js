@@ -31,6 +31,12 @@ class registro {
 	=============================
 	`;
 	}
+
+	mostrarAtts() {
+		return Object.keys(this)
+			.map((n) => `${n}`)
+			.join(", ");
+	}
 }
 
 //Almacenamiento (Pasar a JSON)
@@ -261,12 +267,13 @@ function opcionesDispAtts(registro) {
 	return [detalles, i - 1];
 }
 
-//Editar un registro
-function SeñalarAtt(ID, type) {
+//Seleccionar el atributo de un registro mediante prompt y devuelve el indice de este (contar desde cero)
+function seleccionarAtt(ID, type) {
 	const reg = buscarRegistro(ID, type);
 	let opciones = opcionesDispAtts(reg)[0];
 	const totalAtts = opcionesDispAtts(reg)[1];
 	let esValido = true;
+	let aux = 0;
 	do {
 		let input = prompt(
 			`Seleccione el atributo que desea modificar:\n${opciones}`
@@ -281,7 +288,43 @@ function SeñalarAtt(ID, type) {
 			esValido = false;
 		}
 	} while (esValido);
-	return aux;
+	return aux - 1;
+}
+
+//Editar un registro
+function editarRegistro() {
+	const tipo = pedirTipo();
+	const id = pedirId(tipo);
+	const reg = buscarRegistro(id, tipo);
+
+	const indexAtt = seleccionarAtt(id, tipo);
+
+	const att = Object.keys(reg)[indexAtt];
+	console.log(reg.mostrarAtts());
+
+	switch (att) {
+		case "tipo":
+			console.log("1");
+			break;
+		case "monto":
+			console.log("2");
+			break;
+		case "descripcion":
+			console.log("3");
+			break;
+		case "esMensual":
+			console.log("4");
+			break;
+		case "categoria":
+			console.log("5");
+			break;
+		case "fecha":
+			console.log("6");
+			break;
+		case "id":
+			console.log("7");
+			break;
+	}
 }
 
 //Eliminar un registro de las listas
@@ -324,31 +367,24 @@ function calcularSaldo() {
 
 //Mostrar registros
 function mostrarRegistros() {
-	if (
-		esVacio("gasto", (mostrarMensaje = false)) &&
-		esVacio("ingreso", (mostrarMensaje = false))
-	) {
+	if (esVacio("gasto", false) && esVacio("ingreso", false)) {
 		console.log("No existen registros de ingresos ni de gastos");
 		alert("No existen registros de ingresos ni de gastos");
 		return;
 	}
-
 	let mensaje = `
 ╔═════════════════════════════════╗
 ║        💸 INGRESOS 💰          ║
 ╚═════════════════════════════════╝
 `;
 	mensaje += ingresos.map((reg) => reg.mostrarRegistro()).join("\n");
-
 	mensaje += `
 ╔═════════════════════════════════╗
 ║        💳 GASTOS 💵            ║
 ╚═════════════════════════════════╝
 `;
 	mensaje += gastos.map((reg) => reg.mostrarRegistro()).join("\n");
-
 	console.log(mensaje);
-	alert(mensaje);
 }
 
 const btnAgregar = document.getElementById("addBtn");

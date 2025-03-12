@@ -38,10 +38,12 @@ for (let i = 0; i < 15; i++) {
 	gastos.push(
 		new registro(
 			"gasto",
-			Math.floor(Math.random() * 5000) + 1, // Monto aleatorio entre 1 y 5000
-			Math.random() < 0.5, // Es mensual con 50% de probabilidad
-			"Varios",
-			i + 1 // ID único
+			Math.floor(Math.random() * 10000) + 1,
+			undefined,
+			Math.random() < 0.5,
+			gastosCategoria[Math.floor(Math.random() * gastosCategoria.length)],
+			undefined,
+			generarID("gasto")
 		)
 	);
 }
@@ -51,10 +53,12 @@ for (let i = 0; i < 20; i++) {
 	ingresos.push(
 		new registro(
 			"ingreso",
-			Math.floor(Math.random() * 10000) + 1, // Monto aleatorio entre 1 y 10000
+			Math.floor(Math.random() * 10000) + 1,
+			undefined,
 			Math.random() < 0.5,
-			"Varios",
-			i + 16 // ID único (continuación de los gastos)
+			ingresosCategoria[Math.floor(Math.random() * ingresosCategoria.length)],
+			undefined,
+			generarID("ingreso")
 		)
 	);
 }
