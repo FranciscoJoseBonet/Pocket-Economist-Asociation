@@ -99,6 +99,7 @@ button {
 	overflow: hidden;
 	max-height: 42px;
 	position: relative;
+	animation: none;
 }
 
 .card:hover {
@@ -133,4 +134,14 @@ button {
 
 .beta {
 	grid-template-columns: repeat(3, 1fr);
+}
+
+button {
+	background-color: #1c8129ee !important;
+	border: green !important;
+}
+
+button:hover {
+	background-color: #19d128 !important;
+	border: rgb(9, 75, 9) !important;
 }
