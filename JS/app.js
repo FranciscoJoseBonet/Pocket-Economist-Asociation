@@ -160,6 +160,7 @@ function pedirCategoria(tipo) {
 
 //pedir la fecha
 function pedirFecha(tipo) {
+	let aux;
 	const regex = /^([0-2][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
 	if (
 		confirm(
@@ -168,7 +169,6 @@ function pedirFecha(tipo) {
 	) {
 		return new Date().toLocaleDateString("es-ES");
 	} else {
-		let aux;
 		do {
 			aux = prompt(`Ingrese la fecha del ${tipo} con el formato dd/mm/aaaa`);
 			if (aux === null) return new Date().toLocaleDateString("es-ES");
@@ -258,10 +258,13 @@ function agregarRegistro(registro) {
 	console.log("Registro ageregado a la lista correctamente");
 }
 
-//Funcion para mostrar los atributos modificables del objeto (recibe un regeistro para mostrar los atributos)
+//Funcion para mostrar los atributos modificables del objeto
+//recibe un regeistro para mostrar los atributos menos el id y devuelve el texto con la cantidad total de atts
 function opcionesDispAtts(registro) {
+	const excluir = new Set(["id", "tipo"]);
 	let i = 1;
 	const detalles = Object.entries(registro)
+		.filter(([att]) => !excluir.has(att))
 		.map(([att, valor]) => `${i++}. ${att.toUpperCase()}: ${valor}`)
 		.join("\n");
 	return [detalles, i - 1];
@@ -288,43 +291,56 @@ function seleccionarAtt(ID, type) {
 			esValido = false;
 		}
 	} while (esValido);
-	return aux - 1;
+	return aux;
+}
+
+//funcion para ingresar el atributo a cambiar
+function pedirAttACambiar(att, tipo) {
+	let aux;
+	switch (att) {
+		case "monto":
+			aux = pedirMonto(tipo);
+			return [aux, "monto"];
+		case "descripcion":
+			aux = pedirDescripcion(tipo);
+			return [aux, "descripcion"];
+		case "esMensual":
+			aux = pedirEsMensual(tipo);
+			return [aux, "esMensual"];
+		case "categoria":
+			aux = pedirCategoria(tipo);
+			return [aux, "categoria"];
+		case "fecha":
+			aux = pedirFecha(tipo);
+			return [aux, "fecha"];
+	}
+	return 1;
+}
+
+//asignacion de un nuevo vaclor a un registro
+function asignarAtt(registro, atributo, valor) {
+	return (registro[atributo] = valor);
 }
 
 //Editar un registro
 function editarRegistro() {
 	const tipo = pedirTipo();
+	if (tipo === null) return;
 	const id = pedirId(tipo);
 	const reg = buscarRegistro(id, tipo);
-
 	const indexAtt = seleccionarAtt(id, tipo);
-
 	const att = Object.keys(reg)[indexAtt];
-	console.log(reg.mostrarAtts());
 
-	switch (att) {
-		case "tipo":
-			console.log("1");
-			break;
-		case "monto":
-			console.log("2");
-			break;
-		case "descripcion":
-			console.log("3");
-			break;
-		case "esMensual":
-			console.log("4");
-			break;
-		case "categoria":
-			console.log("5");
-			break;
-		case "fecha":
-			console.log("6");
-			break;
-		case "id":
-			console.log("7");
-			break;
-	}
+	const attList = pedirAttACambiar(att, tipo);
+	const nuevoAtt = attList[0];
+	const attNombre = attList[1];
+	if (nuevoAtt === null) return;
+
+	asignarAtt(reg, attNombre, nuevoAtt);
+	console.log(
+		`El atributo ${attNombre}, ha sido modificado correctamente a ${nuevoAtt}`
+	);
+	return 0;
 }
 
 //Eliminar un registro de las listas
@@ -335,6 +351,7 @@ function eliminarRegistro(registro) {
 		gastos = gastos.filter((reg) => reg.id !== registro.id);
 	}
 	console.log("Registro eliminado de la lista correctamente");
+	return 0;
 }
 
 //Funcion para encontrar el registro para eliminarlo
