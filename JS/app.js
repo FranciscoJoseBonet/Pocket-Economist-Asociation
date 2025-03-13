@@ -422,33 +422,3 @@ btnDel.addEventListener("click", () => {
 	const reg = buscarRegistro(id, tipo);
 	eliminarRegistro(reg);
 });
-
-// Generar 15 gastos
-for (let i = 0; i < 15; i++) {
-	gastos.push(
-		new registro(
-			"gasto",
-			Math.floor(Math.random() * 10000) + 1,
-			undefined,
-			Math.random() < 0.5,
-			gastosCategoria[Math.floor(Math.random() * gastosCategoria.length)],
-			undefined,
-			generarID("gasto")
-		)
-	);
-}
-
-// Generar 20 ingresos
-for (let i = 0; i < 20; i++) {
-	ingresos.push(
-		new registro(
-			"ingreso",
-			Math.floor(Math.random() * 10000) + 1,
-			undefined,
-			Math.random() < 0.5,
-			ingresosCategoria[Math.floor(Math.random() * ingresosCategoria.length)],
-			undefined,
-			generarID("ingreso")
-		)
-	);
-}

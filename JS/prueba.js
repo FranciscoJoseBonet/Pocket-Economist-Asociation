@@ -32,7 +32,6 @@ console.log("Total gastos después de eliminar:", actualizarTotal(gastos));
 console.log("Saldo después de eliminar:", calcularSaldo());
 
 // Generacion de registros para pruebas:
-
 // Generar 15 gastos
 for (let i = 0; i < 15; i++) {
 	gastos.push(
