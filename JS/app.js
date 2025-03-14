@@ -185,7 +185,7 @@ function existeId(tipo, valor) {
 	return (tipo === "ingreso" ? ingresos : gastos).some((n) => n.id === valor);
 }
 
-//FUncion para pedir id del registro a eliminar
+//FUncion para pedir id del registro a eliminar o modificar
 function pedirId(tipo) {
 	let aux;
 	do {
@@ -222,6 +222,7 @@ function ingresarRegistro() {
 		id
 	);
 	agregarRegistro(ultRegistro);
+	return 0;
 }
 
 //Ver si el array esta vacio
@@ -404,14 +405,8 @@ function mostrarRegistros() {
 	console.log(mensaje);
 }
 
-const btnAgregar = document.getElementById("addBtn");
-const btnVer = document.getElementById("seeBtn");
-const btnDel = document.getElementById("deleteBtn");
-
-//Funciones de los botones del DOM
-btnAgregar.addEventListener("click", ingresarRegistro);
-btnVer.addEventListener("click", mostrarRegistros);
-btnDel.addEventListener("click", () => {
+//Funcion para llamar y que interactue con el usuario para eliminar un registro
+function seleccionarEliminarRegistro() {
 	const tipo = pedirTipo();
 	if (tipo === null) return;
 	if (esVacio(tipo)) {
@@ -421,4 +416,13 @@ btnDel.addEventListener("click", () => {
 	if (id === null) return;
 	const reg = buscarRegistro(id, tipo);
 	eliminarRegistro(reg);
-});
+}
+
+const btnAgregar = document.getElementById("addBtn");
+const btnVer = document.getElementById("seeBtn");
+const btnDel = document.getElementById("deleteBtn");
+
+//Funciones de los botones del DOM
+btnAgregar.addEventListener("click", ingresarRegistro);
+btnVer.addEventListener("click", mostrarRegistros);
+btnDel.addEventListener("click", seleccionarEliminarRegistro);
