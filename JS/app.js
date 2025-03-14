@@ -421,18 +421,17 @@ function seleccionarEliminarRegistro() {
 const btnAgregar = document.getElementById("addBtn");
 const btnVer = document.getElementById("seeBtn");
 const btnDel = document.getElementById("deleteBtn");
-
-//Funciones de los botones del DOM
-btnAgregar.addEventListener("click", ingresarRegistro);
-btnVer.addEventListener("click", mostrarRegistros);
-btnDel.addEventListener("click", seleccionarEliminarRegistro);
-
 const cards = document.querySelectorAll(".card");
 
+//Para togglear la expansion de las cards
 function toggleCardAnimation() {
 	this.classList.toggle("expanded");
 }
 
+//Funciones de los botones del DOM y accinoes de las tarjetas
+btnAgregar.addEventListener("click", ingresarRegistro);
+btnVer.addEventListener("click", mostrarRegistros);
+btnDel.addEventListener("click", seleccionarEliminarRegistro);
 cards.forEach((card) => {
 	card.addEventListener("click", toggleCardAnimation);
 });

@@ -53,22 +53,12 @@
             <br><strong>Retorna:</strong> true (si es mensual) o false (si no lo es)
         </div>
 
-        <div class="card"><span class="title">pedirCategoria(tipo):</span> Pregunta si desea agregar una categoría y
-            permite elegir una de la lista
-            <br><strong>Argumentos:</strong> tipo ("ingreso" o "gasto").
-            <br><strong>Retorna:</strong> Nombre de la categoría seleccionada o "Varios"
-        </div>
-
         <div class="card"><span class="title">pedirFecha(tipo):</span> Pregunta si se usa la fecha actual o permite
             ingresar una en formato dd/mm/aaaa
             <br><strong>Argumentos:</strong> tipo ("ingreso" o "gasto")
             <br><strong>Retorna:</strong> Fecha en formato "dd/mm/aaaa"
         </div>
 
-        <div class="card"><span class="title">pedirId(tipo):</span> Pide un ID de registro existente para eliminarlo
-            <br><strong>Argumentos:</strong> tipo ("ingreso" o "gasto")
-            <br><strong>Retorna:</strong> Número del ID ingresado
-        </div>
 
         <div class="card"><span class="title">ingresarRegistro():</span> Llama a las funciones anteriores para pedir
             datos, genera un ID y guarda el registro
@@ -92,11 +82,8 @@
             <br><strong>Retorna:</strong> Objeto registro encontrado o undefined si no existe
         </div>
 
-        <div class="card"><span class="title">calcularSaldo():</span> Calcula la diferencia entre ingresos y gastos
-            totales
-            <br><strong>Retorna:</strong> Número con el saldo actual
-        </div>
-        <div class="card"><span class="title">actualizarTotales():</span>
+
+        <div class="card"><span class="title">actualizarTotal():</span>
             Recalcula y actualiza los totales de ingresos, gastos y saldo en base a los registros almacenados.
             <br><strong>Retorna:</strong> No retorna nada, solo actualiza los valores globales en la aplicación.
         </div>
@@ -112,6 +99,62 @@
             <br><strong>Argumentos:</strong> montoSinFormato (número sin formato).
             <br><strong>Retorna:</strong> Cadena de texto con el monto formateado en pesos argentinos
         </div>
+
+        <div class="card"><span class="title">agregarRegistro():</span> Crea un nuevo registro de ingreso o gasto y lo
+            almacena en la lista correspondiente.
+            <br><strong>Argumentos:</strong> No recibe argumentos directamente, pero usa los valores obtenidos de las
+            funciones de entrada (tipo, monto, descripción, categoría, etc.).
+            <br><strong>Retorna:</strong> No retorna un valor explícito, pero actualiza la lista de registros
+            almacenados.
+        </div>
+
+        <div class="card"><span class="title">eliminarRegistro(registro):</span> Elimina un registro de la lista según
+            su ID.
+            <br><strong>Argumentos:</strong> Objeto registro (debe contener un ID válido).
+            <br><strong>Retorna:</strong> `true` si se eliminó correctamente, `false` si no se encontró el registro.
+        </div>
+
+        <div class="card"><span class="title">generarID(tipo):</span> Genera un nuevo ID único para un registro de
+            ingreso o gasto, incrementando un contador global para cada tipo.
+            <br><strong>Argumentos:</strong> tipo ("ingreso" o "gasto").
+            <br><strong>Retorna:</strong> Número único (ID generado).
+        </div>
+
+        <div class="card"><span class="title">asignarAtt(registro, atributo, valor):</span> Asigna un nuevo valor a un
+            atributo específico de un registro.
+            <br><strong>Argumentos:</strong> registro (objeto del registro), atributo (nombre del atributo), valor
+            (nuevo valor para el atributo).
+            <br><strong>Retorna:</strong> El valor actualizado del atributo en el registro.
+        </div>
+
+        <div class="card"><span class="title">esVacio(tipo, mostrarMensaje = true):</span> Verifica si la lista de
+            ingresos o gastos está vacía y opcionalmente muestra un mensaje en la consola.
+            <br><strong>Argumentos:</strong> tipo ("ingreso" o "gasto"), mostrarMensaje (booleano que indica si se debe
+            mostrar un mensaje en la consola).
+            <br><strong>Retorna:</strong> Booleano (true si está vacía, false si no).
+        </div>
+
+        <div class="card"><span class="title">existeId(tipo, valor):</span> Verifica si existe un registro con un ID
+            específico en la lista de ingresos o gastos.
+            <br><strong>Argumentos:</strong> tipo ("ingreso" o "gasto"), valor (ID a buscar).
+            <br><strong>Retorna:</strong> Booleano (true si existe el ID, false si no).
+        </div>
+
+        <div class="card"><span class="title">opcionesDispCat(tipo):</span> Devuelve una lista de categorías disponibles
+            (ingresos o gastos) con formato para mostrar al usuario.
+            <br><strong>Argumentos:</strong> tipo ("ingreso" o "gasto").
+            <br><strong>Retorna:</strong> String con las categorías disponibles para el tipo especificado.
+        </div>
+
+        <div class="card"><span class="title">opcionesDispAtts(registro):</span> Muestra los atributos modificables de
+            un registro, excluyendo "id" y "tipo", con su respectivo número de índice para que el usuario pueda
+            seleccionar cuál desea modificar.
+            <br><strong>Argumentos:</strong> Un objeto `registro` que contiene los datos del registro a mostrar.
+            <br><strong>Retorna:</strong> Un arreglo con dos elementos: el primer elemento es un string con los
+            atributos del registro formateados para mostrar al usuario, y el segundo es el número total de atributos
+            disponibles.
+        </div>
+
 
     </div>
     <h2>Funciones compuestas</h2>
@@ -129,18 +172,51 @@
             <br><strong>Retorna:</strong> Nada (muestra los datos en la consola).
         </div>
 
-        <div class="card"><span class="title">eliminarRegistro(registro):</span> Elimina un registro de la lista según
-            su ID.
-            <br><strong>Argumentos:</strong> Objeto registro (debe contener un ID válido).
-            <br><strong>Retorna:</strong> `true` si se eliminó correctamente, `false` si no se encontró el registro.
+        <div class="card"><span class="title">calcularSaldo():</span> Calcula la diferencia entre ingresos y gastos
+            totales
+            <br><strong>Retorna:</strong> Número con el saldo actual
         </div>
-        <div class="card"><span class="title">agregarRegistro():</span> Crea un nuevo registro de ingreso o gasto y lo
-            almacena en la lista correspondiente.
-            <br><strong>Argumentos:</strong> No recibe argumentos directamente, pero usa los valores obtenidos de las
-            funciones de entrada (tipo, monto, descripción, categoría, etc.).
-            <br><strong>Retorna:</strong> No retorna un valor explícito, pero actualiza la lista de registros
-            almacenados.
+
+        <div class="card"><span class="title">pedirCategoria(tipo):</span> Pregunta si desea agregar una categoría y
+            permite elegir una de la lista
+            <br><strong>Argumentos:</strong> tipo ("ingreso" o "gasto").
+            <br><strong>Retorna:</strong> Nombre de la categoría seleccionada o "Varios"
         </div>
+
+        <div class="card"><span class="title">pedirId(tipo):</span> Pide un ID de registro existente para eliminarlo
+            (Solo para usar las funciones con punteros a registros para asi identificarlos)
+            <br><strong>Argumentos:</strong> tipo ("ingreso" o "gasto")
+            <br><strong>Retorna:</strong> Número del ID ingresado
+        </div>
+
+        <div class="card"><span class="title">seleccionarEliminarRegistro():</span> Permite al usuario seleccionar un
+            registro para eliminar de la lista, mostrando un índice para cada uno y pidiendo confirmación antes de
+            proceder con la eliminación.
+            <br><strong>Argumentos:</strong> Ninguno.
+            <br><strong>Retorna:</strong> Nada. El registro seleccionado será eliminado de la base de datos si el
+            usuario confirma la acción.
+        </div>
+
+        <div class="card"><span class="title">editarRegistro():</span> Permite al usuario modificar los atributos de un
+            registro previamente seleccionado. Muestra las opciones disponibles para editar los campos, excluyendo el
+            campo "id" y "tipo".
+            <br><strong>Argumentos:</strong> Ninguno. El registro a editar se selecciona en un paso previo.
+            <br><strong>Retorna:</strong> Nada. El registro se actualizará con los nuevos valores proporcionados por el
+            usuario.
+        </div>
+
+        <div class="card"><span class="title">pedirAttCambiar():</span> Solicita al usuario que seleccione qué atributo
+            de un registro desea cambiar, mostrándole las opciones disponibles (atributos modificables).
+            <br><strong>Argumentos:</strong> Ninguno.
+            <br><strong>Retorna:</strong> Un valor que corresponde al índice del atributo seleccionado para cambiar.
+        </div>
+
+        <div class="card"><span class="title">seleccionarAtt():</span> Muestra los atributos de un registro y permite al
+            usuario seleccionar cuál desea modificar. Excluye "id" y "tipo" de la selección.
+            <br><strong>Argumentos:</strong> Ninguno.
+            <br><strong>Retorna:</strong> El índice del atributo seleccionado para ser editado.
+        </div>
+
 
     </div>
 
