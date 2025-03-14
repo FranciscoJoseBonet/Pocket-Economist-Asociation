@@ -426,3 +426,13 @@ const btnDel = document.getElementById("deleteBtn");
 btnAgregar.addEventListener("click", ingresarRegistro);
 btnVer.addEventListener("click", mostrarRegistros);
 btnDel.addEventListener("click", seleccionarEliminarRegistro);
+
+const cards = document.querySelectorAll(".card");
+
+function toggleCardAnimation() {
+	this.classList.toggle("expanded");
+}
+
+cards.forEach((card) => {
+	card.addEventListener("click", toggleCardAnimation);
+});
