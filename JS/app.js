@@ -77,7 +77,7 @@ function pedirTipo() {
 }
 
 //monto
-function pedirMonto(tipo) {
+function pedirMonto(tipo = "") {
 	let aux;
 	do {
 		const input = prompt(
@@ -93,12 +93,12 @@ function pedirMonto(tipo) {
 }
 
 //formateo del monto a Float
-function montoFormateoFloat(montoConFormato) {
+function montoFormateoFloat(montoConFormato = "") {
 	return parseFloat(montoConFormato.replace(/[^0-9,-]/g, "").replace(",", "."));
 }
 
 //formateo del monto a Pesos
-function montoFormateoPesos(montoSinFormato) {
+function montoFormateoPesos(montoSinFormato = "") {
 	return montoSinFormato.toLocaleString("es-AR", {
 		style: "currency",
 		currency: "ARS",
@@ -106,7 +106,7 @@ function montoFormateoPesos(montoSinFormato) {
 }
 
 //descripción
-function pedirDescripcion(tipo) {
+function pedirDescripcion(tipo = "") {
 	if (!confirm(`¿Desea agregar una descripción al ${tipo}?`)) {
 		return "No posee una descripción asignada";
 	}
@@ -117,14 +117,14 @@ function pedirDescripcion(tipo) {
 }
 
 //esMensual
-function pedirEsMensual(tipo) {
+function pedirEsMensual(tipo = "") {
 	return confirm(
 		`¿El ${tipo} es mensual? Presiona ACEPTAR para SI o CANCELAR para NO`
 	);
 }
 
 //Devuelve las categorias con formato de muestra al usuario
-function opcionesDispCat(tipo) {
+function opcionesDispCat(tipo = "") {
 	let opciones;
 	if (tipo === "ingreso") {
 		opciones = ingresosCategoria
@@ -139,7 +139,7 @@ function opcionesDispCat(tipo) {
 }
 
 //categoria
-function pedirCategoria(tipo) {
+function pedirCategoria(tipo = "") {
 	const lista = tipo === "ingreso" ? ingresosCategoria : gastosCategoria;
 	let aux;
 
@@ -159,7 +159,7 @@ function pedirCategoria(tipo) {
 }
 
 //pedir la fecha
-function pedirFecha(tipo) {
+function pedirFecha(tipo = "") {
 	let aux;
 	const regex = /^([0-2][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
 	if (
@@ -182,6 +182,14 @@ function pedirFecha(tipo) {
 
 //Validar existencia de ID
 function existeId(tipo, valor) {
+	if (typeof tipo !== "string" || (tipo !== "ingreso" && tipo !== "gasto")) {
+		console.error("Error: Tipo inválido. Debe ser 'ingreso' o 'gasto'");
+		return false;
+	}
+	if (typeof valor !== "number" || valor <= 0) {
+		console.error("Error: ID inválido. Debe ser un número positivo");
+		return false;
+	}
 	return (tipo === "ingreso" ? ingresos : gastos).some((n) => n.id === valor);
 }
 
