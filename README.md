@@ -49,7 +49,3 @@ Este proyecto no tiene dependencias externas y está diseñado para ejecutarse e
 ## Autores
 
 - Francisco Bonet - Desarrollador principal
-
-## Licencia
-
-Este proyecto está bajo la Licencia MIT. Puedes ver los detalles de la licencia en el archivo [LICENSE](LICENSE).
