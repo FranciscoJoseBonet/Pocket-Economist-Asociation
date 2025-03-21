@@ -35,7 +35,7 @@ function buscarRegistro(ID, type) {
 export function seleccionarEliminarRegistro() {
 	const tipo = promptModule.pedirTipo();
 	if (tipo === null) return;
-	if (promptModule.esVacio(tipo)) {
+	if (promptModule.esVacio(tipo, false)) {
 		console.log(`No existen registros de ${tipo}s`);
 		return;
 	}

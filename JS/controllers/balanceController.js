@@ -10,3 +10,12 @@ export function calcularSaldo() {
 	console.log(montoFormateoPesos(saldo));
 	return saldo;
 }
+
+//Calculo del ingreso total o gasto total
+export function actualizarTotal(lista) {
+	let total = 0;
+	for (let i = 0; i < lista.length; i++) {
+		total += lista[i].tipo === "ingreso" ? lista[i].monto : lista[i].monto;
+	}
+	return total;
+}
