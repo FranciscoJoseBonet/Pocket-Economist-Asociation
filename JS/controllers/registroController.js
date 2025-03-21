@@ -69,3 +69,24 @@ export function ingresarRegistro() {
 	);
 	agregarRegistro(nuevoRegistro);
 }
+
+//Editar un registro
+export function editarRegistro() {
+	const tipo = promptModule.pedirTipo();
+	if (tipo === null) return;
+	const id = promptModule.pedirId(tipo);
+	const reg = promptModule.buscarRegistro(id, tipo);
+	const indexAtt = promptModule.seleccionarAtt(id, tipo);
+	const att = Object.keys(reg)[indexAtt];
+
+	const attList = promptModule.pedirAttACambiar(att, tipo);
+	const nuevoAtt = attList[0];
+	const attNombre = attList[1];
+	if (nuevoAtt === null) return;
+
+	promptModule.asignarAtt(reg, attNombre, nuevoAtt);
+	console.log(
+		`El atributo ${attNombre}, ha sido modificado correctamente a ${nuevoAtt}`
+	);
+	return 0;
+}

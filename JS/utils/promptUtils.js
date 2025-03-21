@@ -56,6 +56,22 @@ export function pedirEsMensual(tipo = "") {
 	);
 }
 
+//Devuelve las categorias con formato de muestra al usuario
+function opcionesDispCat(tipo = "") {
+	let opciones;
+	if (tipo === "ingreso") {
+		opciones = ingresosCategoria
+			.map((categ, i) => `${i + 1}. ${categ.toUpperCase()}`)
+			.join("\n");
+	} else {
+		opciones = gastosCategoria
+			.map((categ, i) => `${i + 1}. ${categ.toUpperCase()}`)
+			.join("\n");
+	}
+	return opciones;
+}
+
+//categoria
 export function pedirCategoria(tipo = "") {
 	const lista = tipo === "ingreso" ? ingresosCategoria : gastosCategoria;
 	let aux;
@@ -135,4 +151,68 @@ export function existeId(tipo, valor) {
 		return false;
 	}
 	return (tipo === "ingreso" ? ingresos : gastos).some((n) => n.id === valor);
+}
+
+//Funcion para mostrar los atributos modificables del objeto
+//recibe un regeistro para mostrar los atributos menos el id y devuelve el texto con la cantidad total de atts
+export function opcionesDispAtts(registro) {
+	const excluir = new Set(["id", "tipo"]);
+	let i = 1;
+	const detalles = Object.entries(registro)
+		.filter(([att]) => !excluir.has(att))
+		.map(([att, valor]) => `${i++}. ${att.toUpperCase()}: ${valor}`)
+		.join("\n");
+	return [detalles, i - 1];
+}
+
+//Seleccionar el atributo de un registro mediante prompt y devuelve el indice de este (contar desde cero)
+export function seleccionarAtt(ID, type) {
+	const reg = buscarRegistro(ID, type);
+	let opciones = opcionesDispAtts(reg)[0];
+	const totalAtts = opcionesDispAtts(reg)[1];
+	let esValido = true;
+	let aux = 0;
+	do {
+		let input = prompt(
+			`Seleccione el atributo que desea modificar:\n${opciones}`
+		);
+		if (input === null) {
+			return;
+		}
+		aux = Number(input);
+		if (aux < 1 || aux > totalAtts || isNaN(aux)) {
+			alert("Por favor, ingrese un número válido entre 1 y " + totalAtts);
+		} else {
+			esValido = false;
+		}
+	} while (esValido);
+	return aux;
+}
+
+//funcion para ingresar el atributo a cambiar
+export function pedirAttACambiar(att, tipo) {
+	let aux;
+	switch (att) {
+		case "monto":
+			aux = pedirMonto(tipo);
+			return [aux, "monto"];
+		case "descripcion":
+			aux = pedirDescripcion(tipo);
+			return [aux, "descripcion"];
+		case "esMensual":
+			aux = pedirEsMensual(tipo);
+			return [aux, "esMensual"];
+		case "categoria":
+			aux = pedirCategoria(tipo);
+			return [aux, "categoria"];
+		case "fecha":
+			aux = pedirFecha(tipo);
+			return [aux, "fecha"];
+	}
+	return 1;
+}
+
+//asignacion de un nuevo vaclor a un registro
+export function asignarAtt(registro, atributo, valor) {
+	return (registro[atributo] = valor);
 }
