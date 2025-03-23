@@ -4,139 +4,357 @@
 	box-sizing: border-box;
 }
 
+:root {
+	--income-color: #198754 !important;
+	--expense-color: #dc3545 !important;
+	--bg-dark: #212529 !important;
+	--card-dark: #2c3034 !important;
+	--text-light: #f8f9fa !important;
+	--bs-secondary-color: rgb(255, 255, 255) !important;
+}
 body {
-	font-family: "Arial", sans-serif;
+	background-color: var(--bg-dark) !important;
+	color: var(--text-light) !important;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+.card-title,
+.text-muted {
+	color: #ffff !important;
+}
+
+.hero-section {
+	padding: 3rem 0;
+	text-align: center;
+}
+
+.app-title {
+	font-weight: 700;
+	margin-bottom: 1.5rem;
+}
+
+.app-description {
+	max-width: 800px;
+	margin: 0 auto 1rem;
+	opacity: 0.9;
+}
+
+.warning-text {
+	color: var(--expense-color);
+	font-size: 0.9rem;
+	font-weight: 500;
+}
+
+.action-section {
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: 1rem;
+	padding: 2.5rem;
+	margin-bottom: 2rem;
+	text-align: center;
+}
+
+.section-title {
+	margin-bottom: 1.5rem;
+	font-weight: 600;
+	font-size: 1.5rem;
+}
+
+.action-buttons {
 	display: flex;
-	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 1.5rem;
+	margin: 0 auto;
+	max-width: 800px;
+}
+
+.action-button {
+	display: flex;
 	flex-direction: column;
-	justify-items: center;
-}
-
-h1,
-h2 {
-	margin: 2vh 0vh 2vh 0vh !important;
-	text-align: center;
-	font-weight: bolder !important;
-}
-
-h2 span {
-	font-size: 1.4rem;
-}
-
-p,
-ul,
-ol {
-	width: 80%;
-	text-align: center;
 	align-items: center;
+	justify-content: center;
+	width: 180px;
+	height: 180px;
+	border-radius: 1rem;
+	transition: all 0.3s ease;
+	border: none;
+	color: var(--text-light);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-p {
-	font-size: 1.4rem;
+.action-button:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-.btnContainer {
-	width: 70%;
+.action-button:active {
+	transform: translateY(0);
 }
 
-.btnContainerTop,
-.btnContainerBot {
+.action-button i {
+	font-size: 2.5rem;
+	margin-bottom: 1rem;
+}
+
+.action-button span {
+	font-weight: 500;
+	font-size: 1.1rem;
+}
+
+.btn-add {
+	background-color: var(--income-color);
+}
+
+.btn-view {
+	background-color: #0d6efd;
+}
+
+.btn-delete {
+	background-color: var(--expense-color);
+}
+
+.records-section {
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: 1rem;
+	padding: 2rem;
+	margin-bottom: 2rem;
+}
+
+.record-card {
+	background-color: var(--card-dark);
+	border-radius: 0.5rem;
+	padding: 1.5rem;
+	margin-bottom: 1rem;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.income {
+	border-left: 4px solid var(--income-color);
+}
+
+.expense {
+	border-left: 4px solid var(--expense-color);
+}
+
+.income-text {
+	color: var(--income-color) !important;
+}
+
+.expense-text {
+	color: var(--expense-color) !important;
+}
+
+.category-badge {
+	font-size: 0.8rem;
+	padding: 0.25rem 0.5rem;
+}
+
+.fab-container {
+	position: fixed;
+	bottom: 2rem;
+	right: 2rem;
+	z-index: 999;
+}
+
+.fab {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
 	display: flex;
-	gap: 2vw;
-	margin-bottom: 2vw;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.5rem;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.summary-card {
+	background-color: var(--card-dark);
+	border-radius: 0.5rem;
+	padding: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.modal-content {
+	background-color: var(--bg-dark) !important;
+	color: var(--text-light) !important;
+}
+
+.form-control,
+.form-select {
+	background-color: var(--card-dark) !important;
+	border: 1px solid #495057 !important;
+	color: var(--text-light) !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+	background-color: var(--card-dark);
+	color: var(--text-light);
+}
+
+.nav-tabs .nav-link {
+	color: var(--text-light) !important;
+}
+
+.nav-tabs .nav-link.active {
+	background-color: var(--card-dark) !important;
+	color: var(--text-light) !important;
+	border-color: #495057 !important;
+	border-bottom: #f8f9fa !important;
+}
+
+.placeholder-text {
+	text-align: center;
+	opacity: 0.7;
+	padding: 2rem;
+}
+
+.summary-section {
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: 1rem;
+	padding: 2.5rem;
+	margin-bottom: 2rem;
+}
+
+.summary-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 1.5rem;
+	margin-top: 2rem;
+}
+
+.summary-card {
+	background-color: var(--card-dark);
+	border-radius: 1rem;
+	padding: 1.5rem;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	transition: all 0.3s ease;
+}
+
+.summary-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.summary-icon {
+	font-size: 2.5rem;
+	margin-bottom: 1rem;
+	padding: 1rem;
+	border-radius: 50%;
+	width: 80px;
+	height: 80px;
+	display: flex;
+	align-items: center;
 	justify-content: center;
 }
 
-button {
-	font-weight: bold !important;
-	text-transform: uppercase !important;
-	height: 60px;
-	width: 50%;
+.summary-title {
+	font-size: 1.1rem;
+	font-weight: 500;
+	margin-bottom: 0.5rem;
+	opacity: 0.9;
 }
 
-.container {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 10px;
-	width: 90% !important;
+.summary-value {
+	font-size: 2rem;
+	font-weight: 700;
+	margin-bottom: 0;
 }
 
-.card {
-	color: #fff !important;
-	background-image: linear-gradient(to bottom, #10971b, #10350be3);
-	border: 1px solid #ccc;
-	padding: 10px;
-	border-radius: 5px;
-	display: flex;
-	flex-direction: column;
-	justify-content: start;
-	overflow: hidden;
-	max-height: 42px;
-	position: relative;
-	transition: max-height 0.5s ease-in-out;
+.income-card .summary-icon {
+	background-color: rgba(25, 135, 84, 0.2);
+	color: var(--income-color);
 }
 
-.card.expanded {
-	max-height: 1000px;
-	background-image: linear-gradient(to bottom, #19d128, #10350be3);
+.expense-card .summary-icon {
+	background-color: rgba(220, 53, 69, 0.2);
+	color: var(--expense-color);
 }
 
-.card::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 40px;
-	background-color: transparent;
-	border-radius: 5px 5px 0 0;
-	transition: background-image 1.2s ease;
+.balance-card .summary-icon {
+	background-color: rgba(13, 202, 240, 0.2);
+	color: var(--balance-color);
 }
 
-.card:hover::before {
-	background-image: linear-gradient(to bottom, #19d128, #351a1a00);
+.savings-card .summary-icon {
+	background-color: rgba(111, 66, 193, 0.2);
+	color: var(--savings-color);
 }
 
-.title {
-	font-weight: bold;
-	z-index: 11;
-	margin-bottom: 5px;
+.income-card .summary-value {
+	color: var(--income-color);
 }
 
-button {
-	background-color: #1c8129ee !important;
-	border: green !important;
+.expense-card .summary-value {
+	color: var(--expense-color);
 }
 
-button:hover {
-	background-color: #19d128 !important;
-	border: rgb(9, 75, 9) !important;
+.balance-card .summary-value {
+	color: var(--balance-color);
 }
 
-.beta {
-	grid-template-columns: repeat(3, 1fr);
+.savings-card .summary-value {
+	color: var(--savings-color);
 }
 
-@media (max-width: 1200px) {
-	.container {
-		grid-template-columns: repeat(3, 1fr);
-	}
-	.beta {
-		grid-template-columns: repeat(2, 1fr);
-	}
+.summary-subtitle {
+	font-size: 0.9rem;
+	opacity: 0.7;
+	margin-top: 0.5rem;
 }
 
 @media (max-width: 768px) {
-	.container {
-		grid-template-columns: repeat(2, 1fr);
+	.action-button {
+		width: 150px;
+		height: 150px;
 	}
-	.beta {
-		grid-template-columns: repeat(1, 1fr);
+
+	.action-button i {
+		font-size: 2rem;
+	}
+
+	.summary-icon {
+		width: 70px;
+		height: 70px;
+		font-size: 2rem;
+	}
+
+	.summary-value {
+		font-size: 1.8rem;
 	}
 }
 
 @media (max-width: 576px) {
-	.container {
+	.action-button {
+		width: 130px;
+		height: 130px;
+	}
+
+	.action-button i {
+		font-size: 1.8rem;
+		margin-bottom: 0.7rem;
+	}
+
+	.action-button span {
+		font-size: 1rem;
+	}
+
+	.summary-cards {
 		grid-template-columns: 1fr;
 	}
+}
+
+.card {
+	background-color: var(--card-dark) !important;
+	border: none;
+	margin-bottom: 1rem;
+	transition: transform 0.2s;
+}
+
+.card:hover {
+	transform: translateY(-3px);
 }
