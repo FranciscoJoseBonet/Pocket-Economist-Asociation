@@ -312,6 +312,20 @@ body {
 	margin-top: 0.5rem;
 }
 
+.footer {
+	background-color: var(--card-dark);
+	padding: 1.5rem 0;
+	margin-top: auto;
+	text-align: center;
+	box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer-text {
+	color: var(--text-light);
+	opacity: 0.8;
+	margin-bottom: 0;
+}
+
 @media (max-width: 1200px) {
 	.summary-cards {
 		grid-template-columns: repeat(2, 1fr);
