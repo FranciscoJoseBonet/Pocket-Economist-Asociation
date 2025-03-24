@@ -7,6 +7,8 @@
 :root {
 	--income-color: #198754 !important;
 	--expense-color: #dc3545 !important;
+	--savings-color: #6f42c1 !important;
+	--balance-color: #0d6efd !important;
 	--bg-dark: #212529 !important;
 	--card-dark: #2c3034 !important;
 	--text-light: #f8f9fa !important;
@@ -153,7 +155,7 @@ body {
 	position: fixed;
 	bottom: 2rem;
 	right: 2rem;
-	z-index: 999;
+	z-index: 1050 !important;
 }
 
 .fab {
@@ -165,13 +167,6 @@ body {
 	justify-content: center;
 	font-size: 1.5rem;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.summary-card {
-	background-color: var(--card-dark);
-	border-radius: 0.5rem;
-	padding: 1.5rem;
-	margin-bottom: 1.5rem;
 }
 
 .modal-content {
@@ -233,11 +228,22 @@ body {
 	align-items: center;
 	text-align: center;
 	transition: all 0.3s ease;
+	z-index: -1;
 }
 
+.summary-card-dashboard {
+	background-color: var(--card-dark);
+	border-radius: 1rem;
+	padding: 1.5rem;
+	margin-bottom: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	transition: all 0.5s ease;
+}
+
+.summary-card-dashboard:hover,
 .summary-card:hover {
-	transform: translateY(-5px);
-	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.363);
 }
 
 .summary-icon {
@@ -256,7 +262,6 @@ body {
 	font-size: 1.1rem;
 	font-weight: 500;
 	margin-bottom: 0.5rem;
-	opacity: 0.9;
 }
 
 .summary-value {
@@ -303,8 +308,14 @@ body {
 
 .summary-subtitle {
 	font-size: 0.9rem;
-	opacity: 0.7;
+	opacity: 0.9;
 	margin-top: 0.5rem;
+}
+
+@media (max-width: 1200px) {
+	.summary-cards {
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
 
 @media (max-width: 768px) {
@@ -315,6 +326,10 @@ body {
 
 	.action-button i {
 		font-size: 2rem;
+	}
+
+	.summary-cards {
+		grid-template-columns: repeat(1, 1fr);
 	}
 
 	.summary-icon {
@@ -344,7 +359,7 @@ body {
 	}
 
 	.summary-cards {
-		grid-template-columns: 1fr;
+		grid-template-columns: 2fr;
 	}
 }
 
