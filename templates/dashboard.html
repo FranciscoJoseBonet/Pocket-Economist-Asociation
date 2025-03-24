@@ -18,6 +18,33 @@
 
 </head>
 
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">PocketEco</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">How to Use the App</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Management</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
 <body>
     <div class="container py-4">
         <header class="pb-3 mb-4 border-bottom border-secondary">
@@ -32,8 +59,8 @@
 
         <div class="row g-4">
             <!-- Summary Section -->
-            <div class="col-lg-4 order-lg-2">
-                <div class="sticky-top pt-1">
+            <div class="col-lg-4 order-lg-2 top-4">
+                <div class="sticky-top pt-3 mt-4 summary-container-dashboard">
                     <div class=" summary-card-dashboard">
                         <h2 class="h4 mb-3">Financial Summary</h2>
                         <div class="d-flex justify-content-between mb-3">
@@ -83,16 +110,19 @@
             <div class="col-lg-8 order-lg-1">
                 <ul class="nav nav-tabs mb-4" id="recordTabs" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all"
-                            type="button" role="tab" aria-controls="all" aria-selected="true">All Records</button>
+                        <button class="nav-link nav-filter active" id="all-tab" data-bs-toggle="tab"
+                            data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true">All
+                            Records</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="income-tab" data-bs-toggle="tab" data-bs-target="#income"
-                            type="button" role="tab" aria-controls="income" aria-selected="false">Income</button>
+                        <button class="nav-link nav-filter" id="income-tab" data-bs-toggle="tab"
+                            data-bs-target="#income" type="button" role="tab" aria-controls="income"
+                            aria-selected="false">Income</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="expense-tab" data-bs-toggle="tab" data-bs-target="#expense"
-                            type="button" role="tab" aria-controls="expense" aria-selected="false">Expenses</button>
+                        <button class="nav-link nav-filter" id="expense-tab" data-bs-toggle="tab"
+                            data-bs-target="#expense" type="button" role="tab" aria-controls="expense"
+                            aria-selected="false">Expenses</button>
                     </li>
                 </ul>
 

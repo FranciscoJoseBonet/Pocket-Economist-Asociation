@@ -246,6 +246,11 @@ body {
 	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.363);
 }
 
+.summary-container-dashboard {
+	top: 4rem !important;
+	z-index: 10 !important;
+}
+
 .summary-icon {
 	font-size: 2.5rem;
 	margin-bottom: 1rem;
@@ -312,6 +317,7 @@ body {
 	margin-top: 0.5rem;
 }
 
+/* footer estilos */
 .footer {
 	background-color: var(--card-dark);
 	padding: 1.5rem 0;
@@ -324,6 +330,61 @@ body {
 	color: var(--text-light);
 	opacity: 0.8;
 	margin-bottom: 0;
+}
+
+/* navbar estilos */
+.navbar {
+	background-color: var(--card-dark);
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+	z-index: 1100;
+}
+
+.navbar-brand {
+	font-weight: 700;
+	color: var(--text-light) !important;
+}
+
+.navbar-toggler {
+	border-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-toggler-icon {
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.nav-link {
+	color: var(--text-light) !important;
+	opacity: 0.8;
+	transition: all 0.3s ease;
+	margin: 0 0.5rem;
+	position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+	opacity: 1;
+	color: var(--text-light);
+}
+
+.nav-link::after {
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 2px;
+	bottom: 0;
+	left: 0;
+	background-color: var(--text-light);
+	transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+	width: 100%;
+}
+
+.nav-filter:hover::after,
+.nav-filter.active::after {
+	width: 0;
 }
 
 @media (max-width: 1200px) {
