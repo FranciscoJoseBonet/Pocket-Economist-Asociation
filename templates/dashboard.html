@@ -49,35 +49,35 @@
     <div class="container py-4">
         <header class="pb-3 mb-4 border-bottom border-secondary">
             <div class="d-flex justify-content-between align-items-center">
-                <h1 class="display-5 fw-bold">Expense Manager</h1>
+                <h1 class="display-5 fw-bold">Gestión de Registros</h1>
                 <div class="text-end">
-                    <h2 class="h4 mb-0">Available Balance</h2>
-                    <h3 class="display-6 fw-bold">$1,250.75</h3>
+                    <h2 class="h4 mb-0">Capital Disponible</h2>
+                    <h3 class="display-4 fw-bold">$1,250.75</h3>
                 </div>
             </div>
         </header>
 
         <div class="row g-4">
-            <!-- Summary Section -->
+            <!-- Seccion de resumen -->
             <div class="col-lg-4 order-lg-2 top-4">
                 <div class="sticky-top pt-3 mt-4 summary-container-dashboard">
                     <div class=" summary-card-dashboard">
-                        <h2 class="h4 mb-3">Financial Summary</h2>
+                        <h2 class="h4 mb-3">Resumen del Mes</h2>
                         <div class="d-flex justify-content-between mb-3">
                             <div>
-                                <p class="mb-1 text-muted">Total Income</p>
+                                <p class="mb-1 text-muted">Ingreso Total</p>
                                 <h3 class="h4 income-text">$3,450.00</h3>
                             </div>
                             <div>
-                                <p class="mb-1 text-muted">Total Expenses</p>
+                                <p class="mb-1 text-muted">Gasto Total</p>
                                 <h3 class="h4 expense-text">$2,199.25</h3>
                             </div>
                         </div>
                         <hr class="border-secondary">
-                        <h3 class="h5 mb-3">Expenses by Category</h3>
+                        <h3 class="h5 mb-3">Gastos por categoría</h3>
                         <div class="mb-2">
                             <div class="d-flex justify-content-between mb-1">
-                                <span>Fixed</span>
+                                <span>Gastos fijos</span>
                                 <span>$1,450.00</span>
                             </div>
                             <div class="progress" style="height: 8px;">
@@ -86,7 +86,7 @@
                         </div>
                         <div class="mb-2">
                             <div class="d-flex justify-content-between mb-1">
-                                <span>Unforeseen</span>
+                                <span>Imprevistos</span>
                                 <span>$349.25</span>
                             </div>
                             <div class="progress" style="height: 8px;">
@@ -95,7 +95,7 @@
                         </div>
                         <div class="mb-2">
                             <div class="d-flex justify-content-between mb-1">
-                                <span>Savings</span>
+                                <span>Ahorros</span>
                                 <span>$400.00</span>
                             </div>
                             <div class="progress" style="height: 8px;">
@@ -106,329 +106,147 @@
                 </div>
             </div>
 
-            <!-- Records Section -->
+            <!-- Seccion de Registros -->
             <div class="col-lg-8 order-lg-1">
                 <ul class="nav nav-tabs mb-4" id="recordTabs" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link nav-filter active" id="all-tab" data-bs-toggle="tab"
-                            data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true">All
-                            Records</button>
+                            data-bs-target="#all" type="button" role="tab" aria-controls="all"
+                            aria-selected="true">Todos los Registros</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link nav-filter" id="income-tab" data-bs-toggle="tab"
                             data-bs-target="#income" type="button" role="tab" aria-controls="income"
-                            aria-selected="false">Income</button>
+                            aria-selected="false">Ingresos</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link nav-filter" id="expense-tab" data-bs-toggle="tab"
                             data-bs-target="#expense" type="button" role="tab" aria-controls="expense"
-                            aria-selected="false">Expenses</button>
+                            aria-selected="false">Gastos</button>
                     </li>
                 </ul>
 
                 <div class="tab-content" id="recordTabsContent">
                     <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
-                        <!-- Income Record -->
+                        <!-- Registro de ingreso -->
                         <div class="card income">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <h5 class="card-title mb-0">Salary</h5>
+                                    <h5 class="card-title mb-0">Salario</h5>
                                     <h5 class="card-title income-text mb-0">+$2,500.00</h5>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <div>
-                                        <span class="badge bg-primary category-badge">Fixed</span>
-                                        <small class="text-muted ms-2">March 15, 2025</small>
+                                        <span class="badge bg-primary category-badge">Fijo</span>
+                                        <small class="text-muted ms-2">15/03/2025</small>
                                     </div>
                                     <div class="form-check form-switch">
                                         <input class="form-check-input" type="checkbox" id="recurringSwitch1" checked>
                                         <label class="form-check-label small text-muted"
-                                            for="recurringSwitch1">Recurring</label>
+                                            for="recurringSwitch1">Mensual</label>
                                     </div>
                                 </div>
-                                <p class="card-text text-muted small mb-3">Monthly salary payment from ABC Company</p>
+                                <p class="card-text text-muted small mb-3">Mi salario mensual de Google xd (?</p>
                                 <div class="d-flex justify-content-end">
                                     <button class="btn btn-sm btn-outline-light me-2" data-bs-toggle="modal"
                                         data-bs-target="#editRecordModal">
-                                        <i class="bi bi-pencil me-1"></i> Edit
+                                        <i class="bi bi-pencil me-1"></i> Editar
                                     </button>
                                     <button class="btn btn-sm btn-outline-danger">
-                                        <i class="bi bi-trash me-1"></i> Delete
+                                        <i class="bi bi-trash me-1"></i> Eliminar
                                     </button>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Expense Record -->
-                        <div class="card expense">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <h5 class="card-title mb-0">Rent</h5>
-                                    <h5 class="card-title expense-text mb-0">-$1,200.00</h5>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <div>
-                                        <span class="badge bg-primary category-badge">Fixed</span>
-                                        <small class="text-muted ms-2">March 1, 2025</small>
-                                    </div>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="recurringSwitch2" checked>
-                                        <label class="form-check-label small text-muted"
-                                            for="recurringSwitch2">Recurring</label>
-                                    </div>
-                                </div>
-                                <p class="card-text text-muted small mb-3">Monthly apartment rent payment</p>
-                                <div class="d-flex justify-content-end">
-                                    <button class="btn btn-sm btn-outline-light me-2" data-bs-toggle="modal"
-                                        data-bs-target="#editRecordModal">
-                                        <i class="bi bi-pencil me-1"></i> Edit
-                                    </button>
-                                    <button class="btn btn-sm btn-outline-danger">
-                                        <i class="bi bi-trash me-1"></i> Delete
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Income Record -->
                         <div class="card income">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <h5 class="card-title mb-0">Freelance Project</h5>
-                                    <h5 class="card-title income-text mb-0">+$950.00</h5>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <div>
-                                        <span class="badge bg-warning category-badge">Unforeseen</span>
-                                        <small class="text-muted ms-2">March 10, 2025</small>
-                                    </div>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="recurringSwitch3">
-                                        <label class="form-check-label small text-muted"
-                                            for="recurringSwitch3">Recurring</label>
-                                    </div>
-                                </div>
-                                <p class="card-text text-muted small mb-3">Website development for XYZ client</p>
-                                <div class="d-flex justify-content-end">
-                                    <button class="btn btn-sm btn-outline-light me-2" data-bs-toggle="modal"
-                                        data-bs-target="#editRecordModal">
-                                        <i class="bi bi-pencil me-1"></i> Edit
-                                    </button>
-                                    <button class="btn btn-sm btn-outline-danger">
-                                        <i class="bi bi-trash me-1"></i> Delete
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Expense Record -->
-                        <div class="card expense">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <h5 class="card-title mb-0">Groceries</h5>
-                                    <h5 class="card-title expense-text mb-0">-$89.75</h5>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <div>
-                                        <span class="badge bg-warning category-badge">Unforeseen</span>
-                                        <small class="text-muted ms-2">March 18, 2025</small>
-                                    </div>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="recurringSwitch4">
-                                        <label class="form-check-label small text-muted"
-                                            for="recurringSwitch4">Recurring</label>
-                                    </div>
-                                </div>
-                                <p class="card-text text-muted small mb-3">Weekly grocery shopping at Whole Foods</p>
-                                <div class="d-flex justify-content-end">
-                                    <button class="btn btn-sm btn-outline-light me-2" data-bs-toggle="modal"
-                                        data-bs-target="#editRecordModal">
-                                        <i class="bi bi-pencil me-1"></i> Edit
-                                    </button>
-                                    <button class="btn btn-sm btn-outline-danger">
-                                        <i class="bi bi-trash me-1"></i> Delete
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Expense Record -->
-                        <div class="card expense">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <h5 class="card-title mb-0">Savings</h5>
-                                    <h5 class="card-title expense-text mb-0">-$400.00</h5>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <div>
-                                        <span class="badge bg-info category-badge">Savings</span>
-                                        <small class="text-muted ms-2">March 15, 2025</small>
-                                    </div>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="recurringSwitch5" checked>
-                                        <label class="form-check-label small text-muted"
-                                            for="recurringSwitch5">Recurring</label>
-                                    </div>
-                                </div>
-                                <p class="card-text text-muted small mb-3">Monthly transfer to savings account</p>
-                                <div class="d-flex justify-content-end">
-                                    <button class="btn btn-sm btn-outline-light me-2" data-bs-toggle="modal"
-                                        data-bs-target="#editRecordModal">
-                                        <i class="bi bi-pencil me-1"></i> Edit
-                                    </button>
-                                    <button class="btn btn-sm btn-outline-danger">
-                                        <i class="bi bi-trash me-1"></i> Delete
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="income" role="tabpanel" aria-labelledby="income-tab">
-                        <!-- Income records would be here -->
-                        <div class="card income">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <h5 class="card-title mb-0">Salary</h5>
+                                    <h5 class="card-title mb-0">Proyecto Freelance</h5>
                                     <h5 class="card-title income-text mb-0">+$2,500.00</h5>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <div>
-                                        <span class="badge bg-primary category-badge">Fixed</span>
-                                        <small class="text-muted ms-2">March 15, 2025</small>
+                                        <span class="badge bg-primary category-badge">Fijo</span>
+                                        <small class="text-muted ms-2">10/03/2025</small>
                                     </div>
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="recurringSwitch6" checked>
+                                        <input class="form-check-input" type="checkbox" id="recurringSwitch1">
                                         <label class="form-check-label small text-muted"
-                                            for="recurringSwitch6">Recurring</label>
+                                            for="recurringSwitch1">Mensual</label>
                                     </div>
                                 </div>
-                                <p class="card-text text-muted small mb-3">Monthly salary payment from ABC Company</p>
+                                <p class="card-text text-muted small mb-3">Venta de pagina para veterinaria</p>
                                 <div class="d-flex justify-content-end">
-                                    <button class="btn btn-sm btn-outline-light me-2">
-                                        <i class="bi bi-pencil me-1"></i> Edit
+                                    <button class="btn btn-sm btn-outline-light me-2" data-bs-toggle="modal"
+                                        data-bs-target="#editRecordModal">
+                                        <i class="bi bi-pencil me-1"></i> Editar
                                     </button>
                                     <button class="btn btn-sm btn-outline-danger">
-                                        <i class="bi bi-trash me-1"></i> Delete
+                                        <i class="bi bi-trash me-1"></i> Eliminar
                                     </button>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="card income">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <h5 class="card-title mb-0">Freelance Project</h5>
-                                    <h5 class="card-title income-text mb-0">+$950.00</h5>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <div>
-                                        <span class="badge bg-warning category-badge">Unforeseen</span>
-                                        <small class="text-muted ms-2">March 10, 2025</small>
-                                    </div>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="recurringSwitch7">
-                                        <label class="form-check-label small text-muted"
-                                            for="recurringSwitch7">Recurring</label>
-                                    </div>
-                                </div>
-                                <p class="card-text text-muted small mb-3">Website development for XYZ client</p>
-                                <div class="d-flex justify-content-end">
-                                    <button class="btn btn-sm btn-outline-light me-2">
-                                        <i class="bi bi-pencil me-1"></i> Edit
-                                    </button>
-                                    <button class="btn btn-sm btn-outline-danger">
-                                        <i class="bi bi-trash me-1"></i> Delete
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="expense" role="tabpanel" aria-labelledby="expense-tab">
-                        <!-- Expense records would be here -->
+                        <!-- Registro de Gasto -->
                         <div class="card expense">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <h5 class="card-title mb-0">Rent</h5>
+                                    <h5 class="card-title mb-0">Alquiler</h5>
                                     <h5 class="card-title expense-text mb-0">-$1,200.00</h5>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <div>
-                                        <span class="badge bg-primary category-badge">Fixed</span>
-                                        <small class="text-muted ms-2">March 1, 2025</small>
+                                        <span class="badge bg-primary category-badge">Fijo</span>
+                                        <small class="text-muted ms-2">01/03/2025</small>
                                     </div>
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="recurringSwitch8" checked>
+                                        <input class="form-check-input" type="checkbox" id="recurringSwitch2" checked>
                                         <label class="form-check-label small text-muted"
-                                            for="recurringSwitch8">Recurring</label>
+                                            for="recurringSwitch2">Mensual</label>
                                     </div>
                                 </div>
-                                <p class="card-text text-muted small mb-3">Monthly apartment rent payment</p>
+                                <p class="card-text text-muted small mb-3">Pago mensual del alquiler del depa</p>
                                 <div class="d-flex justify-content-end">
-                                    <button class="btn btn-sm btn-outline-light me-2">
-                                        <i class="bi bi-pencil me-1"></i> Edit
+                                    <button class="btn btn-sm btn-outline-light me-2" data-bs-toggle="modal"
+                                        data-bs-target="#editRecordModal">
+                                        <i class="bi bi-pencil me-1"></i> Editar
                                     </button>
                                     <button class="btn btn-sm btn-outline-danger">
-                                        <i class="bi bi-trash me-1"></i> Delete
+                                        <i class="bi bi-trash me-1"></i> Eliminar
                                     </button>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="card expense">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <h5 class="card-title mb-0">Groceries</h5>
-                                    <h5 class="card-title expense-text mb-0">-$89.75</h5>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <div>
-                                        <span class="badge bg-warning category-badge">Unforeseen</span>
-                                        <small class="text-muted ms-2">March 18, 2025</small>
-                                    </div>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="recurringSwitch9">
-                                        <label class="form-check-label small text-muted"
-                                            for="recurringSwitch9">Recurring</label>
-                                    </div>
-                                </div>
-                                <p class="card-text text-muted small mb-3">Weekly grocery shopping at Whole Foods</p>
-                                <div class="d-flex justify-content-end">
-                                    <button class="btn btn-sm btn-outline-light me-2">
-                                        <i class="bi bi-pencil me-1"></i> Edit
-                                    </button>
-                                    <button class="btn btn-sm btn-outline-danger">
-                                        <i class="bi bi-trash me-1"></i> Delete
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
 
+                        <!-- Expense Record -->
                         <div class="card expense">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <h5 class="card-title mb-0">Savings</h5>
-                                    <h5 class="card-title expense-text mb-0">-$400.00</h5>
+                                    <h5 class="card-title mb-0">Supermercado</h5>
+                                    <h5 class="card-title expense-text mb-0">-$700.00</h5>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <div>
-                                        <span class="badge bg-info category-badge">Savings</span>
-                                        <small class="text-muted ms-2">March 15, 2025</small>
+                                        <span class="badge bg-primary category-badge">Imprevisto</span>
+                                        <small class="text-muted ms-2">01/03/2025</small>
                                     </div>
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="recurringSwitch10" checked>
+                                        <input class="form-check-input" type="checkbox" id="recurringSwitch2">
                                         <label class="form-check-label small text-muted"
-                                            for="recurringSwitch10">Recurring</label>
+                                            for="recurringSwitch2">Mensual</label>
                                     </div>
                                 </div>
-                                <p class="card-text text-muted small mb-3">Monthly transfer to savings account</p>
+                                <p class="card-text text-muted small mb-3">Compra del super a principio de mes</p>
                                 <div class="d-flex justify-content-end">
-                                    <button class="btn btn-sm btn-outline-light me-2">
-                                        <i class="bi bi-pencil me-1"></i> Edit
+                                    <button class="btn btn-sm btn-outline-light me-2" data-bs-toggle="modal"
+                                        data-bs-target="#editRecordModal">
+                                        <i class="bi bi-pencil me-1"></i> Editar
                                     </button>
                                     <button class="btn btn-sm btn-outline-danger">
-                                        <i class="bi bi-trash me-1"></i> Delete
+                                        <i class="bi bi-trash me-1"></i> Eliminar
                                     </button>
                                 </div>
                             </div>
@@ -437,160 +255,153 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Floating Action Button -->
-    <div class="fab-container">
-        <button class="btn btn-primary fab rounded-circle" data-bs-toggle="modal" data-bs-target="#addRecordModal">
-            <i class="bi bi-plus-lg fs-2"></i>
-        </button>
-    </div>
+        <!-- Boton para agregar registros -->
+        <div class="fab-container">
+            <button class="btn btn-primary fab rounded-circle" data-bs-toggle="modal" data-bs-target="#addRecordModal">
+                <i class="bi bi-plus-lg fs-2"></i>
+            </button>
+        </div>
 
-    <!-- Add Record Modal -->
-    <div class="modal fade" id="addRecordModal" tabindex="-1" aria-labelledby="addRecordModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addRecordModalLabel">Add New Record</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
+        <!-- Formulario para agregar registro -->
+        <div class="modal fade" id="addRecordModal" tabindex="-1" aria-labelledby="addRecordModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addRecordModalLabel">Caragar Registro</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
 
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="recordType" class="form-label">Record Type</label>
-                            <select class="form-select" id="recordType" required>
-                                <option value="" selected disabled>Select type</option>
-                                <option value="income">Income</option>
-                                <option value="expense">Expense</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="recordTitle" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="recordTitle"
-                                placeholder="e.g. Salary, Rent, Groceries" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="recordAmount" class="form-label">Amount</label>
-                            <div class="input-group">
-                                <span class="input-group-text">$</span>
-                                <input type="number" class="form-control" id="recordAmount" placeholder="0.00"
-                                    step="0.01" min="0" required>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="recordType" class="form-label">Tipo de Registro</label>
+                                <select class="form-select" id="recordType" required>
+                                    <option value="" selected disabled>Seleccionar tipo</option>
+                                    <option value="income">Ingreso</option>
+                                    <option value="expense">Gasto</option>
+                                </select>
                             </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="recordCategory" class="form-label">Category</label>
-                            <select class="form-select" id="recordCategory" required>
-                                <option value="" selected disabled>Select category</option>
-                                <option value="fixed">Fixed</option>
-                                <option value="unforeseen">Unforeseen</option>
-                                <option value="savings">Savings</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="recordDate" class="form-label">Date</label>
-                            <input type="date" class="form-control" id="recordDate" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="recordDescription" class="form-label">Description</label>
-                            <textarea class="form-control" id="recordDescription" rows="3"
-                                placeholder="Add details about this record"></textarea>
-                        </div>
-                        <div class="form-check form-switch mb-3">
-                            <input class="form-check-input" type="checkbox" id="recordRecurring">
-                            <label class="form-check-label" for="recordRecurring">Recurring</label>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary">Save Record</button>
+                            <div class="mb-3">
+                                <label for="recordCategory" class="form-label">Categoria</label>
+                                <select class="form-select" id="recordCategory" required>
+                                    <option value="" selected disabled>Selecccionar categoría</option>
+                                    <option value="fixed">Fijo</option>
+                                    <option value="unforeseen">Imprevisto</option>
+                                    <option value="savings">Ahorro</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recordAmount" class="form-label">Monto</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control" id="recordAmount" placeholder="0.00"
+                                        step="0.01" min="0" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recordDate" class="form-label">Fecha</label>
+                                <input type="date" class="form-control" id="recordDate" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recordDescription" class="form-label">Descripción</label>
+                                <textarea class="form-control" id="recordDescription" rows="3"
+                                    placeholder="Add details about this record"></textarea>
+                            </div>
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="recordRecurring">
+                                <label class="form-check-label" for="recordRecurring">Mensual</label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary">Guardar Registro</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Edit Record Modal -->
-    <div class="modal fade" id="editRecordModal" tabindex="-1" aria-labelledby="editRecordModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editRecordModalLabel">Edit Record</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="recordType" class="form-label">Record Type</label>
-                            <select class="form-select" id="recordType" required>
-                                <option value="" selected disabled>Select type</option>
-                                <option value="income">Income</option>
-                                <option value="expense">Expense</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="recordTitle" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="recordTitle"
-                                placeholder="e.g. Salary, Rent, Groceries" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="recordAmount" class="form-label">Amount</label>
-                            <div class="input-group">
-                                <span class="input-group-text">$</span>
-                                <input type="number" class="form-control" id="recordAmount" placeholder="0.00"
-                                    step="0.01" min="0" required>
+        <!-- Formulario para editar registro -->
+        <div class="modal fade" id="editRecordModal" tabindex="-1" aria-labelledby="editRecordModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editRecordModalLabel">Edit Record</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="recordType" class="form-label">Tipo de Registro</label>
+                                <select class="form-select" id="recordType" required>
+                                    <option value="" selected disabled>Seleccionar tipo</option>
+                                    <option value="income">Ingreso</option>
+                                    <option value="expense">Gasto</option>
+                                </select>
                             </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="recordCategory" class="form-label">Category</label>
-                            <select class="form-select" id="recordCategory" required>
-                                <option value="" selected disabled>Select category</option>
-                                <option value="fixed">Fixed</option>
-                                <option value="unforeseen">Unforeseen</option>
-                                <option value="savings">Savings</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="recordDate" class="form-label">Date</label>
-                            <input type="date" class="form-control" id="recordDate" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="recordDescription" class="form-label">Description</label>
-                            <textarea class="form-control" id="recordDescription" rows="3"
-                                placeholder="Add details about this record"></textarea>
-                        </div>
-                        <div class="form-check form-switch mb-3">
-                            <input class="form-check-input" type="checkbox" id="recordRecurring">
-                            <label class="form-check-label" for="recordRecurring">Recurring</label>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary">Save Changes</button>
+                            <div class="mb-3">
+                                <label for="recordCategory" class="form-label">Categoria</label>
+                                <select class="form-select" id="recordCategory" required>
+                                    <option value="" selected disabled>Selecccionar categoría</option>
+                                    <option value="fixed">Fijo</option>
+                                    <option value="unforeseen">Imprevisto</option>
+                                    <option value="savings">Ahorro</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recordAmount" class="form-label">Monto</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control" id="recordAmount" placeholder="0.00"
+                                        step="0.01" min="0" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recordDate" class="form-label">Fecha</label>
+                                <input type="date" class="form-control" id="recordDate" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recordDescription" class="form-label">Descripción</label>
+                                <textarea class="form-control" id="recordDescription" rows="3"
+                                    placeholder="Add details about this record"></textarea>
+                            </div>
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="recordRecurring">
+                                <label class="form-check-label" for="recordRecurring">Mensual</label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary">Guardar Cambios</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Pie de pagina -->
-    <footer class="footer">
-        <div class="container">
-            <p class="footer-text">Esta pagina fue desarollada por Bn'T con copyright reservado © 2025</p>
-        </div>
-    </footer>
+        <!-- Pie de pagina -->
+        <footer class="footer">
+            <div class="container">
+                <p class="footer-text">Esta pagina fue desarollada por Bn'T con copyright reservado © 2025</p>
+            </div>
+        </footer>
 
-    <!-- Scripts de bootstrap -->
-    <script type="module" src="../JS/app.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-        crossorigin="anonymous"></script>
+        <!-- Scripts -->
+        <script type="module" src="../JS/app.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+            integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+            crossorigin="anonymous"></script>
 </body>
+
+
+
 
 </html>
