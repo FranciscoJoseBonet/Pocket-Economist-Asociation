@@ -12,6 +12,7 @@
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <title>PocketEco - Func</title>
 
@@ -45,195 +46,420 @@
         </div>
     </nav>
 
-    <h2>Funciones Básicas</h2>
-    <p>(Los botones togglean con click para ver las características de las funciones)</p>
-    <div class="container">
-        <div class="card"><span class="title">pedirTipo():</span> Pide al usuario que seleccione entre "ingreso" o
-            "gasto"
-            <br><strong>Retorna:</strong> "ingreso" o "gasto"
-        </div>
+    <div class="container py-4">
+        <!-- Hero Section -->
+        <section class="hero-section text-center">
+            <h1 class="app-title">Funciones Generales de la App</h1>
+            <p class="app-description mx-auto">Aca se pueden ver todas las funciones ocupadas para hacer la aplicacion
+                (quizas me olvide alguna :D). Estan separadas por funciones compuestas y funciones basicas
+                con las que estan hechas el resto y casi toda la logica. <br> <br> <strong>Puede ser que exista algun
+                    rastro
+                    en los argumentos o devoluciones de las funciones un console.log o algo de ello ya que la version
+                    preliminar se desarrollo en consola sin manejo del DOM</strong></p>
+        </section>
 
-        <div class="card"><span class="title">pedirMonto(tipo):</span> Pide al usuario un monto numérico mayor o igual a
-            0
-            <br><strong>Argumentos:</strong> tipo ("ingreso" o "gasto")
-            <br><strong>Retorna:</strong> Número ingresado
-        </div>
+        <section class="function-section">
+            <div class="section-header">
+                <h2>Funciones Básicas</h2>
+                <p class="text-center mt-3 text-muted">(Los botones togglean con click para ver las características de
+                    las funciones)</p>
+            </div>
 
-        <div class="card"><span class="title">pedirDescripcion(tipo):</span> Pregunta si desea agregar una descripción;
-            si acepta, solicita una
-            <br><strong>Argumentos:</strong> tipo ("ingreso" o "gasto")
-            <br><strong>Retorna:</strong> Texto con la descripción o "No posee una descripción asignada"
-        </div>
+            <div class="row">
+                <!-- Inicio primera columna -->
+                <div class="col-lg-6">
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">pedirTipo()</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Pide al usuario que seleccione entre "ingreso" o "gasto"</p>
+                            <p class="function-detail"><strong>Retorna:</strong> "ingreso" o "gasto"</p>
+                        </div>
+                    </div>
 
-        <div class="card"><span class="title">pedirEsMensual(tipo):</span> Confirma si el registro es mensual o no
-            <br><strong>Argumentos:</strong> tipo ("ingreso" o "gasto")
-            <br><strong>Retorna:</strong> true (si es mensual) o false (si no lo es)
-        </div>
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">pedirMonto(tipo)</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Pide al usuario un monto numérico mayor o igual a 0</p>
+                            <p class="function-detail"><strong>Argumentos:</strong> tipo ("ingreso" o "gasto")</p>
+                            <p class="function-detail"><strong>Retorna:</strong> Número ingresado</p>
+                        </div>
+                    </div>
 
-        <div class="card"><span class="title">pedirFecha(tipo):</span> Pregunta si se usa la fecha actual o permite
-            ingresar una en formato dd/mm/aaaa
-            <br><strong>Argumentos:</strong> tipo ("ingreso" o "gasto")
-            <br><strong>Retorna:</strong> Fecha en formato "dd/mm/aaaa"
-        </div>
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">pedirDescripcion(tipo)</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Pregunta si desea agregar una descripción; si acepta,
+                                solicita una</p>
+                            <p class="function-detail"><strong>Argumentos:</strong> tipo ("ingreso" o "gasto")</p>
+                            <p class="function-detail"><strong>Retorna:</strong> Texto con la descripción o "No posee
+                                una descripción asignada"</p>
+                        </div>
+                    </div>
 
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">pedirEsMensual(tipo)</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Confirma si el registro es mensual o no</p>
+                            <p class="function-detail"><strong>Argumentos:</strong> tipo ("ingreso" o "gasto")</p>
+                            <p class="function-detail"><strong>Retorna:</strong> true (si es mensual) o false (si no lo
+                                es)</p>
+                        </div>
+                    </div>
 
-        <div class="card"><span class="title">ingresarRegistro():</span> Llama a las funciones anteriores para pedir
-            datos, genera un ID y guarda el registro
-            <br><strong>Retorna:</strong> No retorna nada, pero agrega el registro a la lista correspondiente
-        </div>
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">pedirFecha(tipo)</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Pregunta si se usa la fecha actual o permite ingresar una en
+                                formato dd/mm/aaaa</p>
+                            <p class="function-detail"><strong>Argumentos:</strong> tipo ("ingreso" o "gasto")</p>
+                            <p class="function-detail"><strong>Retorna:</strong> Fecha en formato "dd/mm/aaaa"</p>
+                        </div>
+                    </div>
 
-        <div class="card"><span class="title">mostrarRegistros():</span> Muestra todos los ingresos y gastos almacenados
-            en la consola
-            <br><strong>Retorna:</strong> No retorna nada, solo imprime datos en la consola
-        </div>
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">ingresarRegistro()</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Llama a las funciones anteriores para pedir datos, genera un
+                                ID y guarda el registro</p>
+                            <p class="function-detail"><strong>Retorna:</strong> No retorna nada, pero agrega el
+                                registro a la lista correspondiente</p>
+                        </div>
+                    </div>
 
-        <div class="card"><span class="title">eliminarRegistro(registro):</span> Borra un registro de la lista según su
-            ID
-            <br><strong>Argumentos:</strong> Objeto registro a eliminar
-            <br><strong>Retorna:</strong> No retorna nada, solo modifica la lista
-        </div>
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">mostrarRegistros()</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Muestra todos los ingresos y gastos almacenados en la
+                                consola</p>
+                            <p class="function-detail"><strong>Retorna:</strong> No retorna nada, solo imprime datos en
+                                la consola</p>
+                        </div>
+                    </div>
 
-        <div class="card"><span class="title">buscarRegistro(ID, type):</span> Busca un registro por su ID dentro de la
-            lista de ingresos o gastos
-            <br><strong>Argumentos:</strong> ID (número) y type ("ingreso" o "gasto")
-            <br><strong>Retorna:</strong> Objeto registro encontrado o undefined si no existe
-        </div>
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">eliminarRegistro(registro)</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Borra un registro de la lista según su ID</p>
+                            <p class="function-detail"><strong>Argumentos:</strong> Objeto registro a eliminar</p>
+                            <p class="function-detail"><strong>Retorna:</strong> No retorna nada, solo modifica la lista
+                            </p>
+                        </div>
+                    </div>
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">opcionesDispAtts(registro)</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Muestra los atributos modificables de un registro,
+                                excluyendo "id" y "tipo", con su respectivo número de índice para que el usuario pueda
+                                seleccionar cuál desea modificar.</p>
+                            <p class="function-detail"><strong>Argumentos:</strong> Un objeto `registro` que contiene
+                                los datos del registro a mostrar.</p>
+                            <p class="function-detail"><strong>Retorna:</strong> Un arreglo con dos elementos: el primer
+                                elemento es un string con los atributos del registro formateados para mostrar al
+                                usuario, y el segundo es el número total de atributos disponibles.</p>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Segunda columna arranca aca -->
+                <div class="col-lg-6">
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">buscarRegistro(ID, type)</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Busca un registro por su ID dentro de la lista de ingresos o
+                                gastos</p>
+                            <p class="function-detail"><strong>Argumentos:</strong> ID (número) y type ("ingreso" o
+                                "gasto")</p>
+                            <p class="function-detail"><strong>Retorna:</strong> Objeto registro encontrado o undefined
+                                si no existe</p>
+                        </div>
+                    </div>
 
-        <div class="card"><span class="title">actualizarTotal():</span>
-            Recalcula y actualiza los totales de ingresos, gastos y saldo en base a los registros almacenados.
-            <br><strong>Retorna:</strong> No retorna nada, solo actualiza los valores globales en la aplicación.
-        </div>
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">actualizarTotal()</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Recalcula y actualiza los totales de ingresos, gastos y
+                                saldo en base a los registros almacenados.</p>
+                            <p class="function-detail"><strong>Retorna:</strong> No retorna nada, solo actualiza los
+                                valores globales en la aplicación.</p>
+                        </div>
+                    </div>
 
-        <div class="card"><span class="title">montoFormateoFloat(montoConFormato):</span> Convierte un monto formateado
-            en pesos argentinos a un número flotante.
-            <br><strong>Argumentos:</strong> montoConFormato (cadena de texto con formato de moneda)
-            <br><strong>Retorna:</strong> Número flotante con el valor del monto sin formato
-        </div>
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">montoFormateoFloat(montoConFormato)</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Convierte un monto formateado en pesos argentinos a un
+                                número flotante.</p>
+                            <p class="function-detail"><strong>Argumentos:</strong> montoConFormato (cadena de texto con
+                                formato de moneda)</p>
+                            <p class="function-detail"><strong>Retorna:</strong> Número flotante con el valor del monto
+                                sin formato</p>
+                        </div>
+                    </div>
 
-        <div class="card"><span class="title">montoFormateoPesos(montoSinFormato):</span> Formatea un número a la
-            notación de moneda en pesos argentinos.
-            <br><strong>Argumentos:</strong> montoSinFormato (número sin formato).
-            <br><strong>Retorna:</strong> Cadena de texto con el monto formateado en pesos argentinos
-        </div>
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">montoFormateoPesos(montoSinFormato)</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Formatea un número a la notación de moneda en pesos
+                                argentinos.</p>
+                            <p class="function-detail"><strong>Argumentos:</strong> montoSinFormato (número sin
+                                formato).</p>
+                            <p class="function-detail"><strong>Retorna:</strong> Cadena de texto con el monto formateado
+                                en pesos argentinos</p>
+                        </div>
+                    </div>
 
-        <div class="card"><span class="title">agregarRegistro():</span> Crea un nuevo registro de ingreso o gasto y lo
-            almacena en la lista correspondiente.
-            <br><strong>Argumentos:</strong> No recibe argumentos directamente, pero usa los valores obtenidos de las
-            funciones de entrada (tipo, monto, descripción, categoría, etc.).
-            <br><strong>Retorna:</strong> No retorna un valor explícito, pero actualiza la lista de registros
-            almacenados.
-        </div>
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">generarID(tipo)</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Genera un nuevo ID único para un registro de ingreso o
+                                gasto, incrementando un contador global para cada tipo.</p>
+                            <p class="function-detail"><strong>Argumentos:</strong> tipo ("ingreso" o "gasto").</p>
+                            <p class="function-detail"><strong>Retorna:</strong> Número único (ID generado).</p>
+                        </div>
+                    </div>
 
-        <div class="card"><span class="title">eliminarRegistro(registro):</span> Elimina un registro de la lista según
-            su ID.
-            <br><strong>Argumentos:</strong> Objeto registro (debe contener un ID válido).
-            <br><strong>Retorna:</strong> `true` si se eliminó correctamente, `false` si no se encontró el registro.
-        </div>
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">asignarAtt(registro, atributo, valor)</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Asigna un nuevo valor a un atributo específico de un
+                                registro.</p>
+                            <p class="function-detail"><strong>Argumentos:</strong> registro (objeto del registro),
+                                atributo (nombre del atributo), valor (nuevo valor para el atributo).</p>
+                            <p class="function-detail"><strong>Retorna:</strong> El valor actualizado del atributo en el
+                                registro.</p>
+                        </div>
+                    </div>
 
-        <div class="card"><span class="title">generarID(tipo):</span> Genera un nuevo ID único para un registro de
-            ingreso o gasto, incrementando un contador global para cada tipo.
-            <br><strong>Argumentos:</strong> tipo ("ingreso" o "gasto").
-            <br><strong>Retorna:</strong> Número único (ID generado).
-        </div>
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">esVacio(tipo, mostrarMensaje = true)</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Verifica si la lista de ingresos o gastos está vacía y
+                                opcionalmente muestra un mensaje en la consola.</p>
+                            <p class="function-detail"><strong>Argumentos:</strong> tipo ("ingreso" o "gasto"),
+                                mostrarMensaje (booleano que indica si se debe mostrar un mensaje en la consola).</p>
+                            <p class="function-detail"><strong>Retorna:</strong> Booleano (true si está vacía, false si
+                                no).</p>
+                        </div>
+                    </div>
 
-        <div class="card"><span class="title">asignarAtt(registro, atributo, valor):</span> Asigna un nuevo valor a un
-            atributo específico de un registro.
-            <br><strong>Argumentos:</strong> registro (objeto del registro), atributo (nombre del atributo), valor
-            (nuevo valor para el atributo).
-            <br><strong>Retorna:</strong> El valor actualizado del atributo en el registro.
-        </div>
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">existeId(tipo, valor)</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Verifica si existe un registro con un ID específico en la
+                                lista de ingresos o gastos.</p>
+                            <p class="function-detail"><strong>Argumentos:</strong> tipo ("ingreso" o "gasto"), valor
+                                (ID a buscar).</p>
+                            <p class="function-detail"><strong>Retorna:</strong> Booleano (true si existe el ID, false
+                                si no).</p>
+                        </div>
+                    </div>
 
-        <div class="card"><span class="title">esVacio(tipo, mostrarMensaje = true):</span> Verifica si la lista de
-            ingresos o gastos está vacía y opcionalmente muestra un mensaje en la consola.
-            <br><strong>Argumentos:</strong> tipo ("ingreso" o "gasto"), mostrarMensaje (booleano que indica si se debe
-            mostrar un mensaje en la consola).
-            <br><strong>Retorna:</strong> Booleano (true si está vacía, false si no).
-        </div>
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">opcionesDispCat(tipo)</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Devuelve una lista de categorías disponibles (ingresos o
+                                gastos) con formato para mostrar al usuario.</p>
+                            <p class="function-detail"><strong>Argumentos:</strong> tipo ("ingreso" o "gasto").</p>
+                            <p class="function-detail"><strong>Retorna:</strong> String con las categorías disponibles
+                                para el tipo especificado.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="card"><span class="title">existeId(tipo, valor):</span> Verifica si existe un registro con un ID
-            específico en la lista de ingresos o gastos.
-            <br><strong>Argumentos:</strong> tipo ("ingreso" o "gasto"), valor (ID a buscar).
-            <br><strong>Retorna:</strong> Booleano (true si existe el ID, false si no).
-        </div>
+        <!-- Funciones Compuestas -->
+        <section class="function-section">
+            <div class="section-header">
+                <h2>Funciones compuestas</h2>
+            </div>
 
-        <div class="card"><span class="title">opcionesDispCat(tipo):</span> Devuelve una lista de categorías disponibles
-            (ingresos o gastos) con formato para mostrar al usuario.
-            <br><strong>Argumentos:</strong> tipo ("ingreso" o "gasto").
-            <br><strong>Retorna:</strong> String con las categorías disponibles para el tipo especificado.
-        </div>
+            <div class="row beta">
+                <div class="col-lg-6">
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">ingresarRegistro()</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Crea un nuevo registro de ingreso o gasto y lo almacena en
+                                la lista correspondiente.</p>
+                            <p class="function-detail"><strong>Argumentos:</strong> Ninguno (solicita los datos al
+                                usuario mediante otras funciones).</p>
+                            <p class="function-detail"><strong>Retorna:</strong> Objeto del registro creado.</p>
+                        </div>
+                    </div>
 
-        <div class="card"><span class="title">opcionesDispAtts(registro):</span> Muestra los atributos modificables de
-            un registro, excluyendo "id" y "tipo", con su respectivo número de índice para que el usuario pueda
-            seleccionar cuál desea modificar.
-            <br><strong>Argumentos:</strong> Un objeto `registro` que contiene los datos del registro a mostrar.
-            <br><strong>Retorna:</strong> Un arreglo con dos elementos: el primer elemento es un string con los
-            atributos del registro formateados para mostrar al usuario, y el segundo es el número total de atributos
-            disponibles.
-        </div>
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">mostrarRegistros()</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Muestra en la consola todos los registros almacenados,
+                                diferenciando entre ingresos y gastos.</p>
+                            <p class="function-detail"><strong>Argumentos:</strong> Ninguno.</p>
+                            <p class="function-detail"><strong>Retorna:</strong> Nada (muestra los datos en la consola).
+                            </p>
+                        </div>
+                    </div>
 
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">calcularSaldo()</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Calcula la diferencia entre ingresos y gastos totales</p>
+                            <p class="function-detail"><strong>Retorna:</strong> Número con el saldo actual</p>
+                        </div>
+                    </div>
 
-    </div>
-    <h2>Funciones compuestas</h2>
-    <div class="container beta">
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">pedirCategoria(tipo)</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Pregunta si desea agregar una categoría y permite elegir una
+                                de la lista</p>
+                            <p class="function-detail"><strong>Argumentos:</strong> tipo ("ingreso" o "gasto").</p>
+                            <p class="function-detail"><strong>Retorna:</strong> Nombre de la categoría seleccionada o
+                                "Varios"</p>
+                        </div>
+                    </div>
 
-        <div class="card"><span class="title">ingresarRegistro():</span> Crea un nuevo registro de ingreso o gasto y lo
-            almacena en la lista correspondiente.
-            <br><strong>Argumentos:</strong> Ninguno (solicita los datos al usuario mediante otras funciones).
-            <br><strong>Retorna:</strong> Objeto del registro creado.
-        </div>
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">pedirId(tipo)</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Pide un ID de registro existente para eliminarlo (Solo para
+                                usar las funciones con punteros a registros para asi identificarlos)</p>
+                            <p class="function-detail"><strong>Argumentos:</strong> tipo ("ingreso" o "gasto")</p>
+                            <p class="function-detail"><strong>Retorna:</strong> Número del ID ingresado</p>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="card"><span class="title">mostrarRegistros():</span> Muestra en la consola todos los registros
-            almacenados, diferenciando entre ingresos y gastos.
-            <br><strong>Argumentos:</strong> Ninguno.
-            <br><strong>Retorna:</strong> Nada (muestra los datos en la consola).
-        </div>
+                <div class="col-lg-6">
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">seleccionarEliminarRegistro()</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Permite al usuario seleccionar un registro para eliminar de
+                                la lista, mostrando un índice para cada uno y pidiendo confirmación antes de proceder
+                                con la eliminación.</p>
+                            <p class="function-detail"><strong>Argumentos:</strong> Ninguno.</p>
+                            <p class="function-detail"><strong>Retorna:</strong> Nada. El registro seleccionado será
+                                eliminado de la base de datos si el usuario confirma la acción.</p>
+                        </div>
+                    </div>
 
-        <div class="card"><span class="title">calcularSaldo():</span> Calcula la diferencia entre ingresos y gastos
-            totales
-            <br><strong>Retorna:</strong> Número con el saldo actual
-        </div>
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">editarRegistro()</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Permite al usuario modificar los atributos de un registro
+                                previamente seleccionado. Muestra las opciones disponibles para editar los campos,
+                                excluyendo el campo "id" y "tipo".</p>
+                            <p class="function-detail"><strong>Argumentos:</strong> Ninguno. El registro a editar se
+                                selecciona en un paso previo.</p>
+                            <p class="function-detail"><strong>Retorna:</strong> Nada. El registro se actualizará con
+                                los nuevos valores proporcionados por el usuario.</p>
+                        </div>
+                    </div>
 
-        <div class="card"><span class="title">pedirCategoria(tipo):</span> Pregunta si desea agregar una categoría y
-            permite elegir una de la lista
-            <br><strong>Argumentos:</strong> tipo ("ingreso" o "gasto").
-            <br><strong>Retorna:</strong> Nombre de la categoría seleccionada o "Varios"
-        </div>
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">pedirAttCambiar()</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Solicita al usuario que seleccione qué atributo de un
+                                registro desea cambiar, mostrándole las opciones disponibles (atributos modificables).
+                            </p>
+                            <p class="function-detail"><strong>Argumentos:</strong> Ninguno.</p>
+                            <p class="function-detail"><strong>Retorna:</strong> Un valor que corresponde al índice del
+                                atributo seleccionado para cambiar.</p>
+                        </div>
+                    </div>
 
-        <div class="card"><span class="title">pedirId(tipo):</span> Pide un ID de registro existente para eliminarlo
-            (Solo para usar las funciones con punteros a registros para asi identificarlos)
-            <br><strong>Argumentos:</strong> tipo ("ingreso" o "gasto")
-            <br><strong>Retorna:</strong> Número del ID ingresado
-        </div>
-
-        <div class="card"><span class="title">seleccionarEliminarRegistro():</span> Permite al usuario seleccionar un
-            registro para eliminar de la lista, mostrando un índice para cada uno y pidiendo confirmación antes de
-            proceder con la eliminación.
-            <br><strong>Argumentos:</strong> Ninguno.
-            <br><strong>Retorna:</strong> Nada. El registro seleccionado será eliminado de la base de datos si el
-            usuario confirma la acción.
-        </div>
-
-        <div class="card"><span class="title">editarRegistro():</span> Permite al usuario modificar los atributos de un
-            registro previamente seleccionado. Muestra las opciones disponibles para editar los campos, excluyendo el
-            campo "id" y "tipo".
-            <br><strong>Argumentos:</strong> Ninguno. El registro a editar se selecciona en un paso previo.
-            <br><strong>Retorna:</strong> Nada. El registro se actualizará con los nuevos valores proporcionados por el
-            usuario.
-        </div>
-
-        <div class="card"><span class="title">pedirAttCambiar():</span> Solicita al usuario que seleccione qué atributo
-            de un registro desea cambiar, mostrándole las opciones disponibles (atributos modificables).
-            <br><strong>Argumentos:</strong> Ninguno.
-            <br><strong>Retorna:</strong> Un valor que corresponde al índice del atributo seleccionado para cambiar.
-        </div>
-
-        <div class="card"><span class="title">seleccionarAtt():</span> Muestra los atributos de un registro y permite al
-            usuario seleccionar cuál desea modificar. Excluye "id" y "tipo" de la selección.
-            <br><strong>Argumentos:</strong> Ninguno.
-            <br><strong>Retorna:</strong> El índice del atributo seleccionado para ser editado.
-        </div>
-
+                    <div class="function-card">
+                        <div class="function-header" tabindex="0">
+                            <h3 class="function-title">seleccionarAtt()</h3>
+                            <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+                        </div>
+                        <div class="function-body">
+                            <p class="function-description">Muestra los atributos de un registro y permite al usuario
+                                seleccionar cuál desea modificar. Excluye "id" y "tipo" de la selección.</p>
+                            <p class="function-detail"><strong>Argumentos:</strong> Ninguno.</p>
+                            <p class="function-detail"><strong>Retorna:</strong> El índice del atributo seleccionado
+                                para ser editado.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <!-- Pie de pagina -->
@@ -243,8 +469,9 @@
         </div>
     </footer>
 
-    <!-- Scripts de bootstrap -->
+    <!-- Scripts -->
     <script type="module" src="../JS/app.js"></script>
+    <script src="../JS/views/cardToggler.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>

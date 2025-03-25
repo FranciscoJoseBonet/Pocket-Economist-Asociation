@@ -12,9 +12,3 @@ const cards = document.querySelectorAll(".card");
 btnAgregar.addEventListener("click", ingresarRegistro);
 btnVer.addEventListener("click", mostrarRegistros);
 btnDel.addEventListener("click", seleccionarEliminarRegistro);
-
-cards.forEach((card) => {
-	card.addEventListener("click", function () {
-		this.classList.toggle("expanded");
-	});
-});

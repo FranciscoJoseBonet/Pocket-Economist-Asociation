@@ -25,6 +25,112 @@ body {
 	flex-direction: column;
 }
 
+/* estilos de las funciones */
+.function-section {
+	padding: 2rem 0;
+}
+
+.section-header {
+	text-align: center;
+	margin-bottom: 2rem;
+	position: relative;
+}
+
+.section-header::after {
+	content: "";
+	display: block;
+	width: 300px;
+	height: 3px;
+	background: linear-gradient(
+		to right,
+		var(--income-color),
+		var(--expense-color)
+	);
+	margin: 10px auto 0;
+	border-radius: 3px;
+}
+
+.function-card {
+	background-color: var(--card-dark);
+	border-radius: 10px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
+	margin-bottom: 1.5rem;
+	overflow: hidden;
+}
+
+.function-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.function-header {
+	padding: 1rem 1.5rem;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+}
+
+.function-title {
+	font-weight: bold;
+	color: var(--balance-color);
+	margin: 0;
+	font-size: 1.1rem;
+}
+
+.function-body {
+	padding: 0;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.5s ease, padding 0.5s ease;
+}
+
+.function-body.show {
+	padding: 1.5rem;
+	max-height: 500px;
+}
+
+.function-description {
+	margin-bottom: 1rem;
+}
+
+.function-detail {
+	margin-bottom: 0.5rem;
+}
+
+.function-detail strong {
+	color: var(--income-color);
+}
+
+.toggle-icon {
+	transition: transform 0.3s ease;
+	color: var(--text-light);
+	font-size: 1.2rem;
+	width: 30px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.function-header.active .toggle-icon {
+	transform: rotate(180deg);
+	background-color: rgba(13, 110, 253, 0.2);
+}
+
+/* Estilos para funciones compuestas */
+.beta .function-card {
+	border-left: 4px solid var(--income-color);
+}
+
+.beta .function-title {
+	color: var(--income-color);
+}
+
 .card-title,
 .text-muted {
 	color: #ffff !important;
@@ -400,6 +506,10 @@ body {
 }
 
 @media (max-width: 768px) {
+	.function-title {
+		font-size: 1rem;
+	}
+
 	.action-button {
 		width: 150px;
 		height: 150px;
