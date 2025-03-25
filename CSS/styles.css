@@ -14,6 +14,7 @@
 	--text-light: #f8f9fa !important;
 	--bs-secondary-color: rgb(255, 255, 255) !important;
 }
+
 body {
 	background-color: var(--bg-dark) !important;
 	color: var(--text-light) !important;
