@@ -8,3 +8,7 @@ export function montoFormateoPesos(monto) {
 export function montoFormateoFloat(montoConFormato) {
 	return parseFloat(montoConFormato.replace(/[^0-9,-]/g, "").replace(",", "."));
 }
+
+export function parseBase64(ingreso) {
+	return btoa(ingreso);
+}

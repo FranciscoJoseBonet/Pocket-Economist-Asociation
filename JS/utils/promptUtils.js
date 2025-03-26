@@ -4,11 +4,6 @@ import { gastosCategoria, ingresosCategoria } from "../data/dbCategorias.js";
 export let conteoIdIngresos = 0;
 export let conteoIdGastos = 0;
 
-export function generarID(tipo) {
-	if (tipo === "ingreso") return ++conteoIdIngresos;
-	return ++conteoIdGastos;
-}
-
 export function pedirTipo() {
 	let aux;
 	do {
@@ -210,9 +205,4 @@ export function pedirAttACambiar(att, tipo) {
 			return [aux, "fecha"];
 	}
 	return 1;
-}
-
-//asignacion de un nuevo vaclor a un registro
-export function asignarAtt(registro, atributo, valor) {
-	return (registro[atributo] = valor);
 }

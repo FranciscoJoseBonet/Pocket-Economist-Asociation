@@ -70,6 +70,11 @@ export function ingresarRegistro() {
 	agregarRegistro(nuevoRegistro);
 }
 
+//asignacion de un nuevo vaclor a un registro
+export function asignarAtt(registro, atributo, valor) {
+	return (registro[atributo] = valor);
+}
+
 //Editar un registro
 export function editarRegistro() {
 	const tipo = promptModule.pedirTipo();
@@ -84,7 +89,7 @@ export function editarRegistro() {
 	const attNombre = attList[1];
 	if (nuevoAtt === null) return;
 
-	promptModule.asignarAtt(reg, attNombre, nuevoAtt);
+	asignarAtt(reg, attNombre, nuevoAtt);
 	console.log(
 		`El atributo ${attNombre}, ha sido modificado correctamente a ${nuevoAtt}`
 	);
