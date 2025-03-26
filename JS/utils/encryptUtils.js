@@ -1,1 +1,1 @@
-export function encriptarJSON(passb64) {} // Funcion para pasar de JSON a AES
+// Funcion para convertir JSON a Base64
