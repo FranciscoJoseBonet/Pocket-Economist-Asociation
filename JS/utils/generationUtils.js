@@ -1,10 +1,10 @@
-//Funcon para generar un id
-function generarID(tipo) {
+//Funcon para actualizar el total de Ids (suma de a uno)
+function generarID(tipo, totalId) {
 	if (tipo === "ingreso") {
-		conteoIdIngresos += 1;
-		return conteoIdIngresos;
+		totalId += 1;
+		return totalId;
 	} else {
-		conteoIdGastos += 1;
-		return conteoIdGastos;
+		totalId += 1;
+		return totalId;
 	}
 }

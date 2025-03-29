@@ -5,10 +5,14 @@ export class DatosUsuario {
 		GastosList = [],
 		IngresosList = [],
 		GastosCategList = [],
-		IngresosCategList = []
+		IngresosCategList = [],
+		conteoIdGastos = 0,
+		conteoIdIngresos = 0
 	) {
 		this.GastosList = GastosList;
+		this.IdTotalesGastos = conteoIdGastos;
 		this.IngresosList = IngresosList;
+		this.IdTotalesIngresos = conteoIdIngresos;
 		this.GastosCategList = GastosCategList;
 		this.IngresosCategList = IngresosCategList;
 	}

@@ -1,18 +1,23 @@
-// Aca van todas las funciones necesarias para que almacenamientoController funcione correctamente
+// Aca van todas las funciones para que use el controlador de almacenamiento
 
-import { DatosUsuario } from "../models/DatosUsuario.js"; // devuelve el objeto con los datos del usuario en formato Base64
+import { DatosUsuario } from "../models/DatosUsuario.js";
 
-export function savedDataToB64(
+// devuelve el objeto con los datos del usuario
+export function sessionDataInObject(
 	gastos,
 	ingresos,
 	gastosCategoria,
-	ingresosCategoria
+	ingresosCategoria,
+	totalGastos,
+	totalIngresos
 ) {
 	let objData = new DatosUsuario(
 		gastos,
 		ingresos,
 		gastosCategoria,
-		ingresosCategoria
+		ingresosCategoria,
+		totalGastos,
+		totalIngresos
 	);
-	return btoa(JSON.stringify(objData));
+	return objData;
 }
