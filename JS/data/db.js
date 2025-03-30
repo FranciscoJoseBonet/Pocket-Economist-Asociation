@@ -1,5 +1,7 @@
-import { leerSessionDataLocal } from "../controllers/localStorageController";
+import { leerSessionDataLocal } from "../controllers/localStorageController.js";
 
+// En estos arrays se descompone el objeto guardado en el localStorage
+// Todas las operaciones se hacn sobre estos arrays
 export let gastos = [];
 export let ingresos = [];
 
@@ -9,9 +11,18 @@ export function agregarRegistro(registro) {
 	} else {
 		gastos.push(registro);
 	}
+
+	console.log(`Estos son los ingresos:`);
+	ingresos.forEach((gasto) => {
+		console.log(gasto.mostrarRegistro());
+	});
+	console.log("Estos son los gastos:");
+	gastos.forEach((gasto) => {
+		console.log(gasto.mostrarRegistro());
+	});
 }
 
-export function eliminarRegistro(id, tipo) {
+export function borrarRegistro(id, tipo) {
 	if (tipo === "ingreso") {
 		const index = ingresos.findIndex((reg) => reg.id === id);
 		if (index !== -1) ingresos.splice(index, 1);

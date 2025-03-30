@@ -265,56 +265,57 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addRecordModalLabel">Caragar Registro</h5>
+                        <h5 class="modal-title" id="addRecordModalLabel">Agregar Registro</h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
 
                     <div class="modal-body">
-                        <form>
+                        <form method="post" id="addRecordForm">
                             <div class="mb-3">
                                 <label for="recordType" class="form-label">Tipo de Registro</label>
                                 <select class="form-select" id="recordType" required>
                                     <option value="" selected disabled>Seleccionar tipo</option>
-                                    <option value="income">Ingreso</option>
-                                    <option value="expense">Gasto</option>
+                                    <option value="ingreso">Ingreso</option>
+                                    <option value="gasto">Gasto</option>
                                 </select>
                             </div>
                             <div class="mb-3">
                                 <label for="recordCategory" class="form-label">Categoria</label>
                                 <select class="form-select" id="recordCategory" required>
-                                    <option value="" selected disabled>Selecccionar categoría</option>
-                                    <option value="fixed">Fijo</option>
-                                    <option value="unforeseen">Imprevisto</option>
-                                    <option value="savings">Ahorro</option>
+                                    <option value="varios" selected>Varios</option>
+                                    <option value="fijo">Fijo</option>
+                                    <option value="imprevisto">Imprevisto</option>
+                                    <option value="ahorro">Ahorro</option>
                                 </select>
                             </div>
                             <div class="mb-3">
                                 <label for="recordAmount" class="form-label">Monto</label>
                                 <div class="input-group">
                                     <span class="input-group-text">$</span>
-                                    <input type="number" class="form-control" id="recordAmount" placeholder="0.00"
+                                    <input type="number" class="form-control" id="recordAmount" placeholder="0"
                                         step="0.01" min="0" required>
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label for="recordDate" class="form-label">Fecha</label>
-                                <input type="date" class="form-control" id="recordDate" required>
+                                <input type="date" class="form-control" id="recordDate">
                             </div>
                             <div class="mb-3">
                                 <label for="recordDescription" class="form-label">Descripción</label>
                                 <textarea class="form-control" id="recordDescription" rows="3"
-                                    placeholder="Add details about this record"></textarea>
+                                    placeholder="Agrega una breve descripcion"></textarea>
                             </div>
                             <div class="form-check form-switch mb-3">
                                 <input class="form-check-input" type="checkbox" id="recordRecurring">
                                 <label class="form-check-label" for="recordRecurring">Mensual</label>
                             </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary">Guardar Registro</button>
                     </div>
                 </div>
             </div>
@@ -331,7 +332,7 @@
                             aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form id="editRecordForm" method="post">
                             <div class="mb-3">
                                 <label for="recordType" class="form-label">Tipo de Registro</label>
                                 <select class="form-select" id="recordType" required>
@@ -370,11 +371,12 @@
                                 <input class="form-check-input" type="checkbox" id="recordRecurring">
                                 <label class="form-check-label" for="recordRecurring">Mensual</label>
                             </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                            </div>
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary">Guardar Cambios</button>
                     </div>
                 </div>
             </div>

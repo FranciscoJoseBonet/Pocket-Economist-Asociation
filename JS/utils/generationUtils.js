@@ -1,10 +1,13 @@
+import { totalIdsGastos, totalIdsIngresos } from "../data/IdsDb.js";
+import { aumentarId } from "../data/IdsDb.js";
+
 //Funcon para actualizar el total de Ids (suma de a uno)
-function generarID(tipo, totalId) {
+export function generarID(tipo) {
 	if (tipo === "ingreso") {
-		totalId += 1;
-		return totalId;
+		aumentarId(tipo, 1);
+		return totalIdsIngresos;
 	} else {
-		totalId += 1;
-		return totalId;
+		aumentarId(tipo, 1);
+		return totalIdsGastos;
 	}
 }

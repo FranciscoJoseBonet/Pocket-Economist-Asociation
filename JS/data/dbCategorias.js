@@ -1,3 +1,7 @@
+import { leerSessionDataLocal } from "../controllers/localStorageController.js";
+
+// En estos arrays se descompone el objeto guardado en el localStorage
+// Todas las operaciones se hacn sobre estos arrays
 export let gastosCategoria = [];
 export let ingresosCategoria = [];
 

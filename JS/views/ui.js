@@ -1,14 +1,8 @@
-import {
-	ingresarRegistro,
-	seleccionarEliminarRegistro,
-} from "../controllers/registroController.js";
-import { mostrarRegistros } from "./consoleCustomLogs.js";
+import { ingresarRegistro } from "../controllers/registerCRUDController.js";
 
-const btnAgregar = document.getElementById("addBtn");
-const btnVer = document.getElementById("seeBtn");
-const btnDel = document.getElementById("deleteBtn");
-const cards = document.querySelectorAll(".card");
+const formAgregar = document.getElementById("addRecordForm");
 
-btnAgregar.addEventListener("click", ingresarRegistro);
-btnVer.addEventListener("click", mostrarRegistros);
-btnDel.addEventListener("click", seleccionarEliminarRegistro);
+formAgregar.addEventListener("submit", (event) => {
+	event.preventDefault();
+	ingresarRegistro();
+});
