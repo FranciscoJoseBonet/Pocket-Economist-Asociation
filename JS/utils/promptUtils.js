@@ -122,19 +122,6 @@ export function pedirId(tipo) {
 	return aux;
 }
 
-//Ver si el array esta vacio
-export function esVacio(tipo, mostrarMensaje = true) {
-	if (tipo === "ingreso" && ingresos.length === 0) {
-		if (mostrarMensaje) console.log("No hay ingresos registrados");
-		return true;
-	}
-	if (tipo === "gasto" && gastos.length === 0) {
-		if (mostrarMensaje) console.log("No hay gastos registrados");
-		return true;
-	}
-	return false;
-}
-
 //Validar existencia de ID
 export function existeId(tipo, valor) {
 	if (typeof tipo !== "string" || (tipo !== "ingreso" && tipo !== "gasto")) {

@@ -1,6 +1,6 @@
 import { Registro } from "../models/Registro.js";
 import { generarID } from "../utils/generationUtils.js";
-import { agregarRegistro, borrarRegistro } from "../data/db.js";
+import { agregarRegistro, borrarRegistro, esVacio } from "../data/db.js";
 
 // Esta funcion sirve para ingresar los datos del formulario de la carga del registro
 export function ingresarRegistro() {
@@ -28,21 +28,14 @@ export function ingresarRegistro() {
 	agregarRegistro(nuevoRegistro);
 }
 
-// Reparar estas dos funciones una vez que tenga terminado el front para mostrar los registros
-
-// //Funcion para llamar y que interactue con el usuario para eliminar un registro
-// export function seleccionarEliminarRegistro() {
-// 	const tipo = promptModule.pedirTipo();
-// 	if (tipo === null) return;
-// 	if (promptModule.esVacio(tipo, false)) {
-// 		console.log(`No existen registros de ${tipo}s`);
-// 		return;
-// 	}
-// 	const id = promptModule.pedirId(tipo);
-// 	if (id === null) return;
-// 	const reg = buscarRegistro(id, tipo);
-// 	eliminarRegistro(reg);
-// }
+//Funcion para llamar y que interactue con el usuario para eliminar un registro
+export function eliminarRegistro(tipo, id) {
+	if (esVacio(tipo)) {
+		console.log(`No existen registros de ${tipo}s`);
+		return null;
+	}
+	borrarRegistro(tipo, id);
+}
 
 // //asignacion de un nuevo vaclor a un registro
 // export function asignarAtt(registro, atributo, valor) {

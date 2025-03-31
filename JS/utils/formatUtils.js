@@ -1,5 +1,5 @@
 export function montoFormateoPesos(monto) {
-	return monto.toLocaleString("es-AR", {
+	return monto.toLocaleString("us-US", {
 		style: "currency",
 		currency: "ARS",
 	});

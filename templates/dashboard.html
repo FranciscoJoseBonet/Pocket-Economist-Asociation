@@ -124,129 +124,8 @@
 
                 <div class="tab-content" id="recordTabsContent">
                     <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
-                        <!-- Registro de ingreso -->
-                        <div class="card income">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <h5 class="card-title mb-0">Salario</h5>
-                                    <h5 class="card-title income-text mb-0">+$2,500.00</h5>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <div>
-                                        <span class="badge bg-primary category-badge">Fijo</span>
-                                        <small class="text-muted ms-2">15/03/2025</small>
-                                    </div>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="recurringSwitch1" checked>
-                                        <label class="form-check-label small text-muted"
-                                            for="recurringSwitch1">Mensual</label>
-                                    </div>
-                                </div>
-                                <p class="card-text text-muted small mb-3">Mi salario mensual de Google xd (?</p>
-                                <div class="d-flex justify-content-end">
-                                    <button class="btn btn-sm btn-outline-light me-2" data-bs-toggle="modal"
-                                        data-bs-target="#editRecordModal">
-                                        <i class="bi bi-pencil me-1"></i> Editar
-                                    </button>
-                                    <button class="btn btn-sm btn-outline-danger">
-                                        <i class="bi bi-trash me-1"></i> Eliminar
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card income">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <h5 class="card-title mb-0">Proyecto Freelance</h5>
-                                    <h5 class="card-title income-text mb-0">+$2,500.00</h5>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <div>
-                                        <span class="badge bg-primary category-badge">Fijo</span>
-                                        <small class="text-muted ms-2">10/03/2025</small>
-                                    </div>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="recurringSwitch1">
-                                        <label class="form-check-label small text-muted"
-                                            for="recurringSwitch1">Mensual</label>
-                                    </div>
-                                </div>
-                                <p class="card-text text-muted small mb-3">Venta de pagina para veterinaria</p>
-                                <div class="d-flex justify-content-end">
-                                    <button class="btn btn-sm btn-outline-light me-2" data-bs-toggle="modal"
-                                        data-bs-target="#editRecordModal">
-                                        <i class="bi bi-pencil me-1"></i> Editar
-                                    </button>
-                                    <button class="btn btn-sm btn-outline-danger">
-                                        <i class="bi bi-trash me-1"></i> Eliminar
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Registro de Gasto -->
-                        <div class="card expense">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <h5 class="card-title mb-0">Alquiler</h5>
-                                    <h5 class="card-title expense-text mb-0">-$1,200.00</h5>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <div>
-                                        <span class="badge bg-primary category-badge">Fijo</span>
-                                        <small class="text-muted ms-2">01/03/2025</small>
-                                    </div>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="recurringSwitch2" checked>
-                                        <label class="form-check-label small text-muted"
-                                            for="recurringSwitch2">Mensual</label>
-                                    </div>
-                                </div>
-                                <p class="card-text text-muted small mb-3">Pago mensual del alquiler del depa</p>
-                                <div class="d-flex justify-content-end">
-                                    <button class="btn btn-sm btn-outline-light me-2" data-bs-toggle="modal"
-                                        data-bs-target="#editRecordModal">
-                                        <i class="bi bi-pencil me-1"></i> Editar
-                                    </button>
-                                    <button class="btn btn-sm btn-outline-danger">
-                                        <i class="bi bi-trash me-1"></i> Eliminar
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <!-- Expense Record -->
-                        <div class="card expense">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <h5 class="card-title mb-0">Supermercado</h5>
-                                    <h5 class="card-title expense-text mb-0">-$700.00</h5>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <div>
-                                        <span class="badge bg-primary category-badge">Imprevisto</span>
-                                        <small class="text-muted ms-2">01/03/2025</small>
-                                    </div>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="recurringSwitch2">
-                                        <label class="form-check-label small text-muted"
-                                            for="recurringSwitch2">Mensual</label>
-                                    </div>
-                                </div>
-                                <p class="card-text text-muted small mb-3">Compra del super a principio de mes</p>
-                                <div class="d-flex justify-content-end">
-                                    <button class="btn btn-sm btn-outline-light me-2" data-bs-toggle="modal"
-                                        data-bs-target="#editRecordModal">
-                                        <i class="bi bi-pencil me-1"></i> Editar
-                                    </button>
-                                    <button class="btn btn-sm btn-outline-danger">
-                                        <i class="bi bi-trash me-1"></i> Eliminar
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- Registros -->
+                        <p>Ooooops.... Parece que no hay registros cargados aún >.< </p>
                     </div>
                 </div>
             </div>
@@ -260,8 +139,7 @@
         </div>
 
         <!-- Formulario para agregar registro -->
-        <div class="modal fade" id="addRecordModal" tabindex="-1" aria-labelledby="addRecordModalLabel"
-            aria-hidden="true">
+        <div class="modal" id="addRecordModal" tabindex="-1" aria-labelledby="addRecordModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -283,10 +161,10 @@
                             <div class="mb-3">
                                 <label for="recordCategory" class="form-label">Categoria</label>
                                 <select class="form-select" id="recordCategory" required>
-                                    <option value="varios" selected>Varios</option>
-                                    <option value="fijo">Fijo</option>
-                                    <option value="imprevisto">Imprevisto</option>
-                                    <option value="ahorro">Ahorro</option>
+                                    <option value="Varios">Varios</option>
+                                    <option value="Fijo">Fijo</option>
+                                    <option value="Imprevisto">Imprevisto</option>
+                                    <option value="Ahorro">Ahorro</option>
                                 </select>
                             </div>
                             <div class="mb-3">
