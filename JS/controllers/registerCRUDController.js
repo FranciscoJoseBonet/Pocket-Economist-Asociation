@@ -37,6 +37,8 @@ export function eliminarRegistro(tipo, id) {
 	borrarRegistro(tipo, id);
 }
 
+//Estas funciones las tengo que editar para que interactuen con el front
+
 // //asignacion de un nuevo vaclor a un registro
 // export function asignarAtt(registro, atributo, valor) {
 // 	return (registro[atributo] = valor);

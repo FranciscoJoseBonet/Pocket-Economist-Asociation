@@ -49,7 +49,7 @@ export function showRecords() {
                                 data-bs-target="#editRecordModal">
                                 <i class="bi bi-pencil me-1"></i> Editar
                             </button>
-                            <button class="btn btn-sm btn-outline-danger" id="deleteReg" data-id="${id}" data-tipo="${tipo}">
+                            <button class="btn btn-sm btn-outline-danger" data-id="${id}" data-tipo="${tipo}">
     							<i class="bi bi-trash me-1"></i> Eliminar
 							</button>
                         </div>
