@@ -3,17 +3,31 @@ import {
 	eliminarRegistro,
 } from "../controllers/registerCRUDController.js";
 import { showRecords } from "../components/cardsRegs.js";
-import { ingresos } from "../data/db.js";
+import { setDayToday } from "../utils/timeHelperUtils.js";
 
 const formAgregar = document.getElementById("addRecordForm");
-const btnDelete = document.getElementById("deleteReg");
 const container = document.getElementById("all");
+const modal = document.getElementById("addRecordModal");
+
+if (modal) {
+	modal.addEventListener("shown.bs.modal", () => {
+		const form = modal.querySelector("form");
+		if (form) {
+			form.reset();
+			setDayToday();
+		}
+	});
+}
 
 if (formAgregar) {
 	formAgregar.addEventListener("submit", (event) => {
 		event.preventDefault();
 		ingresarRegistro();
 		formAgregar.reset();
+		const modalInstance = bootstrap.Modal.getInstance(modal);
+		if (modalInstance) {
+			modalInstance.hide();
+		}
 	});
 }
 
