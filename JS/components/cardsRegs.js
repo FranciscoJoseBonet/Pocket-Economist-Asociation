@@ -2,11 +2,24 @@
 import { ingresos, gastos } from "../data/db.js";
 import { montoFormateoPesos } from "../utils/formatUtils.js";
 
-export function showRecords() {
-	const registros = [...ingresos, ...gastos]; //Hacer una funcion para ordenarlos por fecha despues
-	const container = document.getElementById("all");
-	container.innerHTML = "";
-
+export function showRecords(dato = "all") {
+	let container
+	let registros = []
+	switch (dato) {
+		case "income":
+			registros = [...ingresos]
+			container = document.getElementById("income");
+			break;
+		case "expense":
+			registros = [...gastos]
+			container = document.getElementById("expense");
+			break;
+		case "all":
+			registros = [...ingresos, ...gastos];
+			container = document.getElementById("all");
+			break;
+	}
+	container.innerHTML = ""
 	registros.map(
 		({
 			tipo = "",

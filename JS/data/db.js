@@ -12,7 +12,9 @@ export function agregarRegistro(registro) {
 	} else {
 		gastos.push(registro);
 	}
-	showRecords(); //sacar esta funcion despues de aca
+	showRecords("income"); //sacar esta funcion despues de aca
+	showRecords("expense"); //Estas tres funciones me llaman a la actualizacion de las 3 tabs
+	showRecords("all");     //de los registros
 }
 
 export function borrarRegistro(tipo, id) {
