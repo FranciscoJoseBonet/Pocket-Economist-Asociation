@@ -7,7 +7,11 @@ import { setDayToday } from "../utils/timeHelperUtils.js";
 
 const formAgregar = document.getElementById("addRecordForm");
 const container = document.getElementById("all");
+const containerIncome = document.getElementById("income");
+const containerExpense = document.getElementById("expense");
 const modal = document.getElementById("addRecordModal");
+
+const containers = [container, containerExpense, containerIncome];
 
 if (modal) {
 	modal.addEventListener("shown.bs.modal", () => {
@@ -31,16 +35,18 @@ if (formAgregar) {
 	});
 }
 
-if (container) {
-	container.addEventListener("click", function (event) {
-		if (event.target.closest(".btn-outline-danger")) {
-			const button = event.target.closest(".btn-outline-danger");
+if (container || containerExpense || containerExpense) {
+	containers.forEach((cont) => {
+		cont.addEventListener("click", function (event) {
+			if (event.target.closest(".btn-outline-danger")) {
+				const button = event.target.closest(".btn-outline-danger");
 
-			const id = Number(button.getAttribute("data-id"));
-			const tipo = button.getAttribute("data-tipo");
+				const id = Number(button.getAttribute("data-id"));
+				const tipo = button.getAttribute("data-tipo");
 
-			eliminarRegistro(tipo, id);
-			showRecords();
-		}
+				eliminarRegistro(tipo, id);
+				showRecords();
+			}
+		});
 	});
 }

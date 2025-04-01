@@ -14,7 +14,7 @@ export function agregarRegistro(registro) {
 	}
 	showRecords("income"); //sacar esta funcion despues de aca
 	showRecords("expense"); //Estas tres funciones me llaman a la actualizacion de las 3 tabs
-	showRecords("all");     //de los registros
+	showRecords("all"); //de los registros
 }
 
 export function borrarRegistro(tipo, id) {
@@ -25,6 +25,9 @@ export function borrarRegistro(tipo, id) {
 		const index = gastos.findIndex((reg) => reg.id === id);
 		if (index !== -1) gastos.splice(index, 1);
 	}
+	showRecords("income"); //sacar esta funcion despues de aca
+	showRecords("expense"); //Estas tres funciones me llaman a la actualizacion de las 3 tabs
+	showRecords("all"); //de los registros
 }
 
 //Ver si el array esta vacio
