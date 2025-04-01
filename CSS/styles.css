@@ -50,6 +50,16 @@ body {
 	border-radius: 3px;
 }
 
+.modal form input[type="date"] {
+	color-scheme: dark;
+}
+
+.input-group-text {
+	color: #ffffff !important;
+	background-color: #3c4044 !important;
+	border: var(--bs-border-width) solid #47535f !important;
+}
+
 .function-card {
 	background-color: var(--card-dark);
 	border-radius: 10px;
