@@ -2,7 +2,7 @@ import { getRecords } from "../utils/recordsUtils.js";
 import { getContainer } from "../utils/getContainerUtils.js";
 import { createRecordCard } from "../components/cardsRegs.js";
 
-export function renderRecords(container, records) {
+function renderRecords(container, records) {
 	container.innerHTML = "";
 	records.forEach((record) => {
 		container.appendChild(createRecordCard(record));
