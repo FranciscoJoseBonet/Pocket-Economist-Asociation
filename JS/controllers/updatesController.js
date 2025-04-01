@@ -1,4 +1,5 @@
 import { showRecords } from "../views/showRecords.js";
+import { showSummaryDash } from "../views/showSummaryDash.js";
 import { showTotalLabel } from "../views/showTotalLabel.js";
 
 export function updateRecordsView() {
@@ -11,7 +12,12 @@ export function updateTotals() {
 	showTotalLabel("totalLabelDashboard");
 }
 
+export function updateSummaries() {
+	showSummaryDash("summaryContainerDashboard");
+}
+
 export function updateAllElements() {
 	updateRecordsView();
-	showTotalLabel("totalLabelDashboard");
+	updateTotals();
+	updateSummaries();
 }
