@@ -7,7 +7,7 @@ export let ingresosCategoria = [];
 
 export function cargarInitdbcategoria() {
 	const regs = leerSessionDataLocal();
-	if (regs) {
+	if (!regs || !regs.GastosCategList || !regs.IngresosCategList) {
 		gastosCategoria = [
 			"Alimentos",
 			"Transporte",
@@ -22,7 +22,8 @@ export function cargarInitdbcategoria() {
 			"Regalos",
 			"Varios",
 		];
+		return;
 	}
-	gastosCategoria = regs.GastosCategList;
-	ingresosCategoria = regs.IngresosCategList;
+	gastosCategoria = [...regs.GastosCategList];
+	ingresosCategoria = [...regs.IngresosCategList];
 }

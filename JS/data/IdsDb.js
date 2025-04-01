@@ -7,9 +7,10 @@ export let totalIdsIngresos = 0;
 
 export function cargarInitdbIds() {
 	const regs = leerSessionDataLocal();
-	if (regs) {
+	if (!regs || !regs.IdTotalesGastos || !regs.IdTotalesIngresos) {
 		totalIdsGastos = 0;
 		totalIdsIngresos = 0;
+		return;
 	}
 	totalIdsGastos = regs.IdTotalesGastos;
 	totalIdsIngresos = regs.IdTotalesIngresos;

@@ -37,10 +37,11 @@ export function esVacio(tipo) {
 //Para cargar los datos desde el LocalStorage
 export function cargarInitdb() {
 	const regs = leerSessionDataLocal();
-	if (regs) {
+	if (!regs || !regs.GastosList || !regs.IngresosList) {
 		gastos = [];
 		ingresos = [];
+		return;
 	}
-	gastos = regs.GastosList;
-	ingresos = regs.IngresosList;
+	gastos = [...regs.GastosList];
+	ingresos = [...regs.IngresosList];
 }

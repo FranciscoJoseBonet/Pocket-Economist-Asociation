@@ -16,15 +16,16 @@ export function grabarSessionDataLocal() {
 		totalIdsGastos,
 		totalIdsIngresos
 	);
-	datos = JSON.stringify(datos);
-	localStorage.setItem(SessionData, "datosGuardadosDeUsuario");
+	console.log("Datos que se van a guardar en el localStorage:", datos);
+	const SessionData = JSON.stringify(datos);
+	localStorage.setItem("datosGuardadosDeUsuario", SessionData);
 }
 
 // Esta funcion lee el objeto del local storage
 export function leerSessionDataLocal() {
-	let datos = localStorage.getItem(SessionData);
+	const datos = localStorage.getItem("datosGuardadosDeUsuario");
 	if (datos) {
-		return JSON.parse(datos); //Devuelve el objeto con todos los datos del usuario
+		return JSON.parse(datos); // Devuelve el objeto con todos los datos del usuario
 	} else {
 		return null;
 	}
