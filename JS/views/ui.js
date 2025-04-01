@@ -2,7 +2,7 @@ import {
 	ingresarRegistro,
 	eliminarRegistro,
 } from "../controllers/registerCRUDController.js";
-import { updateRecordsView } from "../controllers/updatesController.js";
+import { updateAllElements } from "../controllers/updatesController.js";
 import { setDayToday } from "../utils/timeHelperUtils.js";
 
 const formAgregar = document.getElementById("addRecordForm");
@@ -27,9 +27,7 @@ if (formAgregar) {
 	formAgregar.addEventListener("submit", (event) => {
 		event.preventDefault();
 		ingresarRegistro();
-		updateRecordsView();
-
-		formAgregar.reset();
+		updateAllElements();
 
 		const modalInstance = bootstrap.Modal.getInstance(modal);
 
@@ -49,7 +47,7 @@ if (container || containerExpense || containerExpense) {
 				const tipo = button.getAttribute("data-tipo");
 
 				eliminarRegistro(tipo, id);
-				updateRecordsView();
+				updateAllElements();
 			}
 		});
 	});

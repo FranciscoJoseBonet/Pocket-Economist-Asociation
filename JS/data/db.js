@@ -1,5 +1,4 @@
 import { leerSessionDataLocal } from "../controllers/localStorageController.js";
-import { showRecords } from "../components/cardsRegs.js";
 
 // En estos arrays se descompone el objeto guardado en el localStorage
 // Todas las operaciones se hacn sobre estos arrays
