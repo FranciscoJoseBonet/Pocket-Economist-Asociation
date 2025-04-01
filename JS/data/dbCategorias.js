@@ -7,7 +7,11 @@ export let ingresosCategoria = [];
 
 export function cargarInitdbcategoria() {
 	const regs = leerSessionDataLocal();
-	if (!regs || !regs.GastosCategList || !regs.IngresosCategList) {
+	if (
+		!regs ||
+		!regs.GastosCategList === undefined ||
+		!regs.IngresosCategList === undefined
+	) {
 		gastosCategoria = [
 			"Alimentos",
 			"Transporte",

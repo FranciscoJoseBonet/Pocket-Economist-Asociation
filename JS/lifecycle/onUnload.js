@@ -1,3 +1,5 @@
 import { grabarSessionDataLocal } from "../controllers/localStorageController.js";
 
-window.addEventListener("beforeunload", grabarSessionDataLocal());
+window.addEventListener("beforeunload", (event) => {
+	grabarSessionDataLocal();
+});

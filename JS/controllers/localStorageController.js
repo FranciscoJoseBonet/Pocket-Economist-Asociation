@@ -16,7 +16,6 @@ export function grabarSessionDataLocal() {
 		totalIdsGastos,
 		totalIdsIngresos
 	);
-	console.log("Datos que se van a guardar en el localStorage:", datos);
 	const SessionData = JSON.stringify(datos);
 	localStorage.setItem("datosGuardadosDeUsuario", SessionData);
 }

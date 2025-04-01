@@ -37,7 +37,11 @@ export function esVacio(tipo) {
 //Para cargar los datos desde el LocalStorage
 export function cargarInitdb() {
 	const regs = leerSessionDataLocal();
-	if (!regs || !regs.GastosList || !regs.IngresosList) {
+	if (
+		!regs ||
+		!regs.GastosList === undefined ||
+		!regs.IngresosList === undefined
+	) {
 		gastos = [];
 		ingresos = [];
 		return;
