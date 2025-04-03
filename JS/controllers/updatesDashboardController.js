@@ -16,7 +16,7 @@ export function updateSummaries() {
 	showSummaryDash("summaryContainerDashboard");
 }
 
-export function updateAllElements() {
+export function updateAllDashboardElements() {
 	updateRecordsView();
 	updateTotals();
 	updateSummaries();
