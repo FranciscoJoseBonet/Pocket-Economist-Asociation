@@ -28,9 +28,4 @@ document.addEventListener("click", (event) => {
 
 	modalContainer.innerHTML = ``;
 	modalContainer.appendChild(form);
-
-	const modalElement = document.getElementById("editRecordModal");
-	modalElement.removeAttribute("inert");
-	const modalInstance = new bootstrap.Modal(modalElement);
-	setTimeout(() => modalInstance.show(), 10);
 });
