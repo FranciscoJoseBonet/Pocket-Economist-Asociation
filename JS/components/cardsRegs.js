@@ -1,5 +1,5 @@
 //Plantilla de las cards de gastos e ingresos en el dashboard
-import { montoFormateoPesos } from "../utils/formatUtils.js";
+import { montoFormateoPesos, formatearFechaParaInput } from "../utils/formatUtils.js";
 
 export function createRecordCard({
 	tipo = "",
@@ -17,6 +17,7 @@ export function createRecordCard({
 	const recurring = esMensual ? "Mensual" : "No mensual";
 	const recurringColor = esMensual ? "primary" : "secondary";
 	const icon = tipo === "ingreso" ? "+" : "-";
+	const fechaInput = formatearFechaParaInput(fecha);
 
 	div.innerHTML = `
         <div class="card-body">
@@ -34,9 +35,17 @@ export function createRecordCard({
             </div>
             <p class="card-text text-muted small mb-3">${descripcion}</p>
             <div class="d-flex justify-content-end">
-                <button class="btn btn-sm btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#editRecordModal">
-                    <i class="bi bi-pencil me-1"></i> Editar
+                <button class="btn btn-sm btn-outline-light me-2"
+                    data-id="${id}"
+                    data-tipo="${tipo}"
+                    data-monto="${monto}"
+                    data-categoria="${categoria}"
+                    data-descripcion="${descripcion}"
+                    data-fecha="${fechaInput}"
+                    data-esmensual="${esMensual}">
+                        <i class="bi bi-pencil me-1"></i> Editar
                 </button>
+
                 <button class="btn btn-sm btn-outline-danger" data-id="${id}" data-tipo="${tipo}">
                     <i class="bi bi-trash me-1"></i> Eliminar
                 </button>

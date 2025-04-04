@@ -104,14 +104,14 @@
 
         <!-- Boton para agregar registros -->
         <div class="fab-container">
-            <button class="btn btn-primary fab rounded-circle" data-bs-toggle="modal" data-bs-target="#addRecordModal">
+            <button class="btn btn-primary fab rounded-circle" data-bs-toggle="modal" data-bs-target="#addRecordModal"
+                id="btnAgregarRegistro">
                 <i class="bi bi-plus-lg fs-2"></i>
             </button>
         </div>
 
         <!-- Formulario para agregar registro -->
-        <div class="modal fade" id="addRecordModal" tabindex="-1" aria-labelledby="addRecordModalLabel"
-            aria-hidden="true">
+        <div class="modal fade" id="addRecordModal" tabindex="-1" aria-labelledby="addRecordModalLabel">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -178,8 +178,7 @@
         </div>
 
         <!-- Formulario para editar registro -->
-        <div class="modal fade" id="editRecordModal" tabindex="-1" aria-labelledby="editRecordModalLabel"
-            aria-hidden="true">
+        <div class="modal fade" id="editRecordModal" tabindex="-1" aria-labelledby="editRecordModalLabel" inert>
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -187,52 +186,8 @@
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        <form id="editRecordForm" method="post">
-                            <div class="mb-3">
-                                <label for="recordType" class="form-label">Tipo de Registro</label>
-                                <select class="form-select" id="recordType" required>
-                                    <option value="" selected disabled>Seleccionar tipo</option>
-                                    <option value="income">Ingreso</option>
-                                    <option value="expense">Gasto</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="recordCategory" class="form-label">Categoria</label>
-                                <select class="form-select" id="recordCategory" required>
-                                    <option value="" selected disabled>Selecccionar categoría</option>
-                                    <option value="fixed">Fijo</option>
-                                    <option value="unforeseen">Imprevisto</option>
-                                    <option value="savings">Ahorro</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="recordAmount" class="form-label">Monto</label>
-                                <div class="input-group">
-                                    <span class="input-group-text">$</span>
-                                    <input type="number" class="form-control" id="recordAmount" placeholder="0.00"
-                                        step="0.01" min="0" required>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="recordDate" class="form-label">Fecha</label>
-                                <input type="date" class="form-control" id="recordDate" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="recordDescription" class="form-label">Descripción</label>
-                                <textarea class="form-control" id="recordDescription" rows="3"
-                                    placeholder="Add details about this record"></textarea>
-                            </div>
-                            <div class="form-check form-switch mb-3">
-                                <input class="form-check-input" type="checkbox" id="recordRecurring">
-                                <label class="form-check-label" for="recordRecurring">Mensual</label>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary"
-                                    data-bs-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-                            </div>
-                        </form>
+                    <div class="modal-body" id="editModalBody">
+                        <!-- El editForm se carga dinamicamente aqui -->
                     </div>
                 </div>
             </div>

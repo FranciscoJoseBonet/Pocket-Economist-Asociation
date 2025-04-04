@@ -23,6 +23,22 @@ export function borrarRegistro(tipo, id) {
 	}
 }
 
+export function modificarRegistro(tipo = "", id = 0, modificaciones = {}) {
+	const registros =
+		tipo === "ingreso" ? ingresos : tipo === "gasto" ? gastos : null;
+
+	if (!registros) {
+		console.error("No se pudo modificar el registro: tipo inválido");
+		return;
+	}
+	const index = registros.findIndex((reg) => reg.id === id);
+	if (index !== -1) {
+		Object.assign(registros[index], modificaciones);
+	} else {
+		console.error("No se pudo modificar el registro: ID no encontrado");
+	}
+}
+
 //Ver si el array esta vacio
 export function esVacio(tipo) {
 	if (tipo === "ingreso" && ingresos.length === 0) {

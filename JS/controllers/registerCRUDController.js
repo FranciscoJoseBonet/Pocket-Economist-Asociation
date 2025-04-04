@@ -1,6 +1,11 @@
 import { Registro } from "../models/Registro.js";
 import { generarID } from "../utils/generationUtils.js";
-import { agregarRegistro, borrarRegistro, esVacio } from "../data/db.js";
+import {
+	agregarRegistro,
+	borrarRegistro,
+	esVacio,
+	modificarRegistro,
+} from "../data/db.js";
 
 // Esta funcion sirve para ingresar los datos del formulario de la carga del registro
 export function ingresarRegistro() {
@@ -24,7 +29,6 @@ export function ingresarRegistro() {
 		fecha,
 		id
 	);
-
 	agregarRegistro(nuevoRegistro);
 }
 
@@ -37,30 +41,15 @@ export function eliminarRegistro(tipo, id) {
 	borrarRegistro(tipo, id);
 }
 
-//Estas funciones las tengo que editar para que interactuen con el front
-
-// //asignacion de un nuevo vaclor a un registro
-// export function asignarAtt(registro, atributo, valor) {
-// 	return (registro[atributo] = valor);
-// }
-
-// //Editar un registro
-// export function editarRegistro() {
-// 	const tipo = promptModule.pedirTipo();
-// 	if (tipo === null) return;
-// 	const id = promptModule.pedirId(tipo);
-// 	const reg = promptModule.buscarRegistro(id, tipo);
-// 	const indexAtt = promptModule.seleccionarAtt(id, tipo);
-// 	const att = Object.keys(reg)[indexAtt];
-
-// 	const attList = promptModule.pedirAttACambiar(att, tipo);
-// 	const nuevoAtt = attList[0];
-// 	const attNombre = attList[1];
-// 	if (nuevoAtt === null) return;
-
-// 	asignarAtt(reg, attNombre, nuevoAtt);
-// 	console.log(
-// 		`El atributo ${attNombre}, ha sido modificado correctamente a ${nuevoAtt}`
-// 	);
-// 	return 0;
-// }
+//Editar un registro
+//Esta funcion la llama el boton de editar en las tarjetas y crea el objeto para modificar el registro
+export function editarRegistro(tipo, id) {
+	const atributosEditar = {
+		monto: document.getElementById("recordAmount").value,
+		categoria: document.getElementById("recordCategory").value,
+		descripcion: document.getElementById("recordDescription").value,
+		esMensual: document.getElementById("recordRecurring").checked,
+		fecha: document.getElementById("recordDate").value,
+	};
+	modificarRegistro(tipo, id, atributosEditar);
+}
