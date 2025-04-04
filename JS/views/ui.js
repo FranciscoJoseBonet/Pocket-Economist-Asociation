@@ -39,6 +39,7 @@ if (formAgregar) {
 //Funcion para editar un registro
 if (formEditar) {
 	formEditar.addEventListener("submit", (event) => {
+		debugger;
 		event.preventDefault();
 		editarRegistro();
 		updateAllDashboardElements();

@@ -3,6 +3,10 @@ function esEsto(value = "", compareWith = "") {
 	return value === compareWith ? "selected" : "";
 }
 
+function checked(value) {
+	return String(value).toLowerCase() === "true" ? "checked" : "";
+}
+
 export function createEditForm({
 	tipo = "",
 	monto = 0,
@@ -15,9 +19,6 @@ export function createEditForm({
 	const div = document.createElement("div");
 
 	div.innerHTML = `<form id="editRecordForm" method="post">
-                            <div class="mb-3">
-                                <label for="recordType" class="form-label">Edicion del ${tipo}</label>
-                            </div>
                             <div class="mb-3">
                                 <label for="recordCategory" class="form-label">Categoria</label>
                                 <select class="form-select" id="recordCategory">
@@ -81,9 +82,9 @@ export function createEditForm({
                                     >${descripcion}</textarea>
                             </div>
                             <div class="form-check form-switch mb-3">
-                                <input class="form-check-input" type="checkbox" id="recordRecurring" ${
-																	esMensual === true ? "checked" : ""
-																}>
+                                <input class="form-check-input" type="checkbox" id="recordRecurring" ${checked(
+																	esMensual
+																)}>
                                 <label class="form-check-label" for="recordRecurring">Mensual</label>
                             </div>
                             <div class="modal-footer">

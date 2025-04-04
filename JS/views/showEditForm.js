@@ -8,11 +8,9 @@ document.addEventListener("click", (event) => {
 	const tipo = btnEditar.dataset.tipo;
 	const monto = btnEditar.dataset.monto;
 	const categoria = btnEditar.dataset.categoria;
-	const descripcion = btnEditar.dataset.descripcion;
+	const descripcion = btnEditar.dataset.desc;
 	const fecha = btnEditar.dataset.fecha;
 	const esMensual = btnEditar.dataset.esmensual;
-
-	console.log(fecha);
 
 	const modalContainer = document.getElementById("editModalBody");
 
