@@ -43,13 +43,18 @@ export function eliminarRegistro(tipo, id) {
 
 //Editar un registro
 //Esta funcion la llama el boton de editar en las tarjetas y crea el objeto para modificar el registro
-export function editarRegistro(tipo, id) {
+export function editarRegistro(form) {
 	const atributosEditar = {
-		monto: document.getElementById("recordAmount").value,
-		categoria: document.getElementById("recordCategory").value,
-		descripcion: document.getElementById("recordDescription").value,
-		esMensual: document.getElementById("recordRecurring").checked,
-		fecha: document.getElementById("recordDate").value,
+		monto: form.querySelector("#recordAmount").value,
+		categoria: form.querySelector("#recordCategory").value,
+		descripcion: form.querySelector("#recordDescription").value,
+		esMensual: form.querySelector("#recordRecurring").checked,
+		fecha: form.querySelector("#recordDate").value,
 	};
+
+	const id = Number(form.dataset.id);
+	const tipo = form.dataset.tipo;
+
+	console.log(atributosEditar);
 	modificarRegistro(tipo, id, atributosEditar);
 }

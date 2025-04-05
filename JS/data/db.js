@@ -24,8 +24,8 @@ export function borrarRegistro(tipo, id) {
 }
 
 export function modificarRegistro(tipo = "", id = 0, modificaciones = {}) {
-	const registros =
-		tipo === "ingreso" ? ingresos : tipo === "gasto" ? gastos : null;
+	console.log(tipo, typeof tipo, id, typeof id, modificaciones);
+	const registros = tipo === "ingreso" ? ingresos : tipo === "gasto" ? gastos : null;
 
 	if (!registros) {
 		console.error("No se pudo modificar el registro: tipo inválido");
@@ -53,11 +53,7 @@ export function esVacio(tipo) {
 //Para cargar los datos desde el LocalStorage
 export function cargarInitdb() {
 	const regs = leerSessionDataLocal();
-	if (
-		!regs ||
-		!regs.GastosList === undefined ||
-		!regs.IngresosList === undefined
-	) {
+	if (!regs || !regs.GastosList === undefined || !regs.IngresosList === undefined) {
 		gastos = [];
 		ingresos = [];
 		return;

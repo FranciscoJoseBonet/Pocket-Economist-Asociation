@@ -12,7 +12,6 @@ const container = document.getElementById("all");
 const containerIncome = document.getElementById("income");
 const containerExpense = document.getElementById("expense");
 const modal = document.getElementById("addRecordModal");
-const modalEditElement = document.getElementById("editRecordModal");
 
 const containers = [container, containerExpense, containerIncome];
 
@@ -37,18 +36,22 @@ if (formAgregar) {
 }
 
 //Funcion para editar un registro
-if (formEditar) {
-	formEditar.addEventListener("submit", (event) => {
-		debugger;
-		event.preventDefault();
-		editarRegistro();
-		updateAllDashboardElements();
-		const modalInstance = bootstrap.Modal.getInstance(modalEditElement);
-		if (modalInstance) {
-			modalInstance.hide();
-		}
-	});
-}
+document.addEventListener("submit", (event) => {
+	const form = event.target;
+	if (form.id !== "editRecordForm") return;
+
+	event.preventDefault();
+
+	editarRegistro(form);
+	updateAllDashboardElements();
+
+	const modalInstance = bootstrap.Modal.getInstance(
+		document.getElementById("editRecordModal")
+	);
+	if (modalInstance) {
+		modalInstance.hide();
+	}
+});
 
 // Funcion para borrar un registro en cualquier parte del dashboard
 if (container || containerExpense || containerExpense) {

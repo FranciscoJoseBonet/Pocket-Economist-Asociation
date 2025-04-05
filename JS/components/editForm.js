@@ -18,7 +18,7 @@ export function createEditForm({
 }) {
 	const div = document.createElement("div");
 
-	div.innerHTML = `<form id="editRecordForm" method="post">
+	div.innerHTML = `<form id="editRecordForm" method="post" data-id="${id}" data-tipo="${tipo}">
                             <div class="mb-3">
                                 <label for="recordCategory" class="form-label">Categoria</label>
                                 <select class="form-select" id="recordCategory">
