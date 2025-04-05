@@ -41,11 +41,7 @@ body {
 	display: block;
 	width: 300px;
 	height: 3px;
-	background: linear-gradient(
-		to right,
-		var(--income-color),
-		var(--expense-color)
-	);
+	background: linear-gradient(to right, var(--income-color), var(--expense-color));
 	margin: 10px auto 0;
 	border-radius: 3px;
 }
@@ -507,6 +503,14 @@ body {
 .nav-filter:hover::after,
 .nav-filter.active::after {
 	width: 0;
+}
+
+.image-about-us {
+	width: 20%;
+	height: auto;
+	border-radius: 1rem;
+	margin-bottom: 1rem;
+	margin: auto;
 }
 
 @media (max-width: 1200px) {
