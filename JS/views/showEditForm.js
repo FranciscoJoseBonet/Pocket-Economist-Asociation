@@ -1,7 +1,7 @@
 import { createEditForm } from "../components/editForm.js";
 
 document.addEventListener("click", (event) => {
-	const btnEditar = event.target.closest("button[data-id]");
+	const btnEditar = event.target.closest("button.btn-editar");
 	if (!btnEditar) return;
 
 	const id = Number(btnEditar.dataset.id);

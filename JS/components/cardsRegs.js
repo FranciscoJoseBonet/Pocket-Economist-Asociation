@@ -34,7 +34,7 @@ export function createRecordCard({
             </div>
             <p class="card-text text-muted small mb-3">${descripcion}</p>
             <div class="d-flex justify-content-end">
-                <button class="btn btn-sm btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#editRecordModal" data-monto="${monto}" data-desc="${descripcion}" data-esMensual="${esMensual}" data-categoria="${categoria}" data-id="${id}" data-tipo="${tipo}" data-fecha="${fecha}">
+                <button class="btn btn-sm btn-outline-light me-2 btn-editar" data-bs-toggle="modal" data-bs-target="#editRecordModal" data-monto="${monto}" data-desc="${descripcion}" data-esMensual="${esMensual}" data-categoria="${categoria}" data-id="${id}" data-tipo="${tipo}" data-fecha="${fecha}">
                     <i class="bi bi-pencil me-1"></i> Editar
                 </button>
                 <button class="btn btn-sm btn-outline-danger" data-id="${id}" data-tipo="${tipo}">
