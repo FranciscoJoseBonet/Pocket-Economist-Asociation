@@ -24,7 +24,6 @@ export function borrarRegistro(tipo, id) {
 }
 
 export function modificarRegistro(tipo = "", id = 0, modificaciones = {}) {
-	console.log(tipo, typeof tipo, id, typeof id, modificaciones);
 	const registros = tipo === "ingreso" ? ingresos : tipo === "gasto" ? gastos : null;
 
 	if (!registros) {

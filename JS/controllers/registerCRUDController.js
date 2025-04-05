@@ -55,6 +55,5 @@ export function editarRegistro(form) {
 	const id = Number(form.dataset.id);
 	const tipo = form.dataset.tipo;
 
-	console.log(atributosEditar);
 	modificarRegistro(tipo, id, atributosEditar);
 }
