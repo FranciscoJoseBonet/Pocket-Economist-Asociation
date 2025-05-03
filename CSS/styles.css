@@ -513,6 +513,23 @@ body {
 	margin: auto;
 }
 
+@keyframes progressAnim {
+	from {
+		width: 100%;
+	}
+	to {
+		width: 0%;
+	}
+}
+.toastify-progress-bar {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 2px;
+	background-color: #cfcfcf;
+	animation: progressAnim linear forwards;
+}
+
 @media (max-width: 1200px) {
 	.summary-cards {
 		grid-template-columns: repeat(2, 1fr);

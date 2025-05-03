@@ -6,6 +6,7 @@ import {
 	esVacio,
 	modificarRegistro,
 } from "../data/db.js";
+import { mostrarToast } from "../utils/toastUtils.js";
 
 // Esta funcion sirve para ingresar los datos del formulario de la carga del registro
 export function ingresarRegistro() {
@@ -30,6 +31,7 @@ export function ingresarRegistro() {
 		id
 	);
 	agregarRegistro(nuevoRegistro);
+	mostrarToast(3, "Registro agregado correctamente");
 }
 
 //Funcion para llamar y que interactue con el usuario para eliminar un registro
@@ -39,6 +41,7 @@ export function eliminarRegistro(tipo, id) {
 		return null;
 	}
 	borrarRegistro(tipo, id);
+	mostrarToast(3, "Registro eliminado correctamente");
 }
 
 //Editar un registro
@@ -56,4 +59,5 @@ export function editarRegistro(form) {
 	const tipo = form.dataset.tipo;
 
 	modificarRegistro(tipo, id, atributosEditar);
+	mostrarToast(3, "Registro modificado correctamente");
 }
