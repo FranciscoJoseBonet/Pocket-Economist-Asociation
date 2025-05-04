@@ -1,13 +1,13 @@
-export function mostrarToast(duration = 3, msg = "") {
+export function mostrarToast(duration = 3, msg = "", err = false) {
 	Toastify({
 		text: msg,
 		duration: duration * 1000,
 		close: true,
 		gravity: "top",
-		position: "right",
-		style: {
-			background: "linear-gradient(to right,rgb(118, 167, 55),rgb(20, 165, 40))",
-		},
+		position: "center",
+		style: err
+			? { background: "linear-gradient(to right,rgba(138, 38, 7, 0.76),rgb(124, 7, 7))" }
+			: { background: "linear-gradient(to right,rgb(32, 139, 68),rgb(16, 102, 27))" },
 	}).showToast();
 
 	setTimeout(() => {
