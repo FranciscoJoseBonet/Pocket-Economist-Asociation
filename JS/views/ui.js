@@ -4,6 +4,7 @@ import {
 	eliminarRegistro,
 } from "../controllers/registerCRUDController.js";
 import { updateAllDashboardElements } from "../controllers/updatesDashboardController.js";
+import { traerDolar } from "../utils/dolarAPIUtils.js";
 import { setDayToday } from "../utils/timeHelperUtils.js";
 
 const formAgregar = document.getElementById("addRecordForm");
@@ -12,6 +13,7 @@ const container = document.getElementById("all");
 const containerIncome = document.getElementById("income");
 const containerExpense = document.getElementById("expense");
 const modal = document.getElementById("addRecordModal");
+const dolarBtn = document.getElementById("ConsultarDolarBtn");
 
 const containers = [container, containerExpense, containerIncome];
 
@@ -69,3 +71,8 @@ if (container || containerExpense || containerExpense) {
 		});
 	});
 }
+
+dolarBtn.addEventListener("click", (event) => {
+	event.preventDefault();
+	traerDolar();
+});

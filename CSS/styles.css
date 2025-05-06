@@ -25,6 +25,30 @@ body {
 	flex-direction: column;
 }
 
+.trend-indicator {
+	width: 100% !important;
+	height: 40px !important;
+	position: relative !important;
+}
+
+.trend-line {
+	position: absolute !important;
+	bottom: 0 !important;
+	left: 0 !important;
+	width: 100% !important;
+	height: 100% !important;
+	display: flex !important;
+	align-items: flex-end !important;
+}
+
+.trend-bar {
+	flex: 1 !important;
+	background-color: rgba(13, 110, 253, 0.2) !important;
+	margin: 0 2px !important;
+	border-top-left-radius: 3px !important;
+	border-top-right-radius: 3px !important;
+}
+
 /* estilos de las funciones */
 .function-section {
 	padding: 2rem 0;
