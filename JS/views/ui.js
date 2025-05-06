@@ -72,7 +72,4 @@ if (container || containerExpense || containerExpense) {
 	});
 }
 
-dolarBtn.addEventListener("click", (event) => {
-	event.preventDefault();
-	traerDolar();
-});
+dolarBtn.addEventListener("click", traerDolar());
