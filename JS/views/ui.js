@@ -72,6 +72,7 @@ if (container || containerExpense || containerExpense) {
 	});
 }
 
+// Funcion para darle funcionalidad al boton de consultar el dolar
 document.addEventListener("DOMContentLoaded", () => {
 	const dolarBtn = document.getElementById("ConsultarDolarBtn");
 	if (dolarBtn) {
